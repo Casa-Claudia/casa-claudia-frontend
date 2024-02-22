@@ -1,6 +1,12 @@
 import Topbar from "./topbar";
 import BookBar from "./book_bar";
 import Info from "./info";
+import Viewpoint from "./viewpoint";
+import Features from "./features";
+import Location from "./location";
+
+
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,7 +20,7 @@ export default function Home() {
       <Topbar />
       <div className="flex">
           <div className="intro items-left bg-light-brown text-my-black px-16 py-2 w-1/2">
-          <h1 className=" font-bold text-4xl py-12"> Fresh, quiet<br /> and peaceful.</h1>
+          <h1 className=" font-extrabold text-4xl py-12"> Fresh, quiet<br /> and peaceful.</h1>
           <p className="ml-5 mb-10">Enjoy the tranquility of the authentic Istrian landscape among <br/> olive trees, in complete privacy and  sense of homeliness in a small <br/> luxury villa.</p>
           <BookBar />
           <div className="flex justify-between items-center">
@@ -32,6 +38,9 @@ export default function Home() {
         </div>
       </div>
       <Info />
+      <Viewpoint />
+      <Features />
+      <Location />
     </div>
   );
 }

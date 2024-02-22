@@ -21,7 +21,9 @@ const config: Config = {
       "my-brown": '#5A4534',
       "my-white": '#F1F1EF',
       "khaki": "#B0A891",
-      "my-light-grey": "#737373"
+      "my-light-grey": "#737373",
+      "white": "#ffffff",
+      "black": "#000000",
     },
     fontFamily: {
       sans: ['Rubik', 'sans-serif'],
