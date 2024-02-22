@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-color: #000000; /* Default foreground color */
+  --background-start-color: #d6dbdc; /* Default background start color */
+  --background-end-color: #ffffff;
+  --black-text-color: #0A0A0A /* Default background end color */
 }
 
 @media (prefers-color-scheme: dark) {
