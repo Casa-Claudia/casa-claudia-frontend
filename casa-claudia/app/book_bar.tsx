@@ -11,7 +11,7 @@ export default function BookBar(){
         </div>
 
         <div className="flex items-start justify-center bg-my-white px-0.5 py-2 w-1/4">
-            <img className= "mr-2" src="/Location.svg" alt="Location"/>
+            <img className= "mr-2" src="/Calendar.svg" alt="Location"/>
             <div className="flex flex-col items-left justify-center">
                 <button className="mb-0.5">Check In</button>
                 <p className="text-my-light-grey, text-sm">Hello</p>
@@ -19,7 +19,7 @@ export default function BookBar(){
         </div>
 
         <div className="flex items-start justify-center bg-my-white px-0.5 py-2 w-1/4">
-            <img className= "mr-2" src="/Location.svg" alt="Location"/>
+            <img className= "mr-2" src="/Calendar.svg" alt="Location"/>
             <div className="flex flex-col items-left justify-center">
                 <button className="mb-0.5">Check Out</button>
                 <p className="text-my-light-grey, text-sm">Hello</p>
