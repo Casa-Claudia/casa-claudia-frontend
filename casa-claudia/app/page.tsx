@@ -6,6 +6,7 @@ import Features from "./components/features";
 import Location from "./components/location";
 import Booker from "./components/booker";
 import Reviews from "./components/reviews";
+import Footer from "./components/footer";
 
 
 
@@ -45,6 +46,7 @@ export default function Home() {
       <Location />
       <Booker />
       <Reviews />
+      <Footer />
     </div>
   );
 }

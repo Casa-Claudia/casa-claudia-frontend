@@ -1,6 +1,6 @@
 export default function Reviews() {
     return (
-        <div className="reviews-container bg-my-white px-16 py-10">
+        <div className="reviews-container bg-my-white px-16 py-24">
             <h2 className="text-3xl font-semibold mb-10 text-black">Reviews</h2>
             <div className="review-box overflow-x-auto w-full">
                 <div className="flex px-10">
