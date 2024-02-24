@@ -1,3 +1,14 @@
+// font
+import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'] })
+
+// icons
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+library.add(faStar);
+
+//components
 import Topbar from "./components/topbar";
 import BookBar from "./components/book_bar";
 import Info from "./components/info";
@@ -9,17 +20,9 @@ import Reviews from "./components/reviews";
 import Footer from "./components/footer";
 
 
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faStar);
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-
 export default function Home() {
   return (
-    <div className="font-sans">
+    <main className={inter.className}>
       <Topbar />
       <div className="flex h-[600px]">
           <div className="intro items-left bg-light-brown text-my-black px-16 py-2 w-1/2">
@@ -47,6 +50,6 @@ export default function Home() {
       <Booker />
       <Reviews />
       <Footer />
-    </div>
+    </main>
   );
 }
