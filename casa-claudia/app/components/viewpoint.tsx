@@ -6,11 +6,8 @@ export default function Viewpoint() {
                     <p className="text-my-white">Here goes the gallary</p>
             </div>
             <div className="view-gallery flex justify-end my-20">
-                <button className="text-my-white px-5 py-2 text-xl  ">View the full gallery</button>
+                <button className="text-my-white px-5 py-2 text-xl flex items-center hover:text-black">View the full gallery <img src="Camera.svg" className="ml-2"/></button>
             </div>
-
         </div> 
-
-
     )
 }
