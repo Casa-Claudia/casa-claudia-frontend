@@ -1,9 +1,9 @@
-import Topbar from "./topbar";
-import BookBar from "./book_bar";
-import Info from "./info";
-import Viewpoint from "./viewpoint";
-import Features from "./features";
-import Location from "./location";
+import Topbar from "./components/topbar";
+import BookBar from "./components/book_bar";
+import Info from "./components/info";
+import Viewpoint from "./components/viewpoint";
+import Features from "./components/features";
+import Location from "./components/location";
 
 
 
