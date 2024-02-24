@@ -23,13 +23,13 @@ export default function Location(){
                         </li>
                     </ul>
                 </div>
-                <div className="map absolute top-20 left-1/2  -translate-x-1 h-[844px] w-[586px] bg-red">
-                    <img src="/main_image.png" alt="map" />
+                <div className="map absolute top-20 left-1/2  -translate-x-1 bg-red">
+                    <img className="h-[400px] w-[600px]" src="/main_image.png" alt="map" />
                 </div>
 
                 
             </div>
-            <div className="bg-khaki h-[500px]"></div>
+            <div className="bg-khaki h-[100px]"></div>
         </div>   
     )
 }

@@ -1,6 +1,6 @@
 export default function BookBar(){
     return (
-    <div className="w-[794px] flex text-my-grey mb-20 ml-5 z-10">
+    <div className="w-[794px] flex text-my-grey mb-5 ml-5 z-10 px-16">
         {/* First block */}
         <div className="flex items-start justify-left bg-my-white px-10 py-2 w-1/4">
             <img className= "mr-2" src="/Location.svg" alt="Location"/>
