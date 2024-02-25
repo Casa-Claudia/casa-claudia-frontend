@@ -1,4 +1,6 @@
+import { Facebook, Instagram } from "lucide-react"
 import Link from "next/link"
+
 export default function Footer() {
     return (
         <div className="footer-container bg-khaki px-16 py-10">
@@ -24,13 +26,13 @@ export default function Footer() {
                 <div className="footer-column flex flex-col items-center w-1/3">
                     <h3 className="text-my-white font-bold text-lg">Social Media</h3>
                     <div className="button-container mt-2">
-                        <button className="text-my-white hover:text-my-black mr-2"><img src="/FB.svg" alt="facebook logo"/></button>
-                        <button className="text-my-white hover:text-my-black"><img className="h-[20px]" src="/Instagram.svg" alt="instagram logo"/></button>
+                        <button className="text-my-white hover:text-my-black mr-2"><Facebook className="text-my-white hover:text-black"/></button>
+                        <button className="text-my-white hover:text-my-black"><Instagram className="text-my-white hover:text-black"/></button>
                     </div>
                 </div>
             </div>
             <div className="footer-rights flex items-center justify-center mt-20">
-                <p className="text-my-white font-light">© 2023 Casa Claudia. All rights reserved.</p>
+                <p className="text-my-white font-light">© 2024 Casa Claudia. All rights reserved.</p>
             </div>
         </div>
     )

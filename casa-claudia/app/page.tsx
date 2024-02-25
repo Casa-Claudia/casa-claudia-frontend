@@ -3,10 +3,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 // icons
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-library.add(faStar);
+import { Star } from "lucide-react";
 
 //components
 import Topbar from "./components/topbar";
@@ -35,7 +32,11 @@ export default function Home() {
               <p className="font-bold text-xl">200€</p>
             </div>
             <div className="flex flex-col items-center ml-5">
-              <p>*****</p>
+            <ul className="flex">{
+                                Array(5).fill(0).map((_, i) => (
+                                    <li key={i} className="mr-1"><Star className="h-4 w-4 fill-yellow-400 text-yellow-400"/></li>
+                                ))
+                            }</ul>
             </div>
           </div>
         </div>

@@ -1,3 +1,6 @@
+import { Star } from "lucide-react";
+
+
 export default function Reviews() {
     return (
         <div className="reviews-container bg-my-white px-16 py-24">
@@ -7,7 +10,11 @@ export default function Reviews() {
                     <div className="review relative border-2 rounded border-my-brown h-[273px] w-[476px] p-8 mr-5">
                         <div className="flex justify-between items-center border-b border-black">
                             <p className="text-black font-semibold text-lg">Marko.P</p>
-                            <p className="text-black">*****</p>
+                            <ul className="flex">{
+                                Array(5).fill(0).map((_, i) => (
+                                    <li key={i} className="mr-1"><Star className="h-4 w-4 fill-yellow-400 text-yellow-400"/></li>
+                                ))
+                            }</ul>
                         </div>
                         <div className="review-text mt-5">
                             <p className="font-thin text-black">“We had a great time in Casa Claudia. The villa is beautiful and the pool is amazing. We will definitely come back!”</p>

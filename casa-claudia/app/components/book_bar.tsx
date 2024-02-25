@@ -1,6 +1,6 @@
 export default function BookBar(){
     return (
-    <div className="w-[864px] h-[90px] flex items-center bg-my-white text-my-grey z-10">
+    <div className="w-[864px] h-[90px] relative  flex items-center bg-my-white text-my-grey z-10">
         
         <div className="flex items-start px-4 py-2 w-1/4">
             <img className="mr-2" src="/Location.svg" alt="Location"/>
@@ -9,8 +9,6 @@ export default function BookBar(){
                 <p className="text-my-light-grey, text-sm">Novigrad, Croatia</p>
             </div>
         </div>
-
-
 
         <div className="flex items-start justify-center bg-my-white px-0.5 py-2 w-1/4">
             <img className= "mr-2" src="/Calendar.svg" alt="Location"/>
