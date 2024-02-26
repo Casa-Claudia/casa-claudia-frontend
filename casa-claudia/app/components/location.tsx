@@ -1,3 +1,5 @@
+import { Fish, RollerCoaster, Soup, Target } from "lucide-react";
+
 export default function Location(){
     return (
         <div className ="location-parent">
@@ -5,20 +7,20 @@ export default function Location(){
                 <h2 className="text-3xl font-semibold text-black">Location</h2>
                 <div className="el-list ml-10 mt-10">
                     <ul>
-                        <li className="flex py-4">
-                            <img className="mr-2" src="/sun.svg" alt="sun picture" />
+                        <li className="flex py-4 items-center">
+                            <Fish className="mr-4 text-black" />
                             <span className="font-medium text-xl text-black">Sea: 3.5km</span>
                         </li>
-                        <li className="flex py-4">
-                            <img className="mr-2" src="/sun.svg" alt="sun picture" />
+                        <li className="flex py-4 items-center">
+                            <Soup className="mr-4 text-black" />
                             <span className="font-medium text-xl text-black">Restaurants: 300m</span>
                         </li>
-                        <li className="flex py-4">
-                            <img className="mr-2" src="/sun.svg" alt="sun picture" />
+                        <li className="flex py-4 items-center">
+                            <Target className="mr-4 text-black" />
                             <span className="font-medium text-xl text-black">Town: 3.5km</span>
                         </li>
-                        <li className="flex py-4">
-                            <img className="mr-2" src="/sun.svg" alt="sun picture" />
+                        <li className="flex py-4 items-center">
+                            <RollerCoaster className="mr-4 text-black" />
                             <span className="font-medium text-xl text-black">Waterpark Istralandia: 3.3km</span>
                         </li>
                     </ul>

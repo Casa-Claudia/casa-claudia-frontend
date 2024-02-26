@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <main className={inter.className}>
       <Topbar />
-      <div className="flex h-[600px]">
+      <div className="flex h-[580px]">
           <div className="intro items-left bg-light-brown text-my-black px-16 py-2 w-1/2">
           <h1 className=" font-extrabold text-4xl py-12"> Fresh, quiet<br /> and peaceful.</h1>
           <p className="ml-5 mb-40">Enjoy the tranquility of the authentic Istrian landscape among <br/> olive trees, in complete privacy and  sense of homeliness in a small <br/> luxury villa.</p>
@@ -34,7 +34,7 @@ export default function Home() {
             <div className="flex flex-col items-center ml-5">
             <ul className="flex">{
                                 Array(5).fill(0).map((_, i) => (
-                                    <li key={i} className="mr-1"><Star className="h-4 w-4 fill-yellow-400 text-yellow-400"/></li>
+                                    <li key={i} className="mr-1"><Star className="h-7 w-7 fill-yellow-300 text-my-black stroke-1"/></li>
                                 ))
                             }</ul>
             </div>
