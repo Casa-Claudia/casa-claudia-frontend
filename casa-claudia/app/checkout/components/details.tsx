@@ -13,50 +13,50 @@ export default function Details() {
                     <h2 className="text-2xl font-semibold text-my-black">Details</h2>
                     <div className="flex flex-wrap text-my-black">
                         <div className="grid grid-cols-3 gap-1">
-                            <div className="bg-gray-200 p-4">
+                            <div className="p-4">
                                 <div className="flex">
                                     <div className=" flex h-[55px] w-[55px] border border-khaki items-center justify-center rounded-full">
                                         <img src="/location.svg" alt="" />
                                     </div>
                                     <div className="ml-4">
                                         <h3 className="text-lg font-semibold">Location</h3>
-                                        <p className="text-sm">Novigrad, Croatia</p>
+                                        <p className=" ml-1">Novigrad, Croatia</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="bg-gray-200 p-4">
+                            <div className=" p-4">
                                 <div className="flex">
                                         <div className=" flex h-[55px] w-[55px] border border-khaki items-center justify-center rounded-full">
                                             <img src="/location.svg" alt="" />
                                         </div>
                                         <div className="ml-4">
                                             <h3 className="text-lg font-semibold">Travel period</h3>
-                                            <p className="text-sm">1.11.2023 - 23.11.2023<br/> (5 nights)</p>
+                                            <p className="text-sm ml-1">1.11.2023 - 23.11.2023<br/> (5 nights)</p>
                                         </div>
                                     </div>
                                 </div>
-                            <div className="bg-gray-200 p-4">
+                            <div className=" p-4">
                                 <div className="flex">
                                         <div className=" flex h-[55px] w-[55px] border border-khaki items-center justify-center rounded-full">
                                             <img src="/location.svg" alt="" />
                                         </div>
                                         <div className="ml-4">
                                             <h3 className="text-lg font-semibold">Price</h3>
-                                            <p className="text-sm">750€</p>
+                                            <p className=" ml-1">750€</p>
                                         </div>
                                 </div>
                             </div>
-                            <div className="bg-gray-200 p-4">
+                            <div className=" p-4">
                                 <div className="flex">
                                     <div className=" flex h-[55px] w-[55px] border border-khaki items-center justify-center rounded-full">
                                         <img src="/guest-logo.svg" alt="" className="h-[35px]"/>
                                     </div>
                                     <div className="flex ml-4 items-center">
-                                        <h3 className="text-lg">4 guests</h3>
+                                        <h3 className="text-lg ">4 guests</h3>
                                     </div>
                                 </div>   
                             </div>
-                            <div className="bg-gray-200 p-4">
+                            <div className=" p-4">
                                 <div className="flex">
                                         <div className=" flex h-[55px] w-[55px] border border-khaki items-center justify-center rounded-full">
                                             <img src="/grill.svg" alt="" className="h-[35px]"/>
@@ -66,7 +66,7 @@ export default function Details() {
                                         </div>
                                     </div>   
                             </div>
-                            <div className="bg-gray-200 p-4">
+                            <div className=" p-4">
                                 <div className="flex">
                                     <div className=" flex h-[55px] w-[55px] border border-khaki items-center justify-center rounded-full">
                                         <img src="/swimming-pool.svg" alt="" className="h-[35px]" />

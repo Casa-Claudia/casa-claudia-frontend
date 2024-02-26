@@ -39,7 +39,7 @@ export default function CheckoutPage() {
                                     <label htmlFor="creditCard" className="text-my-light-grey text-sm">I agree to  terms and conditions</label>
                             </div>
                             <div className="relative mt-6 px-12 w-full">
-                                <button className="bg-my-black w-[150px] absolute top-0 right-0 text-white px-8 py-3 rounded-tr-lg  text-bold rounded-br-lg  mr-2">BOOK</button>
+                                <button className="bg-my-black w-[150px] absolute top-0 right-0 text-white px-8 py-3 rounded-tr-lg  text-bold rounded-br-lg mr-2 hover:font-bold transform scale-105 hover:border hover:border-white">BOOK</button>
                             </div>
                         </div>
                     </div>
