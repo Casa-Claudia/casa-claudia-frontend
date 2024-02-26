@@ -1,5 +1,8 @@
 import { Fish, RollerCoaster, Soup, Target } from "lucide-react";
 
+
+
+
 export default function Location(){
     return (
         <div className ="location-parent">
@@ -25,9 +28,11 @@ export default function Location(){
                         </li>
                     </ul>
                 </div>
-                <div className="map absolute top-20 left-1/2  -translate-x-1 bg-red">
-                    <img className="h-[400px] w-[600px]" src="/main_image.png" alt="map" />
+                <div className="map absolute h-[400px] w-[600px] top-20 left-1/2 -translate-x-1 bg-red-500 z-10">
+                    {/** Fix: Wrap the map expression inside a React fragment */}
+                        <p>Here goes the map</p>
                 </div>
+
 
                 
             </div>

@@ -17,7 +17,7 @@ export default function Reviews() {
                             }</ul>
                         </div>
                         <div className="review-text mt-5">
-                            <p className="font-thin text-black">“We had a great time in Casa Claudia. The villa is beautiful and the pool is amazing. We will definitely come back!”</p>
+                            <p className="font-light text-black">“We had a great time in Casa Claudia. The villa is beautiful and the pool is amazing. We will definitely come back!”</p>
                         </div>
                         <div className="absolute bottom-0 right-0 py-2 px-4">
                             <p className="text-my-light-grey">5.11.2001</p>
