@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write",
+    "format:all": "prettier --write ."
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
@@ -20,6 +22,8 @@
     "image-size": "^1.1.1",
     "lucide-react": "^0.340.0",
     "next": "^14.1.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native": "^0.73.4",
