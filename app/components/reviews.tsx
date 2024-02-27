@@ -1,5 +1,4 @@
-import { Star } from "lucide-react";
-
+import { InfiniteMovingCards } from "./moving_cards";
 
 export default function Reviews() {
     return (
@@ -7,25 +6,49 @@ export default function Reviews() {
             <h2 className="text-3xl font-semibold mb-10 text-black">Reviews</h2>
             <div className="review-box overflow-x-auto w-full">
                 <div className="flex px-10">
-                    <div className="review relative border-2 rounded border-my-brown h-[273px] w-[476px] p-8 mr-5">
-                        <div className="flex justify-between items-center border-b border-black">
-                            <p className="text-black font-semibold text-lg">Marko.P</p>
-                            <ul className="flex">{
-                                Array(5).fill(0).map((_, i) => (
-                                    <li key={i} className="mr-1"><Star className="h-4 w-4 fill-yellow-400 text-yellow-400"/></li>
-                                ))
-                            }</ul>
-                        </div>
-                        <div className="review-text mt-5">
-                            <p className="font-light text-black">“We had a great time in Casa Claudia. The villa is beautiful and the pool is amazing. We will definitely come back!”</p>
-                        </div>
-                        <div className="absolute bottom-0 right-0 py-2 px-4">
-                            <p className="text-my-light-grey">5.11.2001</p>
-                        </div>
-                    </div>
+                    <InfiniteMovingCards
+                    items={reviews}
+                    direction="left"
+                    speed="slow"
+                />
                 </div>
             </div>
-
         </div>
     )
 }
+const reviews = [
+    {
+      review:
+        "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
+      name: "Charles Dickens",
+      n_stars: 5,
+      date: "2021-10-10"
+    },
+    {
+      review:
+        "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
+      name: "William Shakespeare",
+      n_stars: 5,
+      date: "2021-10-10"
+    },
+    {
+      review: "All that we see or seem is but a dream within a dream.",
+      name: "Edgar Allan Poe",
+      n_stars: 5,
+      date: "2021-10-10"
+    },
+    {
+      review:
+        "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
+      name: "Jane Austen",
+      n_stars: 3,
+      date: "2021-10-10"
+    },
+    {
+      review:
+        "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
+      name: "Herman Melville",
+      n_stars: 1,
+      date: "2021-10-10"
+    },
+  ];
