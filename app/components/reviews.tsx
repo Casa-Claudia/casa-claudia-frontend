@@ -37,18 +37,18 @@ const reviews = [
       n_stars: 5,
       date: "2021-10-10"
     },
-    {
-      review:
-        "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-      name: "Jane Austen",
-      n_stars: 3,
-      date: "2021-10-10"
-    },
-    {
-      review:
-        "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-      name: "Herman Melville",
-      n_stars: 1,
-      date: "2021-10-10"
-    },
+    // {
+    //   review:
+    //     "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
+    //   name: "Jane Austen",
+    //   n_stars: 3,
+    //   date: "2021-10-10"
+    // },
+    // {
+    //   review:
+    //     "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
+    //   name: "Herman Melville",
+    //   n_stars: 1,
+    //   date: "2021-10-10"
+    // },
   ];

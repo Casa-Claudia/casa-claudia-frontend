@@ -24,9 +24,12 @@ export const InfiniteMovingCards = ({
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const doAnimation = items.length > 2;
 
   useEffect(() => {
-    addAnimation();
+    if (doAnimation){
+        addAnimation();
+    }
   }, []);
   const [start, setStart] = useState(false);
   function addAnimation() {
@@ -42,7 +45,9 @@ export const InfiniteMovingCards = ({
 
       getDirection();
       getSpeed();
-      setStart(true);
+      if (doAnimation){
+        setStart(true);
+      }
     }
   }
   const getDirection = () => {
@@ -75,7 +80,7 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20  max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_3%,white_97%,transparent)] ",
+        "scroller relative z-20  max-w-7xl overflow-hidden", start && "[mask-image:linear-gradient(to_right,transparent,white_3%,white_97%,transparent)]",
         className
       )}
     >
