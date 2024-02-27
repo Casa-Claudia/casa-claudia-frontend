@@ -3,6 +3,11 @@ import { Inter } from 'next/font/google'
 
 // fs
 import fs from 'fs';
+const image_names = fs.readdirSync("./public/galerija").sort((a, b) => {
+  const aNumber = parseInt(a.split(".")[0]);
+  const bNumber = parseInt(b.split(".")[0]);
+  return aNumber - bNumber;
+});
 
 // icons
 import { Star } from "lucide-react";
@@ -17,12 +22,6 @@ import Location from "./components/location";
 import Booker from "./components/booker";
 import Reviews from "./components/reviews";
 import Footer from "./components/footer";
-
-const pictures = fs.readdirSync("./public/galerija").sort((a, b) => {
-  const aNumber = parseInt(a.split(".")[0]);
-  const bNumber = parseInt(b.split(".")[0]);
-  return aNumber - bNumber;
-});
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -54,7 +53,7 @@ export default function Home() {
         </div>
       </div>
       <Info />
-      <Viewpoint pictures={pictures} />
+      <Viewpoint image_names={image_names} />
       <Features />
       <Location />
       <Booker />
