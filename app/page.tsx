@@ -1,6 +1,8 @@
 // font
 import { Inter } from 'next/font/google'
-const inter = Inter({ subsets: ['latin'] })
+
+// fs
+import fs from 'fs';
 
 // icons
 import { Star } from "lucide-react";
@@ -16,6 +18,13 @@ import Booker from "./components/booker";
 import Reviews from "./components/reviews";
 import Footer from "./components/footer";
 
+const pictures = fs.readdirSync("./public/galerija").sort((a, b) => {
+  const aNumber = parseInt(a.split(".")[0]);
+  const bNumber = parseInt(b.split(".")[0]);
+  return aNumber - bNumber;
+});
+
+const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -45,7 +54,7 @@ export default function Home() {
         </div>
       </div>
       <Info />
-      <Viewpoint />
+      <Viewpoint pictures={pictures} />
       <Features />
       <Location />
       <Booker />

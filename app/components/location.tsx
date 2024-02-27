@@ -9,7 +9,7 @@ const center: google.maps.LatLngLiteral = {lat: 30, lng: -110};
 let apiKey: string = "AIzaSyDWpxDQcMf1vIkR8zCqCiZFKk-lImBuGws"
 
 function initMap(): void {
-  map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+    map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
     center,
     zoom: 8
   });
@@ -20,9 +20,8 @@ function initMap(): void {
 
 export default function Location() {
   useEffect(() => {
-    // Call initMap when the component mounts
     initMap();
-  }, []); // Empty dependency array ensures it only runs once when the component mounts
+  }, []); 
 
   return (
     <div className="location-parent">
@@ -50,7 +49,7 @@ export default function Location() {
         </div>
         <div className="map absolute h-[400px] w-[600px] top-20 left-1/2 -translate-x-1 bg-white z-10">
           <div id="map" className="h-full w-full">
-            <script src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`} async defer></script>
+            <script defer src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`}></script>
           </div>
         </div>
       </div>
