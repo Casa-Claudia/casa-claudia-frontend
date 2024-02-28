@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <div className="footer-container bg-khaki px-16 py-10">
-      <div className="px-30 flex justify-between">
-        <div className="footer-column flex w-1/3 flex-col items-center">
-          <h3 className="text-lg font-bold text-my-white">Contact Us</h3>
+    <div className="footer-container bg-khaki md:px-16 px-4 py-10">
+      <div className="px-5 grid grid-cols-1 md:grid-cols-3 max-w-screen-xl mx-auto">
+        <div className="footer-column md:mt-0 flex  flex-col items-center">
+          <h3 className="md:text-lg font-bold text-my-white">Contact Us</h3>
           <div className="mt-2 flex items-center">
             <img src="/Mail.svg" alt="mail logo" />
             <p className="ml-2 font-light text-my-white"> rok.rajher8@gmail.com</p>
@@ -17,8 +17,8 @@ export default function Footer() {
           </div>
           {/* Add your contact information here */}
         </div>
-        <div className="footer-column flex w-1/3 flex-col items-center">
-          <h3 className="mb-2 text-lg font-bold text-my-white">Our Policy</h3>
+        <div className="footer-column md:mt-0 mt-5 flex  flex-col items-center">
+          <h3 className="mb-2 md:text-lg font-bold text-my-white">Our Policy</h3>
           <Link
             href="/privacy-policy"
             className="mb-2 font-light text-my-white hover:text-my-black"
@@ -30,8 +30,8 @@ export default function Footer() {
           </Link>
           {/* Add your policy information here */}
         </div>
-        <div className="footer-column flex w-1/3 flex-col items-center">
-          <h3 className="text-lg font-bold text-my-white">Social Media</h3>
+        <div className="footer-column md:mt-0 mt-5 flex  flex-col items-center">
+          <h3 className="md:text-lg font-bold text-my-white">Social Media</h3>
           <div className="button-container mt-2">
             <button className="mr-2 text-my-white hover:text-my-black">
               <Facebook className="text-my-white hover:text-black" />
