@@ -24,7 +24,7 @@ export default function Location() {
 
   return (
     <div className="location-parent">
-      <div className="location relative bg-my-white px-16 py-10">
+      <div className="location md:relative grid grid-cols-1 bg-my-white md:px-16 px-4 py-10">
         <h2 className="text-3xl font-semibold text-black">Location</h2>
         <div className="el-list ml-10 mt-10">
           <ul>
@@ -46,7 +46,7 @@ export default function Location() {
             </li>
           </ul>
         </div>
-        <div className="map absolute left-1/2 top-20 z-10 h-[400px] w-[600px] -translate-x-1 bg-white">
+        <div className="map lg:absolute lg:left-1/2 lg:top-20 z-10 lg:h-[400px] lg:w-[600px] w-full mt-4 lg:mt-0 px-4 h-[200px] container lg:-translate-x-1 ">
           <div id="map" className="h-full w-full">
             <script
               defer

@@ -42,7 +42,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="footer-rights mt-20 flex items-center justify-center">
+      <div className="footer-rights mt-20 flex items-center justify-center text-center">
         <p className="font-light text-my-white">© 2024 Casa Claudia. All rights reserved.</p>
       </div>
     </div>

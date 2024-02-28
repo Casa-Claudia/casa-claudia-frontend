@@ -8,7 +8,8 @@ interface Props {
 
 export default function Images({ onClick }: Props) {
   return (
-    <main className="viewpoint bg-khaki py-16 md:py-24">
+    <main className="viewpoint bg-khaki py-10 md:py-24">
+      <h2 className="text-3xl my-4 mb-4 font-semibold px-4 md:px-16 text-black">Villa viewpoint</h2>
       <div className="container grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
         {images.map((image, index) => {
           return (
