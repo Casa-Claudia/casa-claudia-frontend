@@ -14,38 +14,38 @@ import Gallery from './components/gallery';
 export default function Home() {
   return (
     <main>
-      <div className="flex h-[580px]">
-        <div className="intro items-left w-1/2 bg-light-brown px-16 py-2 text-my-black">
-          <h1 className=" py-12 text-4xl font-extrabold">
+      <div className=" grid grid-cols-1 md:grid-cols-2">
+        <div className="intro items-left bg-light-brown md:px-16  px-4 py-2 text-my-black">
+          <h1 className=" md:py-12 py-4 md:text-4xl text-3xl font-extrabold">
             {' '}
             Fresh, quiet
             <br /> and peaceful.
           </h1>
-          <p className="mb-40 ml-5">
-            Enjoy the tranquility of the authentic Istrian landscape among <br /> olive trees, in
-            complete privacy and  sense of homeliness in a small <br /> luxury villa.
+          <p className="md:mb-40 ml-5 mb-5">
+            Enjoy the tranquility of the authentic Istrian landscape among olive trees, in
+            complete privacy and  sense of homeliness in a small luxury villa.
           </p>
           <BookBar />
           <div className="mt-5 flex items-center justify-between">
-            <div className="ml-20 flex flex-col items-center">
+            <div className="md:ml-20 ml-5 flex flex-col items-center ">
               <p>Prices per night start from</p>
-              <p className="text-xl font-bold">200€</p>
+              <p className="md:text-xl mb-5 font-bold">200€</p>
             </div>
-            <div className="ml-5 flex flex-col items-center">
+            <div className="md:ml-5 flex flex-col items-center justify-start">
               <ul className="flex">
                 {Array(5)
                   .fill(0)
                   .map((_, i) => (
                     <li key={i} className="mr-1">
-                      <Star className="h-7 w-7 fill-yellow-300 stroke-1 text-my-black" />
+                      <Star className="md:h-7 md:w-7 h-4 w-4 fill-yellow-300 stroke-1 text-my-black" />
                     </li>
                   ))}
               </ul>
             </div>
           </div>
         </div>
-        <div className="big-image w-1/2">
-          <img className="" src="/main_image.png" alt="Villa" />
+        <div className="big-image">
+          <img className="h-20px w-40px" src="/main_image.png" alt="Villa" />
         </div>
       </div>
 

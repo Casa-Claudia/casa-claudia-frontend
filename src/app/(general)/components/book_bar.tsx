@@ -1,6 +1,6 @@
 export default function BookBar() {
   return (
-    <div className="relative z-10 flex  h-[80px] w-[864px] items-center bg-my-white text-my-grey">
+    <div className="relative z-10 flex md:visible invisible  h-[80px] w-[864px] items-center bg-my-white text-my-grey">
       <div className="flex w-1/4 items-start px-4 py-2">
         <img className="mr-2" src="/Location.svg" alt="Location" />
         <div className="flex flex-col">
