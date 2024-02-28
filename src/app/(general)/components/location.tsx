@@ -26,23 +26,23 @@ export default function Location() {
     <div className="location-parent">
       <div className="location md:relative grid grid-cols-1 bg-my-white md:px-16 px-4 py-10">
         <h2 className="text-3xl font-semibold text-black">Location</h2>
-        <div className="el-list ml-10 mt-10">
+        <div className="el-list ml-10 md:mt-10 mt-4">
           <ul>
             <li className="flex items-center py-4">
               <Fish className="mr-4 text-black" />
-              <span className="text-xl font-medium text-black">Sea: 3.5km</span>
+              <span className="md:text-xl text-md font-medium text-black">Sea: 3.5km</span>
             </li>
             <li className="flex items-center py-4">
               <Soup className="mr-4 text-black" />
-              <span className="text-xl font-medium text-black">Restaurants: 300m</span>
+              <span className="md:text-xl text-md font-medium text-black">Restaurants: 300m</span>
             </li>
             <li className="flex items-center py-4">
               <Target className="mr-4 text-black" />
-              <span className="text-xl font-medium text-black">Town: 3.5km</span>
+              <span className="md:text-xl text-md font-medium text-black">Town: 3.5km</span>
             </li>
             <li className="flex items-center py-4">
               <RollerCoaster className="mr-4 text-black" />
-              <span className="text-xl font-medium text-black">Waterpark Istralandia: 3.3km</span>
+              <span className="md:text-xl text-md font-medium text-black">Waterpark Istralandia: 3.3km</span>
             </li>
           </ul>
         </div>

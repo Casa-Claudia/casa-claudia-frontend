@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Info() {
   return (
-    <div className="bg-my-white px-16 py-16 text-my-black">
+    <div className="bg-my-white md:px-16 px-4 py-16 text-my-black">
       <div className=" grid grid-cols-2 md:grid-cols-4">
         <div className="circle flex flex-col items-center mb-4">
           <div className="flex h-24 w-24 items-center justify-center rounded-full border border-my-brown">
@@ -33,7 +33,7 @@ export default function Info() {
         </div>
       </div>
 
-      <div className="info-text items-center md:px-20 px:4 py-5 text-left">
+      <div className="info-text items-center py-5 text-left">
         <p>
           This is a perfect location to take a break from the hustle and bustle of everyday life. No
           matter if you travel to Istria to go sightseeing or just to unwind, Villa Casa Claudia can

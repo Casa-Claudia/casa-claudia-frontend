@@ -92,26 +92,26 @@ export const InfiniteMovingCards = memo(
         >
           {items.map((item) => (
             <li
-              className="h- relative mr-5  h-[273px] w-[476px] max-w-full flex-shrink-0 rounded border-2 border-my-brown p-8  px-8 py-6 md:w-[450px]"
+              className="relative mr-5  md:h-[273px] md:w-[476px] max-w-full flex-shrink-0 rounded border-2 border-my-brown px-4 py-6  md:px-8 md:py-6 h-[200px] w-[250px]"
               key={item.name}
             >
               <div className="flex items-center justify-between border-b border-black">
-                <p className="text-lg font-semibold text-black">{item.name}</p>
+                <p className="md:text-lg text-medium font-semibold text-black">{item.name}</p>
                 <ul className="flex">
                   {Array(item.n_stars)
                     .fill(0)
                     .map((_, i) => (
                       <li key={i} className="mr-1">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <Star className="md:h-4 md:w-4 w-3 h-3 fill-yellow-400 text-yellow-400" />
                       </li>
                     ))}
                 </ul>
               </div>
               <div className="review-text mt-5">
-                <p className="font-light text-black">{item.review}</p>
+                <p className="font-light text-sm text-black">{item.review}</p>
               </div>
               <div className="absolute bottom-0 right-0 px-4 py-2">
-                <p className="text-my-light-grey">{item.date}</p>
+                <p className="text-my-light-grey text-sm">{item.date}</p>
               </div>
             </li>
           ))}

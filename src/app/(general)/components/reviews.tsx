@@ -2,10 +2,10 @@ import { InfiniteMovingCards } from './moving_cards';
 
 export default function Reviews() {
   return (
-    <div className="reviews-container bg-my-white px-16 pb-24 pt-10">
+    <div className="reviews-container bg-my-white md:px-16 px-4 pb-24 pt-10">
       <h2 className="mb-10 text-3xl font-semibold text-black">Reviews</h2>
       <div className="review-box w-full overflow-x-auto">
-        <div className="flex px-10">
+        <div className="flex md:px-10 px-2">
           <InfiniteMovingCards items={reviews} direction="left" speed="slow" />
         </div>
       </div>
@@ -15,21 +15,21 @@ export default function Reviews() {
 const reviews = [
   {
     review:
-      'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.',
-    name: 'Charles Dickens',
+      'Lorem ipsum dolor perspiciatis? Harum in rerum hic ab minus pariatur officiis reiciendis dolorem unde corrupti? Labore laudantium suscipit non consequuntur odio.',
+    name: 'Charles D.',
     n_stars: 5,
     date: '2021-10-10',
   },
   {
     review:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: 'William Shakespeare',
+      "To be, or not to be, that is the question: W.",
+    name: 'William S.',
     n_stars: 5,
     date: '2021-10-10',
   },
   {
     review: 'All that we see or seem is but a dream within a dream.',
-    name: 'Edgar Allan Poe',
+    name: 'Edgar A. P.',
     n_stars: 5,
     date: '2021-10-10',
   },
