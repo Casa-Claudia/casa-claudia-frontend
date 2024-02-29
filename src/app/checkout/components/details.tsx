@@ -3,8 +3,8 @@ import Link from 'next/link';
 export default function Details() {
   return (
     <div className="details h-[430px] bg-light-brown">
-      <h1 className="px-16 text-4xl font-bold text-my-black">Complete your booking</h1>
-      <p className="px-16 text-xl font-medium text-my-light-grey ">
+      <h1 className="md:px-16 px-4 md:text-4xl text-3xl font-bold text-my-black">Complete your booking</h1>
+      <p className="md:px-16 px-4 md:text-xl text-lg font-medium text-my-light-grey ">
         Secure your spot in Casa Claudia today.
       </p>
       <div className="mt-10 flex items-start">

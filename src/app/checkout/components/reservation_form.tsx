@@ -1,9 +1,9 @@
 export default function ReservationForm() {
   return (
-    <div className="mx-auto mt-10 h-[580px] w-[590px] w-full rounded-lg border  border-black bg-white p-8 text-sm text-my-black">
+    <div className="mx-auto mt-10 rounded-lg border  border-black bg-white p-8 text-sm text-my-black">
       <form>
-        <div className="flex justify-between">
-          <div className="mb-4 w-[255px]">
+        <div className="flex flex-wrap justify-between gap-2">
+          <div className="mb-4 ">
             <label htmlFor="name" className="ml-1 block text-my-grey">
               Name
             </label>
@@ -11,11 +11,11 @@ export default function ReservationForm() {
               type="text"
               id="name"
               name="name"
-              className="h[] border-1 border-light-gray w-full rounded-xl border px-3 py-2"
+              className=" border-1 border-light-gray w-full rounded-xl border px-3 py-2"
               required
             />
           </div>
-          <div className="mb-4 w-[255px]">
+          <div className="mb-4 ">
             <label htmlFor="surname" className=" ml-1 text-my-grey">
               Surname
             </label>
@@ -28,8 +28,8 @@ export default function ReservationForm() {
             />
           </div>
         </div>
-        <div className="flex justify-between">
-          <div className="mb-4 w-[255px]">
+        <div className="flex justify-between flex-wrap gap-2">
+          <div className="mb-4 ">
             <label htmlFor="email" className=" ml-1 text-my-grey">
               E-mail
             </label>
@@ -41,7 +41,7 @@ export default function ReservationForm() {
               required
             />
           </div>
-          <div className="mb-4 w-[255px]">
+          <div className="mb-4 ">
             <label htmlFor="phone" className=" ml-1 text-my-grey">
               Telephone number
             </label>
@@ -66,8 +66,8 @@ export default function ReservationForm() {
             required
           />
         </div>
-        <div className="flex justify-between">
-          <div className="mb-4 w-[255px]">
+        <div className="flex justify-between flex-wrap gap-2">
+          <div className="mb-4 ">
             <label htmlFor="city" className=" ml-1 text-my-grey">
               City/Region
             </label>
@@ -75,11 +75,11 @@ export default function ReservationForm() {
               type="text"
               id="city"
               name="city"
-              className="h[] border-1 border-light-gray w-full rounded-xl border px-3 py-2"
+              className=" border-1 border-light-gray w-full rounded-xl border px-3 py-2"
               required
             />
           </div>
-          <div className="mb-4 w-[255px]">
+          <div className="mb-4 ">
             <label htmlFor="zipcode" className=" ml-1 text-my-grey">
               Zip code
             </label>
@@ -92,8 +92,8 @@ export default function ReservationForm() {
             />
           </div>
         </div>
-        <div className="flex justify-between">
-          <div className="mb-4 w-[255px]">
+        <div className="flex justify-between flex-wrap gap-2">
+          <div className="mb-4 ">
             <label htmlFor="country" className=" ml-1 text-my-grey">
               Country
             </label>
@@ -101,11 +101,11 @@ export default function ReservationForm() {
               type="text"
               id="country"
               name="country"
-              className="h[] border-1 border-light-gray w-full rounded-xl border px-3 py-2"
+              className=" border-1 border-light-gray w-full rounded-xl border px-3 py-2"
               required
             />
           </div>
-          <div className="mb-4 w-[255px]">
+          <div className="mb-4 ">
             <label htmlFor="guests" className=" ml-1 text-my-grey">
               Number of guests
             </label>

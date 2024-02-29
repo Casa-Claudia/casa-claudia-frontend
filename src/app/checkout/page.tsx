@@ -8,19 +8,19 @@ export default function CheckoutPage() {
     <div className="checkout-page">
       <TopbarCheckout />
       <Details />
-      <div className="my-32 flex bg-white">
-        <div className="flex w-1/2 flex-col items-center justify-center px-10">
+      <div className="my-32 grid grid-cols-1 lg:grid-cols-2 bg-white px-4">
+        <div className="flex flex-col items-center justify-center lg:px-10">
           <h1 className="text-2xl font-bold text-black">PERSONAL DETAILS</h1>
           <ReservationForm />
         </div>
 
-        <div className="flex w-1/2 flex-col items-center justify-start">
+        <div className="flex flex-col items-center justify-start mt-10 lg:mt-0">
           <div className="flex flex-col items-center justify-start">
             <h1 className="mb-10 text-2xl font-bold text-black">PAYMENT METHODS</h1>
             <div className="flex flex-col items-start">
-              <div className="flex w-[590px]  justify-between rounded-lg border border-black px-12 py-10">
+              <div className="flex max-w-[590px]  justify-between rounded-lg border border-black lg:px-12 px-6 py-5 md:py-10">
                 <div className="flex items-center justify-center">
-                  <input type="checkbox" id="creditCard" className="mr-3 h-4 w-4" />
+                  <input type="checkbox" id="creditCard" className="mr-3 h-3 w-3 lg:h-4 lg:w-4" />
                   <label htmlFor="creditCard" className="text-lg font-semibold text-black">
                     CREDIT CARD
                   </label>
@@ -30,9 +30,9 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
-              <div className="mt-8 flex  w-[590px] justify-between rounded-lg border border-black px-12 py-10">
+              <div className="mt-8 flex  w-full max-w-[590px] justify-between rounded-lg border border-black lg:px-12 px-6 py-5 md:py-10">
                 <div className="flex items-center justify-center">
-                  <input type="checkbox" id="creditCard" className="mr-3 h-4 w-4" />
+                  <input type="checkbox" id="creditCard" className="mr-3 h-3 w-3 lg:h-4 lg:w-4" />
                   <label htmlFor="creditCard" className="text-lg font-semibold text-black">
                     CASH
                   </label>
