@@ -4,8 +4,8 @@ export default function Booker() {
   return (
     <div className="booker-container bg-khaki md:px-16 px-4 py-10">
       <h1 className="mb-2 text-3xl font-bold text-black">Book your spot</h1>
-      <div className="flex items-center justify-between pr-10">
-        <p>Secure, simple and fast</p>
+      <div className="flex items-center justify-between md:pr-10 md:text-md text-sm">
+        <p >Secure, simple and fast</p>
         <button className="rounded border border-my-white bg-my-brown px-5 py-2 text-my-white">
           Clear dates
         </button>
@@ -15,11 +15,10 @@ export default function Booker() {
           <BasicDateRangeCalendar />
         </div>
       </div>
-      <div className="mt-5 flex items-center justify-between px-5 py-2 pr-10">
-        <div className="flex w-2/3 justify-between">
-          <div>
+      <div className="mt-5 grid grid-cols-2 md:grid-cols-5 md:px-5 py-2 md:pr-10 gap-2">
+          <div className="col-span-2 md:col-span-1">
             <p className="text-xl font-semibold text-black">Selected dates:</p>
-            <p className="font-semibold text-my-white">1.11.2023 - 23.11.2023 (5 nights)</p>
+            <p className="font-semibold text-my-white">1.11.2023 - 23.11.2023</p>
           </div>
           <div>
             <div>
@@ -33,16 +32,15 @@ export default function Booker() {
               <p className="font-semibold text-my-white">10:00</p>
             </div>
           </div>
-          <div>
-            <div>
-              <p className="text-xl font-semibold text-black">Price:</p>
-              <p className="font-semibold text-my-white">700€</p>
-            </div>
+          <div className="">
+            <p className="text-xl font-semibold text-black">Price:</p>
+            <p className="font-semibold text-my-white">700€</p>
           </div>
-        </div>
-        <button className="w w-[170px] rounded-br-lg rounded-tr-lg border-2 border-my-white bg-black px-6 py-3 text-xl font-bold">
+        <div className="flex items-center md:justify-end">
+        <button className="max-w-[170px] w-full rounded-br-lg rounded-tr-lg border-2 border-my-white bg-black md:px-6 md:py-3 px-3 py-2 md:text-xl text-lg font-bold">
           Book
         </button>
+        </div>
       </div>
     </div>
   );
