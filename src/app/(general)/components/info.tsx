@@ -56,7 +56,7 @@ export default function Info() {
           Youth groups are not allowed!
         </p>
       </div>
-      <div className="md:mt-10 mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 px-4 xl:px-16 justify-center items-center max-w-screen-2xl mx-auto">
+      <div className="md:mt-10 mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 px-4 xl:px-16 justify-content items-center max-w-screen-2xl mx-auto">
         <div className="my-container h-[156px] w-[260px] items-center rounded-md border border-black px-5 py-2 mb-6">
           <div className="flex items-center">
             <img className="mr-2" src="/bedroom.svg" alt="bedroom" />
