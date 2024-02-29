@@ -1,6 +1,6 @@
 export default function PrivacyPolicy() {
   return (
-    <main className="bg-my-white px-32 py-16">
+    <main className="bg-my-white md:px-32 px-4 py-16">
       <h1 className="text-3xl font-bold text-black">Privacy Policy</h1>
       <p className="mt-5  text-black">
         Your privacy is important to us. It is Casa Claudia's policy to respect your privacy
