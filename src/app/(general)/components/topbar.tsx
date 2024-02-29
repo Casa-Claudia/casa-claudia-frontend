@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 
 export default function Topbar() {
@@ -12,7 +13,9 @@ export default function Topbar() {
   return (
     <div className="flex h-20 items-center justify-between bg-light-brown md:px-16 px-4 py-2">
       <div className="flex items-center">
-        <img src="/next.svg" alt="Logo" className="h-8 w-8" />
+      <Link href="/">
+          <img src="/next.svg" alt="Logo" className="h-8 w-8" />
+        </Link>
       </div>
       <div className="flex items-center space-x-2 text-xs md:text-md lg:text-lg md:space-x-6 font-semibold">
         {/* <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800">
