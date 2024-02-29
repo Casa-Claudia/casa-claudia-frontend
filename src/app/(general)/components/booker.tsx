@@ -1,3 +1,5 @@
+import BasicDateRangeCalendar from "./calendar";
+
 export default function Booker() {
   return (
     <div className="booker-container bg-khaki md:px-16 px-4 py-10">
@@ -8,8 +10,10 @@ export default function Booker() {
           Clear dates
         </button>
       </div>
-      <div className="mt-5 flex items-center justify-center pr-10">
-        <div className="h-[560px] w-full bg-my-white"></div>
+      <div className="mt-5 flex items-center justify-center">
+        <div className="container w-full text-black">
+          <BasicDateRangeCalendar />
+        </div>
       </div>
       <div className="mt-5 flex items-center justify-between px-5 py-2 pr-10">
         <div className="flex w-2/3 justify-between">
