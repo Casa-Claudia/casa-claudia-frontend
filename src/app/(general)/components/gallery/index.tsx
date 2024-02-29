@@ -12,6 +12,7 @@ import { images } from './data';
 import Image from 'next/image';
 import Images from './images';
 
+
 export default function Gallery() {
   const [index, setIndex] = useState(-1);
   const [photos] = useState<Photo[]>(

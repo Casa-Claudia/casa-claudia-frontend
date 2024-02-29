@@ -3,7 +3,7 @@ import React from 'react';
 export default function Info() {
   return (
     <div className="bg-my-white md:px-16 px-4 py-16 text-my-black">
-      <div className=" grid grid-cols-2 md:grid-cols-4">
+      <div className=" grid grid-cols-2 md:grid-cols-4 max-w-screen-xl mx-auto">
         <div className="circle flex flex-col items-center mb-4">
           <div className="flex h-24 w-24 items-center justify-center rounded-full border border-my-brown">
             <img src="/guest-logo.svg" alt="guest-logo" />
@@ -33,7 +33,7 @@ export default function Info() {
         </div>
       </div>
 
-      <div className="info-text items-center py-5 text-left">
+      <div className="info-text items-center py-5 text-left max-w-screen-xl mx-auto">
         <p>
           This is a perfect location to take a break from the hustle and bustle of everyday life. No
           matter if you travel to Istria to go sightseeing or just to unwind, Villa Casa Claudia can
@@ -56,7 +56,7 @@ export default function Info() {
           Youth groups are not allowed!
         </p>
       </div>
-      <div className="md:mt-10 mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 px-4 xl:px-16 justify-center items-center">
+      <div className="md:mt-10 mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 px-4 xl:px-16 justify-center items-center max-w-screen-2xl mx-auto">
         <div className="my-container h-[156px] w-[260px] items-center rounded-md border border-black px-5 py-2 mb-6">
           <div className="flex items-center">
             <img className="mr-2" src="/bedroom.svg" alt="bedroom" />
@@ -71,7 +71,7 @@ export default function Info() {
             </ul>
           </div>
         </div>
-        <div className="my-container h-[156px] w-[260px] items-center rounded-md border border-black px-5 py-2 mb-6">
+        <div className="my-container h-[156px] w-[260px] items-center rounded-md border border-black px-5 py-2 mb-6 ">
           <div className="flex items-center">
             <img className="mr-2" src="/livingroom.svg" alt="living room" />
             <span className="Bedroom text-base font-bold">Living room</span>

@@ -6,10 +6,10 @@ export default function TopbarCheckout() {
       <div className="flex items-center">
         <img src="/next.svg" alt="Logo" className="h-8 w-8" />
       </div>
-      <div className="flex flex-grow items-center justify-center space-x-6">
-        <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800">
+      <div className="flex flex-grow items-center justify-center space-x-2 text-xs md:text-md lg:text-lg md:space-x-6">
+        {/* <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800">
           About
-        </button>
+        </button> */}
         <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800 ">
           Contact
         </button>

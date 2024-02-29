@@ -1,6 +1,6 @@
 export default function Booker() {
   return (
-    <div className="booker-container bg-khaki px-16 py-10">
+    <div className="booker-container bg-khaki md:px-16 px-4 py-10">
       <h1 className="mb-2 text-3xl font-bold text-black">Book your spot</h1>
       <div className="flex items-center justify-between pr-10">
         <p>Secure, simple and fast</p>
