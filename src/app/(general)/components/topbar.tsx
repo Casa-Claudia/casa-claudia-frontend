@@ -1,21 +1,40 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
+
 
 export default function Topbar() {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   return (
-    <div className="flex h-20 items-center justify-between bg-light-brown md:px-16 px-4 py-2  ">
+    <div className="flex h-20 items-center justify-between bg-light-brown md:px-16 md:px-4 md:py-2"md>
       <div className="flex items-center">
-        <img src="/next.svg" alt="Logo" className="h-8 w-8 " />
+        <img src="/next.svg" alt="Logo" className="h-8 w-8" />
       </div>
       <div className="flex items-center space-x-2 text-xs md:text-md lg:text-lg md:space-x-6 font-semibold">
         <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800">
           About
         </button>
-        <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800 ">
+        <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800">
           Contact
         </button>
-        <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800 ">
-          Language
-        </button>
+        <div className='relative'>
+          <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800" onClick={toggleDropdown}>
+            Language
+          </button>
+          {showDropdown && (
+            <div className="absolute top-full left-0 mt-1 bg-white rounded-md shadow-lg">
+              <button className="block w-full text-center px-2 md:px-4 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => setShowDropdown(false)}>English</button>
+              <button className="block w-full text-center px-2 md:px-4 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => setShowDropdown(false)}>German</button>
+              <button className="block w-full text-center px-2 md:px-4 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => setShowDropdown(false)}>Croatian</button>
+              <button className="block w-full text-center px-2 md:px-4 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => setShowDropdown(false)}>Slovene</button>
+            </div>
+          )}
+        </div>
+
         <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800">
           Gallery
         </button>
