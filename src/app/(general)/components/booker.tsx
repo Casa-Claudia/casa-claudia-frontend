@@ -2,10 +2,11 @@ import BasicDateRangeCalendar from "./calendar";
 
 export default function Booker() {
   return (
-    <div className="booker-container bg-khaki md:px-16 lg:px-32 px-4 py-10">
+    <div className="booker-container bg-khaki md:px-16 px-4 py-10">
       <h1 className="mb-2 text-3xl font-bold text-black">Book your spot</h1>
-      <div className="flex items-center justify-between gap-4 md:pr-10 md:text-md text-sm">
-        <p >Secure, simple and fast</p>
+      <p >Secure, simple and fast</p>
+      <div className ="container max-w-screen-2xl">
+      <div className="flex items-center md:justify-end justify-center mt-4 md:mt-0 gap-4 md:pr-10 md:text-md text-sm">
         <button className="rounded border border-my-white bg-my-brown px-5 py-2 text-my-white">
           Clear dates
         </button>
@@ -42,6 +43,9 @@ export default function Booker() {
         </button>
         </div>
       </div>
+
+      </div>
+
     </div>
   );
 }

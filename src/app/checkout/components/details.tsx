@@ -84,7 +84,7 @@ export default function Details() {
               </div>
             </div>
           </div>
-          <div className="mt-10 flex justify-center items-center md:text-md text-sm">
+          <div className="md:mt-16 2xl:mt-20 mt-10 justify-center md:text-md text-sm">
             <p className="text-my-black text-center">
               Not happy with the details? Change your booking{' '}
               <Link href="/" className="hover:underline">

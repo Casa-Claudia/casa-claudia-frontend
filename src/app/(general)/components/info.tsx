@@ -56,60 +56,68 @@ export default function Info() {
           Youth groups are not allowed!
         </p>
       </div>
-      <div className="md:mt-10 mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 px-4 xl:px-16 justify-content items-center max-w-screen-2xl mx-auto">
-        <div className="my-container h-[156px] w-[260px] items-center rounded-md border border-black px-5 py-2 mb-6">
-          <div className="flex items-center">
-            <img className="mr-2" src="/bedroom.svg" alt="bedroom" />
-            <span className="Bedroom text-base font-bold">Bedroom</span>
-          </div>
-          <div className=" ml-6 py-2 text-sm text-my-light-grey ">
-            <ul className="list-disc">
-              <li>King size bed 160x200</li>
-              <li>In-suite bathroom</li>
-              <li>TV</li>
-              <li>Small terrace</li>
-            </ul>
-          </div>
-        </div>
-        <div className="my-container h-[156px] w-[260px] items-center rounded-md border border-black px-5 py-2 mb-6 ">
-          <div className="flex items-center">
-            <img className="mr-2" src="/livingroom.svg" alt="living room" />
-            <span className="Bedroom text-base font-bold">Living room</span>
-          </div>
-          <div className=" ml-6 py-2 text-sm text-my-light-grey ">
-            <ul className="list-disc">
-              <li>king size bed 160x200</li>
-              <li>HI-FI system</li>
-              <li>TV</li>
-              <li>fireplace</li>
-              <li>bathroom</li>
-            </ul>
+      <div className="md:mt-10 mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 px-4 xl:px-16 gap-2 max-w-screen-2xl mx-auto">
+        <div className='flex justify-center'>
+          <div className="my-container h-[156px] w-[260px] rounded-md border border-black px-5 py-2 mb-6">
+            <div className="flex items-center">
+              <img className="mr-2" src="/bedroom.svg" alt="bedroom" />
+              <span className="Bedroom text-base font-bold">Bedroom</span>
+            </div>
+            <div className=" ml-6 py-2 text-sm text-my-light-grey ">
+              <ul className="list-disc">
+                <li>King size bed 160x200</li>
+                <li>In-suite bathroom</li>
+                <li>TV</li>
+                <li>Small terrace</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div className="my-container h-[156px] w-[260px] items-center rounded-md border border-black px-5 py-2 mb-6">
-          <div className="flex items-center">
-            <img className="mr-2" src="/kitchen.svg" alt="kitchen" />
-            <span className="Bedroom text-base font-bold">Kitchen</span>
-          </div>
-          <div className=" ml-6 py-2 text-sm text-my-light-grey ">
-            <ul className="list-disc">
-              <li>Fully equpped</li>
-              <li>dining area</li>
-            </ul>
+        <div className='flex justify-center'>
+          <div className="my-container h-[156px] w-[260px] items-center rounded-md border border-black px-5 py-2 mb-6 ">
+            <div className="flex items-center">
+              <img className="mr-2" src="/livingroom.svg" alt="living room" />
+              <span className="Bedroom text-base font-bold">Living room</span>
+            </div>
+            <div className=" ml-6 py-2 text-sm text-my-light-grey ">
+              <ul className="list-disc">
+                <li>king size bed 160x200</li>
+                <li>HI-FI system</li>
+                <li>TV</li>
+                <li>fireplace</li>
+                <li>bathroom</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div className="my-container h-[156px] w-[260px] items-center rounded-md border border-black px-5 py-2 mb-6">
-          <div className="flex items-center">
-            <img className="mr-2" src="/sun.svg" alt="sun picture" />
-            <span className="Bedroom text-base font-bold">Outdoors</span>
+        <div className='flex justify-center'>
+          <div className="my-container h-[156px] w-[260px] items-center rounded-md border border-black px-5 py-2 mb-6">
+            <div className="flex items-center">
+              <img className="mr-2" src="/kitchen.svg" alt="kitchen" />
+              <span className="Bedroom text-base font-bold">Kitchen</span>
+            </div>
+            <div className=" ml-6 py-2 text-sm text-my-light-grey ">
+              <ul className="list-disc">
+                <li>Fully equpped</li>
+                <li>dining area</li>
+              </ul>
+            </div>
           </div>
-          <div className=" ml-6 py-2 text-sm text-my-light-grey ">
-            <ul className="list-disc">
-              <li>Dining table</li>
-              <li>Sun lounges</li>
-              <li>Sun shades</li>
-              <li>Grill</li>
-            </ul>
+        </div>
+        <div className='flex justify-center'>
+          <div className="my-container h-[156px] w-[260px] items-center rounded-md border border-black px-5 py-2 mb-6">
+            <div className="flex items-center">
+              <img className="mr-2" src="/sun.svg" alt="sun picture" />
+              <span className="Bedroom text-base font-bold">Outdoors</span>
+            </div>
+            <div className=" ml-6 py-2 text-sm text-my-light-grey ">
+              <ul className="list-disc">
+                <li>Dining table</li>
+                <li>Sun lounges</li>
+                <li>Sun shades</li>
+                <li>Grill</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

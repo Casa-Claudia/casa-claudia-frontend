@@ -21,17 +21,17 @@ export default function Home() {
             Fresh, quiet
             <br /> and peaceful.
           </h1>
-          <p className="md:mb-40 ml-5 mb-5">
+          <p className="md:mb-40 ml-5 mb-5 md:text-xl">
             Enjoy the tranquility of the authentic Istrian landscape among olive trees, in
             complete privacy and  sense of homeliness in a small luxury villa.
           </p>
           <BookBar />
-          <div className="mt-5 flex items-center justify-between">
-            <div className="md:ml-20 ml-5 flex flex-col items-center ">
+          <div className="py-5 flex items-center md:mt-40 justify-between ">
+            <div className="md:ml-20  ml-5 flex flex-col text-sm md:text-lg items-center ">
               <p>Prices per night start from</p>
-              <p className="md:text-xl mb-5 font-bold">200€</p>
+              <p className="md:text-xl font-bold">200€</p>
             </div>
-            <div className="md:ml-5 flex flex-col items-center justify-start">
+            <div className="md:ml-5 flex flex-col items-center justify-start  ">
               <ul className="flex">
                 {Array(5)
                   .fill(0)
@@ -45,7 +45,7 @@ export default function Home() {
           </div>
         </div>
         <div className="big-image">
-          <img className="h-20px w-40px" src="/main_image.png" alt="Villa" />
+          <img className="h-full object-cover"src="/galerija/1.jpg" alt="Villa" />
         </div>
       </div>
 

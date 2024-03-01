@@ -8,13 +8,13 @@ export default function CheckoutPage() {
     <div className="checkout-page">
       <TopbarCheckout />
       <Details />
-      <div className="my-32 grid grid-cols-1 lg:grid-cols-2 bg-white px-4">
+      <div className="md:my-32 my-16 2xl:mt-48 2xl:mb-32 grid grid-cols-1 lg:grid-cols-2 bg-white px-4 max-w-screen-2xl mx-auto">
         <div className="flex flex-col items-center justify-center lg:px-10">
           <h1 className="text-2xl font-bold text-black">PERSONAL DETAILS</h1>
           <ReservationForm />
         </div>
 
-        <div className="flex flex-col items-center justify-start mt-10 lg:mt-0">
+        <div className="flex flex-col items-center justify-start my-10 lg:mt-0">
           <div className="flex flex-col items-center justify-start">
             <h1 className="mb-10 text-2xl font-bold text-black">PAYMENT METHODS</h1>
             <div className="flex flex-col items-start">

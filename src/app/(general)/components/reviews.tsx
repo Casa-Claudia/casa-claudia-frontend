@@ -1,3 +1,4 @@
+import { Plus } from 'lucide-react';
 import { InfiniteMovingCards } from './moving_cards';
 
 export default function Reviews() {
@@ -8,6 +9,9 @@ export default function Reviews() {
         <div className="flex md:px-10 px-2">
           <InfiniteMovingCards items={reviews} direction="left" speed="slow" />
         </div>
+      </div>
+      <div className="flex items-center justify-center md:justify-end mt-5 md:px-16">
+        <button className="2 text-my-brown hover:text-black flex items-center">Add a review <Plus className='ml-1  h-5'/></button>
       </div>
     </div>
   );
