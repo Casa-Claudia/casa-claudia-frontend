@@ -1,11 +1,11 @@
-import BasicDateRangeCalendar from "./calendar";
+import Cal from "./calendar/calendar";
 
 export default function Booker() {
   return (
     <div className="booker-container bg-khaki md:px-16 px-4 py-10">
       <h1 className="mb-2 text-3xl font-bold text-black">Book your spot</h1>
       <p >Secure, simple and fast</p>
-      <div className ="container max-w-screen-2xl">
+      <div className ="container max-w-screen-lg">
       <div className="flex items-center md:justify-end justify-center mt-4 md:mt-0 gap-4 md:pr-10 md:text-md text-sm">
         <button className="rounded border border-my-white bg-my-brown px-5 py-2 text-my-white">
           Clear dates
@@ -13,7 +13,7 @@ export default function Booker() {
       </div>
       <div className="mt-5 flex items-center justify-center">
         <div className="container w-full text-black">
-          <BasicDateRangeCalendar />
+          <Cal />
         </div>
       </div>
       <div className="mt-5 grid grid-cols-2 md:grid-cols-5 md:px-5 py-2 md:pr-10 gap-2">
