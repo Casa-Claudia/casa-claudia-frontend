@@ -1,6 +1,6 @@
 'use client';
-import React, { useState, useEffect } from 'react';
-import PhotoAlbum, { Photo } from 'react-photo-album';
+import React, { useState } from 'react';
+import { Photo } from 'react-photo-album';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
@@ -9,7 +9,6 @@ import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
 import { images } from './data';
-import Image from 'next/image';
 import Images from './images';
 
 

@@ -1,3 +1,10 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Casa Claudia Privacy Policy',
+};
+
 export default function PrivacyPolicy() {
   return (
     <main className="bg-my-white md:px-32 px-4 py-16">

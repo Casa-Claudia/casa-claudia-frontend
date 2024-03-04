@@ -9,7 +9,6 @@ export default function Cal() {
     return ( 
         <div className='grid md:grid-cols-1 grid-cols-1 gap-1 w-full'> 
             <Calendar
-                onChange={onChange} 
                 value={value} 
                 showDoubleView={true}
             />
