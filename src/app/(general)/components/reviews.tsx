@@ -1,7 +1,17 @@
+"use client";
+import React, { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { InfiniteMovingCards } from './moving_cards';
+import ReviewPopup from './review_popup';
 
 export default function Reviews() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [name, setName] = useState('');
+  const [stars, setStars] = useState(0);
+  const [review, setReview] = useState('');
+
+
+
   return (
     <div className="reviews-container bg-my-white md:px-16 px-4 pb-24 pt-10">
       <h2 className="mb-10 text-3xl font-semibold text-black">Reviews</h2>
@@ -11,8 +21,16 @@ export default function Reviews() {
         </div>
       </div>
       <div className="flex items-center justify-center md:justify-end mt-5 md:px-16">
-        <button className="2 text-my-brown hover:text-black flex items-center">Add a review <Plus className='ml-1  h-5'/></button>
+        <button className="2 text-my-brown hover:text-black flex items-center" onClick={() => setIsPopupOpen(true)}>Add a review <Plus className='ml-1  h-5'/></button>
       </div>
+
+            {isPopupOpen && (
+              <div className="popup-container">
+                <div className="popup">
+                  <ReviewPopup onClick={setIsPopupOpen}/>
+                </div>
+              </div>
+            )}
     </div>
   );
 }
