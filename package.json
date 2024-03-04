@@ -39,7 +39,8 @@
     "react-photo-album": "^2.3.1",
     "styled-components": "^6.1.8",
     "tailwind-merge": "^2.2.1",
-    "yet-another-react-lightbox": "^3.17.0"
+    "yet-another-react-lightbox": "^3.17.0",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/google.maps": "^3.55.3",

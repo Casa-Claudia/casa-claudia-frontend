@@ -1,4 +1,5 @@
-"use client";
+'use client';
+
 import React, { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { InfiniteMovingCards } from './moving_cards';
@@ -10,27 +11,30 @@ export default function Reviews() {
   const [stars, setStars] = useState(0);
   const [review, setReview] = useState('');
 
-
-
   return (
-    <div className="reviews-container bg-my-white md:px-16 px-4 pb-24 pt-10">
+    <div className="reviews-container bg-my-white px-4 pb-24 pt-10 md:px-16">
       <h2 className="mb-10 text-3xl font-semibold text-black">Reviews</h2>
       <div className="review-box w-full overflow-x-auto">
-        <div className="flex md:px-10 px-2">
+        <div className="flex px-2 md:px-10">
           <InfiniteMovingCards items={reviews} direction="left" speed="slow" />
         </div>
       </div>
-      <div className="flex items-center justify-center md:justify-end mt-5 md:px-16">
-        <button className="2 text-my-brown hover:text-black flex items-center" onClick={() => setIsPopupOpen(true)}>Add a review <Plus className='ml-1  h-5'/></button>
+      <div className="mt-5 flex items-center justify-center md:justify-end md:px-16">
+        <button
+          className="2 flex items-center text-my-brown hover:text-black"
+          onClick={() => setIsPopupOpen(true)}
+        >
+          Add a review <Plus className="ml-1  h-5" />
+        </button>
       </div>
 
-            {isPopupOpen && (
-              <div className="popup-container">
-                <div className="popup">
-                  <ReviewPopup onClick={setIsPopupOpen}/>
-                </div>
-              </div>
-            )}
+      {isPopupOpen && (
+        <div className="popup-container">
+          <div className="popup">
+            <ReviewPopup onClick={setIsPopupOpen} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -43,8 +47,7 @@ const reviews = [
     date: '2021-10-10',
   },
   {
-    review:
-      "To be, or not to be, that is the question: W.",
+    review: 'To be, or not to be, that is the question: W.',
     name: 'William S.',
     n_stars: 5,
     date: '2021-10-10',
