@@ -11,7 +11,7 @@ export default function Booker() {
   const isValid = useMemo(() => range[0]?.getTime() < range[1]?.getTime(), [range]);
 
   return (
-    <div className="booker-container bg-khaki px-4 py-10 md:px-16">
+    <div className="booker-container bg-khaki px-4 py-10 md:px-16" id='booker'>
       <h1 className="mb-2 text-3xl font-bold text-black">Book your spot</h1>
       <p>Secure, simple and fast</p>
       <div className="container max-w-screen-lg">

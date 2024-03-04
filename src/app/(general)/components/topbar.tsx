@@ -1,24 +1,9 @@
 'use client';
 import React, { RefObject, useState } from 'react';
 import Link from 'next/link';
-import { useRef } from 'react';
 
-interface Props {
-  contactRef: RefObject<HTMLDivElement>;
-}
-
-export default function Topbar({ contactRef }: Props) {
+export default function Topbar() {
   const [showDropdown, setShowDropdown] = useState(false);
-
-  const handleScroll = (ref: HTMLDivElement | null) => {
-    if (!ref) return;
-    window.scrollTo({
-      top: ref.offsetTop,
-      left: 0,
-      behavior: 'smooth',
-    });
-  };
-
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
@@ -34,12 +19,12 @@ export default function Topbar({ contactRef }: Props) {
         {/* <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800">
           About
         </button> */}
-        <button
+        <Link
           className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800"
-          onClick={() => handleScroll(contactRef.current)}
+          href={"#footer"}
         >
           Contact
-        </button>
+        </Link>
         <div className="relative">
           <button
             className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800"
@@ -79,16 +64,18 @@ export default function Topbar({ contactRef }: Props) {
 
         <Link
           className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800"
-          href="#gallery"
+          href="/#gallery"
         >
           Gallery
         </Link>
       </div>
 
       <div className="md:text-md md:text-medium flex w-1/3 items-center justify-end text-xs lg:text-lg">
-        <button className="rounded-br-lg rounded-tr-lg border-2 border-solid border-my-grey p-1 font-bold text-my-grey transition-all hover:scale-105 hover:font-extrabold md:h-10 md:w-32">
+        <Link className="rounded-br-lg text-center rounded-tr-lg border-2 border-solid border-my-grey p-1 font-bold text-my-grey transition-all hover:scale-105 hover:font-extrabold md:h-10 md:w-32"
+        href={"/#booker"}
+        >
           Book Now
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -1,13 +1,9 @@
 import { Facebook, Instagram } from 'lucide-react';
 import Link from 'next/link';
-import { RefObject } from 'react';
-interface props {
-  contactRef: RefObject<HTMLDivElement>;
-}
 
-export default function Footer(contactRef: props) {
+export default function Footer() {
   return (
-    <div className="footer-container bg-khaki md:px-16 px-4 py-10">
+    <div className="footer-container bg-khaki md:px-16 px-4 py-10" id='footer'>
       <div className="px-5 grid grid-cols-1 md:grid-cols-3 max-w-screen-xl mx-auto">
         <div className="footer-column md:mt-0 flex  flex-col items-center">
           <h3 className="md:text-lg font-bold text-my-white">Contact Us</h3>

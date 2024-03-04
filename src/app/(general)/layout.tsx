@@ -8,12 +8,11 @@ interface Props {
 }
 
 export default function Layout({ children }: Props) {
-  const contactRef = useRef<HTMLDivElement>(null);
   return (
     <>
-      <Topbar contactRef={contactRef} />
+      <Topbar  />
       {children}
-      <Footer contactRef={contactRef}/>
+      <Footer/>
     </>
   );
 }
