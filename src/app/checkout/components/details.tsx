@@ -1,7 +1,13 @@
+"use client";
 import { CalendarDays, FlameKindling, LocateIcon, UserRound, Wallet, Waves } from 'lucide-react';
 import Link from 'next/link';
+import { useCheckoutState } from '@/state/checkout';
 
 export default function Details() {
+  const {range, price} = useCheckoutState();
+
+  const selectedDates = ` ${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
+
   return (
     <div className="details md:max-h-[460px] bg-light-brown">
       <h1 className="md:px-16 px-4 md:text-4xl text-3xl font-bold text-my-black">Complete your booking</h1>
@@ -35,7 +41,7 @@ export default function Details() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-md font-semibold">Price</h3>
-                    <p className=" ml-1 text-sm">750€</p>
+                    <p className=" ml-1 text-sm">{price} €</p>
                   </div>
                 </div>
               </div>
@@ -47,7 +53,7 @@ export default function Details() {
                   <div className="ml-4">
                     <h3 className="text-md font-semibold">Travel period</h3>
                     <p className="ml-1 text-xs">
-                      1.11.2023 - 23.11.2023
+                      {selectedDates}
                     </p>
                   </div>
                 </div>
@@ -87,7 +93,7 @@ export default function Details() {
           <div className="md:mt-16 2xl:mt-20 mt-10 justify-center md:text-md text-sm">
             <p className="text-my-black text-center">
               Not happy with the details? Change your booking{' '}
-              <Link href="/" className="hover:underline">
+              <Link href="/#booker" className="hover:underline">
                 {' '}
                 here.
               </Link>{' '}
