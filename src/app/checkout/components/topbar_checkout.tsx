@@ -2,23 +2,10 @@
 import React, { RefObject, useState } from 'react';
 import Link from 'next/link';
 
-interface Props {
-  contactRef: RefObject<HTMLDivElement>;
-}
 
-export default function Topbar({contactRef}: Props) {
+export default function TopbarCheckout() {
   const [showDropdown, setShowDropdown] = useState(false);
-
-  const handleScroll = (ref:HTMLDivElement|null) => {
-    if (!ref) return;
-    window.scrollTo({
-      top: ref.offsetTop,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
   
-
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
@@ -34,9 +21,12 @@ export default function Topbar({contactRef}: Props) {
         {/* <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800">
           About
         </button> */}
-        <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800" onClick={() => handleScroll(contactRef.current)}>
+        <Link className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800"
+        href={
+          "#footer"
+        }>
           Contact
-        </button>
+        </Link>
         <div className='relative'>
           <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800" onClick={toggleDropdown}>
             Language
