@@ -12,12 +12,19 @@
   }
   
   .react-calendar--doubleView .react-calendar__viewContainer {
-    display: flex;
-    margin: -0.5em;
+    display: grid;
+    gap: 0.5em;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 768px) {
+    .react-calendar--doubleView .react-calendar__viewContainer {
+      grid-template-columns: 1fr;
+    }
   }
   
   .react-calendar--doubleView .react-calendar__viewContainer > * {
-    width: 50%;
+    width: 100%;
     margin: 0.5em;
   }
   
@@ -53,8 +60,17 @@
   
   .react-calendar__navigation button:disabled {
     background-color: #f0f0f0;
+  }
+
+  button:disabled.react-calendar__navigation__prev2-button {
     visibility: hidden;
   }
+
+  button:disabled.react-calendar__navigation__next2-button {
+    visibility: hidden;
+  }
+
+  .react-calendar__navigation__
   
   .react-calendar__navigation button:enabled:hover,
   .react-calendar__navigation button:enabled:focus {
@@ -80,6 +96,7 @@
     font: inherit;
     font-size: 0.75em;
     font-weight: bold;
+
   }
   
   .react-calendar__month-view__days__day--weekend {
