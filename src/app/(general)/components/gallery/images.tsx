@@ -11,7 +11,7 @@ export default function Images({ onClick }: Props) {
   return (
     <main className="viewpoint bg-khaki  px-4 py-10 md:px-16 md:pb-10 md:pt-20" id="gallery">
       <h2 className="mb-4 text-3xl font-semibold text-black">Villa viewpoint</h2>
-      <div className="container mb-10 grid grid-cols-2 gap-4  md:grid-cols-4 lg:grid-cols-7">
+      <div className="container mb-10 grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
         {images.map((image, index) => {
           return (
             <div
