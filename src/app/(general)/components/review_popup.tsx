@@ -14,7 +14,7 @@ export default function ReviewPopup({ onClick }: Props) {
   };
 
   return (
-    <div className="relative mx-auto mt-10 rounded-lg border max-w-screen-sm  border-black bg-white p-8 text-sm text-my-black">
+    <div className=" z-20 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-screen-sm mx-auto rounded-lg border border-black bg-white p-8 text-sm text-black">
             <h2 className="text-xl font-semibold text-black mb-5">Add a review</h2>
             <button onClick={() => onClick(false)} className="absolute top-5 right-5 text-my-brown hover:text-black">
                 <X className="h-5" />
