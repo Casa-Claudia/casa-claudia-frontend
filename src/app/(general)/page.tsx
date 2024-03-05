@@ -26,7 +26,7 @@ export default function Home() {
             complete privacy and  sense of homeliness in a small luxury villa.
           </p>
           <BookBar />
-          <div className="py-5 flex items-center md:mt-40 justify-between md:pr-16 pr-4 ">
+          <div className="py-5 flex items-center md:mt-45 lg:mt-50 justify-between md:pr-16 pr-4 ">
             <div className="md:ml-20  ml-5 flex flex-col text-sm md:text-lg items-center ">
               <p>Prices per night start from</p>
               <p className="md:text-xl font-bold">200€</p>
@@ -45,7 +45,7 @@ export default function Home() {
           </div>
         </div>
         <div className="big-image">
-          <img className="h-full object-cover"src="/galerija/1.jpg" alt="Villa" />
+          <img className="h-[110%] object-cover"src="/galerija/1.jpg" alt="Villa" />
         </div>
       </div>
 

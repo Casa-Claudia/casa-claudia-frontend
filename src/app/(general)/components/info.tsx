@@ -3,7 +3,7 @@ import React from 'react';
 export default function Info() {
   return (
     <div className="bg-my-white md:px-16 px-4 py-16 text-my-black">
-      <div className=" grid grid-cols-2 md:grid-cols-4 max-w-screen-xl mx-auto">
+      <div className=" grid grid-cols-2 md:grid-cols-4 max-w-screen-xl mx-auto md:mt-10">
         <div className="circle flex flex-col items-center mb-4">
           <div className="flex h-24 w-24 items-center justify-center rounded-full border border-my-brown">
             <img src="/guest-logo.svg" alt="guest-logo" />
