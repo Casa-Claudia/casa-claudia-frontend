@@ -9,7 +9,7 @@ export default function Cal() {
   const { range, setRange } = useCheckoutState();
 
   return (
-    <div className="grid w-full grid-cols-1 gap-1 md:grid-cols-1">
+    <div className="flex items-center justify-center w-full">
       <Calendar
         value={range}
         showDoubleView={true}

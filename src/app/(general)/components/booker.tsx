@@ -20,7 +20,7 @@ export default function Booker() {
             Clear dates
           </button>
         </div>
-        <div className="mt-5 flex items-center justify-center">
+        <div className="mt-5 flex items-center justify-center px-4 bg-white">
           <div className="container w-full text-black">
             <Cal />
           </div>
