@@ -15,7 +15,7 @@ export default function Booker() {
       <h1 className="mb-2 text-3xl font-bold text-black">Book your spot</h1>
       <p>Secure, simple and fast</p>
       <div className="container max-w-screen-lg">
-        <div className="md:text-md mt-4 flex items-center justify-center gap-4 text-sm md:mt-0 md:justify-end md:pr-10">
+        <div className="md:text-md mt-4 flex items-center justify-center gap-4 text-sm md:mt-0 md:justify-end ">
           <button className="rounded border border-my-white bg-my-brown px-5 py-2 text-my-white">
             Clear dates
           </button>
@@ -25,7 +25,7 @@ export default function Booker() {
             <Cal />
           </div>
         </div>
-        <div className="mt-5 grid grid-cols-2 gap-2 py-2 md:grid-cols-5 md:px-5 md:pr-10">
+        <div className="mt-5 grid grid-cols-2 gap-2 py-2 md:grid-cols-5 md:px-5">
           <div className="col-span-2 md:col-span-1">
             <p className="text-xl font-semibold text-black">Selected dates:</p>
             <p className="font-semibold text-my-white">1.11.2023 - 23.11.2023</p>

@@ -15,6 +15,8 @@ export default function Cal() {
         showDoubleView={true}
         onChange={(e: any) => setRange(e)}
         selectRange={true}
+        maxDate={new Date(2024, 11, 31)}
+        minDate={new Date()}
       />
     </div>
   );
