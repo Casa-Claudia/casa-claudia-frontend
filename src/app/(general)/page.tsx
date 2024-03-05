@@ -1,3 +1,4 @@
+import { Metadata} from 'next';
 // icons
 import { Star } from 'lucide-react';
 
@@ -10,6 +11,12 @@ import Location from './components/location';
 import Booker from './components/booker';
 import Reviews from './components/reviews';
 import Gallery from './components/gallery';
+
+
+export const metadata: Metadata = {
+  title: 'Casa Claudia Villa',
+  description: 'Casa Claudia Villa in Istria, Croatia. Enjoy the tranquility of the authentic Istrian landscape among olive trees, in complete privacy and  sense of homeliness in a small luxury villa.',
+};
 
 export default function Home() {
   return (
