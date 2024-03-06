@@ -9,11 +9,11 @@ export default function Booker() {
   const { range, setPrice, setRange } = useCheckoutState();
   const pricePerNight = 300;
 
-  const isValid = useMemo(() => range[0] !== null && range[1] !== null && range[0]?.getTime() < range[1]?.getTime(), [range]);
   const firstDate = range[0]?.toLocaleDateString();
   const secondDate = range[1]?.toLocaleDateString();
+  const timeDiff = Math.round((range[1]?.getTime() - range[0]?.getTime()) / (1000 * 60 * 60 * 24))
+  const isValid = useMemo(() => range[0] !== null && range[1] !== null && range[0]?.getTime() < range[1]?.getTime() && timeDiff > 1, [range]);
   const selectedDates = isValid? `${firstDate} - ${secondDate}`: 'No dates selected';
-  const timeDiff = Math.round((range[1].getTime() - range[0].getTime()) / (1000 * 60 * 60 * 24))
 
   const price = isValid? pricePerNight * timeDiff: 0;
 
