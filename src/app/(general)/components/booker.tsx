@@ -6,15 +6,20 @@ import Link from 'next/link';
 import { useMemo } from 'react';
 
 export default function Booker() {
-  const { range, setPrice } = useCheckoutState();
+  const { range, setPrice, setRange } = useCheckoutState();
   const pricePerNight = 300;
 
-  const isValid = useMemo(() => range[0]?.getTime() < range[1]?.getTime(), [range]);
+  const isValid = useMemo(() => range[0] !== null && range[1] !== null && range[0]?.getTime() < range[1]?.getTime(), [range]);
   const firstDate = range[0]?.toLocaleDateString();
   const secondDate = range[1]?.toLocaleDateString();
   const selectedDates = isValid? `${firstDate} - ${secondDate}`: 'No dates selected';
+  const timeDiff = Math.round((range[1].getTime() - range[0].getTime()) / (1000 * 60 * 60 * 24))
 
-  const price = isValid? pricePerNight * Math.round((range[1].getTime() - range[0].getTime()) / (1000 * 60 * 60 * 24)): 0;
+  const price = isValid? pricePerNight * timeDiff: 0;
+
+  const clearDates = (setRange:(range:[Date, Date]) => void) => {
+    setRange([new Date(), new Date()]);
+  };
 
 
 
@@ -24,7 +29,8 @@ export default function Booker() {
       <p>Secure, simple and fast</p>
       <div className="container max-w-screen-lg">
         <div className="md:text-md mt-4 flex items-center justify-center gap-4 text-sm md:mt-0 md:justify-end ">
-          <button className="rounded border border-my-white bg-my-brown px-5 py-2 text-my-white">
+          <button className="rounded border border-my-white bg-my-brown px-5 py-2 text-my-white"
+          onClick={()=> clearDates(setRange)}>
             Clear dates
           </button>
         </div>
