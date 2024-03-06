@@ -28,9 +28,9 @@ export default function ReviewPopup({ onClick }: Props) {
       }, [name, rating, review]);
       
   return (
-    <div className=" z-20 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-screen-sm mx-auto rounded-lg border border-black bg-white p-8 text-sm text-black">
+    <div className=" z-20 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-screen-sm mx-auto rounded-lg border border-black bg-white md:p-8 py-6 px-4 text-sm text-black">
             <h2 className="text-xl font-semibold text-black mb-5">Add a review</h2>
-            <button onClick={() => onClick(false)} className="absolute top-5 right-5 text-my-brown hover:text-black">
+            <button onClick={() => onClick(false)} className="absolute md:top-5 md:right-5 right-2 top-2 text-my-brown hover:text-black">
                 <X className="h-5" />
             </button>
         <form>
@@ -78,7 +78,7 @@ export default function ReviewPopup({ onClick }: Props) {
             onChange={(e:any) =>setReview(e.target.value)}
             ></textarea>
         </div>
-        <div className="flex justify-end mt-5">
+        <div className="flex md:justify-end justify-center mt-5">
             <button
             aria-disabled={!isValid}
             type="submit"
