@@ -1,4 +1,5 @@
 export default function ReservationForm() {
+  const isValid = false;
   return (
     <div className="mx-auto mt-10 rounded-lg border  border-black bg-white p-8 text-sm text-my-black">
       <form>
@@ -129,6 +130,9 @@ export default function ReservationForm() {
             className="w-full rounded-xl border px-3 py-2"
             rows={6}
           ></textarea>
+        </div>
+        <div className="flex justify-center mt-4 text-red-400">
+          {!isValid && <p>Please fill out the form</p>}
         </div>
       </form>
     </div>
