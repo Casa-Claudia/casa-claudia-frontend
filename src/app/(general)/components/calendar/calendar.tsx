@@ -7,14 +7,26 @@ import { useCheckoutState } from '@/state/checkout';
 
 export default function Cal() {
   const { range, setRange } = useCheckoutState();
-  const fullDates = [ new Date(2024,3,9), new Date(2024,3,20), new Date(2024,3,11) ];
-
+  const fullDates = [ new Date(2024,2,9), new Date(2024,2,27), new Date(2024,2,11) ];
+  console.log(new Date(2024,3,9));
+  
   const disableDates= (date:Date, fullDates:Date[]) => {
     if (date.getDay() != 6) return true;
-    return anyDateSame(date, fullDates);
-  };
-  const anyDateSame = (date:Date, fullDates:Date[]) => {
     return fullDates.some(fullDate => date.getTime() === fullDate.getTime());
+  };
+
+  const checkIfValidRange = (range:[Date, Date], fullDates: Date[], setRange: (range: [Date, Date]) => void) => {
+    const [start, end] = range;
+    if (!start || !end) return;
+  
+    const isInvalidRange = fullDates.some(date => start.getTime() < date.getTime() && end.getTime() > date.getTime());
+  
+    if (isInvalidRange) {
+      console.log('not valid range');
+      setRange([end, end]);
+    } else {
+      setRange(range);
+    }
   };
 
 
@@ -24,7 +36,7 @@ export default function Cal() {
       <Calendar
         value={range}
         showDoubleView={true}
-        onChange={(e: any) => setRange(e)}
+        onChange={(e: any) => checkIfValidRange(e, fullDates, setRange)}
         selectRange={true}
         maxDate={new Date(2024, 11, 31)}
         minDate={new Date()}
