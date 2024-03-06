@@ -1,8 +1,7 @@
 export default function ReservationForm() {
-  const isValid = false;
+
   return (
     <div className="mx-auto mt-10 rounded-lg border  border-black bg-white p-8 text-sm text-my-black">
-      <form>
         <div className="flex flex-wrap justify-between gap-2">
           <div className="mb-4 ">
             <label htmlFor="name" className="ml-1 block text-my-grey">
@@ -131,10 +130,9 @@ export default function ReservationForm() {
             rows={6}
           ></textarea>
         </div>
-        <div className="flex justify-center mt-4 text-red-400">
+        {/* <div className="flex justify-center mt-4 text-red-400">
           {!isValid && <p>Please fill out the form</p>}
-        </div>
-      </form>
+        </div> */}
     </div>
   );
 }
