@@ -43,7 +43,7 @@ export default function Location() {
           </div>
         </div>
       </div>
-      <div className="h-[100px] bg-khaki"></div>
+      <div className="h-[100px] hidden lg:flex bg-khaki"></div>
     </div>
   );
 }
