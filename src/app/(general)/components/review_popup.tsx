@@ -1,21 +1,26 @@
 import React from "react";
 import { X } from "lucide-react";
 import { useReviewState } from "@/state/review";
-import { useMemo } from "react";
+import { useMemo, useState, FormEvent } from "react";
 
 interface Props {
   onClick: (value: boolean) => void;
 }
 
 export default function ReviewPopup({ onClick }: Props) {
-    const [formFilled, setFormFilled] = React.useState(false);
+    const [formFilled, setFormFilled] = useState(false);
 
     const { name, setName, rating, setRating, review, setReview } = useReviewState();
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     // Here you can handle the form submission, for example, send the data to your backend
     console.log("Form submitted!");
+    console.log(name, rating, review);
+    setRating(0);
+    setName("");
+    setReview("");
     onClick(false);
+    // window.alert("Thank you for your feedback!");
     };
 
     const isValid = useMemo(() => {
@@ -31,7 +36,7 @@ export default function ReviewPopup({ onClick }: Props) {
         <form>
         <div className="flex flex-wrap justify-between gap-2">
             <div className="mb-4 ">
-                <label htmlFor="name" className="ml-1 block text-my-grey" onChange={(e:any) =>setName(e)}>
+                <label htmlFor="name" className="ml-1 block text-my-grey">
                     Name
                 </label>
                 <input
@@ -39,7 +44,8 @@ export default function ReviewPopup({ onClick }: Props) {
                     id="name"
                     name="name"
                     className=" border-1 border-light-gray w-full rounded-xl border px-3 py-2"
-                    required
+                    required = {true}
+                    onChange={(e:any) =>setName(e.target.value)}
                 />
             </div>
             <div className="mb-4 ">
@@ -53,8 +59,8 @@ export default function ReviewPopup({ onClick }: Props) {
                     min={1}
                     max={5}
                     className="w-full rounded-xl border px-3 py-2"
-                    required
-                    onChange={(e:any) =>setRating(e)}
+                    required = {true}
+                    onChange={(e:any) =>setRating(e.target.value)}
                 />
             </div>
         </div>
@@ -68,7 +74,8 @@ export default function ReviewPopup({ onClick }: Props) {
             name="review"
             className="w-full rounded-xl border px-3 py-2"
             rows={6}
-            required
+            required = {true}
+            onChange={(e:any) =>setReview(e.target.value)}
             ></textarea>
         </div>
         <div className="flex justify-end mt-5">
@@ -76,9 +83,7 @@ export default function ReviewPopup({ onClick }: Props) {
             aria-disabled={!isValid}
             type="submit"
             onClick={handleSubmit}
-            className="bg-my-brown aria-disabled:opacity-50 aria-disabled:pointer-events-none text-white px-5 py-2 rounded-lg"
-            onChange={(e:any) =>setReview(e)}
-            >
+            className="bg-my-brown aria-disabled:opacity-50 aria-disabled:pointer-events-none text-white px-5 py-2 rounded-lg">
             Submit
             </button>
         </div>
