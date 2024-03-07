@@ -130,18 +130,14 @@
     font-size: 0.833em;
   }
 
-  .react-calendar__tile.start {
+  /* .react-calendar__tile.start {
     background: linear-gradient(to top right, red 50%, green 50%);
 }
 
 .react-calendar__tile.end {
     background: linear-gradient(to bottom left, red 50%, green 50%);
-}
+} */
 
-.react-calendar__tile.start.end {
-    background-color: transparent; /* Reset background color */
-    color: blueviolet; /* In case the color needs to be different */
-}
 
 
 

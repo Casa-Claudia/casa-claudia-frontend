@@ -22,7 +22,12 @@ export default function Cal() {
 
   const checkIfValidRange = (range:[Date, Date], ReservedDates: DateRange[], setRange: (range: [Date, Date]) => void) => {
     const [start, end] = range;
-    if (!start || !end) return;
+    console.log(start, end);
+    if (!start || !end) {
+      setRange([start,start]);
+      return;
+    }
+    
   
     const isInvalidRange = ReservedDates.some(({ start:s, end: e }) => 
     start.getTime()<=s.getTime() && end.getTime()>s.getTime() 
@@ -48,7 +53,6 @@ export default function Cal() {
           const date = abbrElementStart.getAttribute('aria-label');
 
           if (date) {
-              console.log(date);
               const isStart = ReservedDates.some(({ start, end }) => {
                   return new Date(date).getTime() === start.getTime();
               });
