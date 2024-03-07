@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import './styles.css';
 import { useCheckoutState } from '@/state/checkout';
@@ -36,6 +36,45 @@ export default function Cal() {
       setRange(range);
     }
   };
+
+  useEffect(() => {
+    const [start, end] = range;
+    if (!start && !end) return;
+
+    const tiles = document.querySelectorAll('.react-calendar__tile');
+    tiles.forEach((tile) => {
+      const abbrElementStart = tile.querySelector('abbr');
+      if (abbrElementStart) {
+          const date = abbrElementStart.getAttribute('aria-label');
+
+          if (date) {
+              console.log(date);
+              const isStart = ReservedDates.some(({ start, end }) => {
+                  return new Date(date).getTime() === start.getTime();
+              });
+              const isEnd = ReservedDates.some(({ start, end }) => {
+                  return new Date(date).getTime() === end.getTime();
+              });
+
+              if (isStart && isEnd) {
+                  tile.disabled = true;
+              }
+              else if (isStart) {
+                  tile.classList.add('start');
+              }
+              else if (isEnd) {
+                  tile.classList.add('end');
+              }
+          } else {
+              console.log('aria-label attribute not found');
+          }
+      } else {
+          console.log('abbr element not found in tile');
+      }
+    });
+
+}, [ReservedDates, range]);
+
 
 
 

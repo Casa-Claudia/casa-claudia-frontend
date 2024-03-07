@@ -12,5 +12,9 @@ export const ReservedDates: DateRange[] = [
     {
         start: new Date(2024, 3, 13),
         end: new Date(2024, 3, 27)
+    },
+    {
+        start: new Date(2024, 3, 27),
+        end: new Date(2024, 4, 18)
     }
 ];
