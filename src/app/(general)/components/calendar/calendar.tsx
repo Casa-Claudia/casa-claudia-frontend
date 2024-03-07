@@ -41,7 +41,7 @@ export default function Cal() {
     const [start, end] = range;
     if (!start && !end) return;
 
-    const tiles = document.querySelectorAll('.react-calendar__tile');
+    const tiles = document.querySelectorAll('.react-calendar__tile') as NodeListOf<HTMLButtonElement>;
     tiles.forEach((tile) => {
       const abbrElementStart = tile.querySelector('abbr');
       if (abbrElementStart) {
