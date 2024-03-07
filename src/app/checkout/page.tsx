@@ -26,7 +26,7 @@ export default function CheckoutPage() {
               <div className="flex flex-col items-start">
                 <div className="flex max-w-[590px]  justify-between rounded-lg border border-black lg:px-12 px-6 py-5 md:py-10">
                   <div className="flex items-center justify-center">
-                    <input type="checkbox" id="creditCard" className="mr-3 h-3 w-3 lg:h-4 lg:w-4" />
+                    <input type="checkbox" id="creditCard" className="mr-3 h-3 w-3 lg:h-4 lg:w-4" required={true} />
                     <label htmlFor="creditCard" className="text-lg font-semibold text-black">
                       CREDIT CARD
                     </label>
@@ -36,14 +36,14 @@ export default function CheckoutPage() {
                   </div>
                 </div>
 
-                <div className="mt-8 flex  w-full max-w-[590px] justify-between rounded-lg border border-black lg:px-12 px-6 py-5 md:py-10">
+                {/* <div className="mt-8 flex  w-full max-w-[590px] justify-between rounded-lg border border-black lg:px-12 px-6 py-5 md:py-10">
                   <div className="flex items-center justify-center">
                     <input type="checkbox" id="creditCard" className="mr-3 h-3 w-3 lg:h-4 lg:w-4" />
                     <label htmlFor="creditCard" className="text-lg font-semibold text-black">
                       CASH
                     </label>
                   </div>
-                </div>
+                </div> */}
                 <div className="mt-6 flex items-center justify-center px-12">
                   <input type="checkbox" id="creditCard" className="mr-3 h-3 w-3" required={true} />
                   <label htmlFor="creditCard" className="text-sm text-my-light-grey">
