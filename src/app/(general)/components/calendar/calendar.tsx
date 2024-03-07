@@ -7,8 +7,7 @@ import { useCheckoutState } from '@/state/checkout';
 
 export default function Cal() {
   const { range, setRange } = useCheckoutState();
-  const fullDates = [ new Date(2024,2,9), new Date(2024,2,27), new Date(2024,2,11) ];
-  console.log(new Date(2024,3,9));
+  const fullDates = [ new Date(2024,2,16)];
   
   const disableDates= (date:Date, fullDates:Date[]) => {
     if (date.getDay() != 6) return true;
