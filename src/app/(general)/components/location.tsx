@@ -34,9 +34,9 @@ export default function Location() {
           </ul>
         </div>
         <div className="map container z-10 mt-4 h-[200px] w-full px-4 lg:absolute lg:left-1/2 lg:top-20 lg:mt-0 lg:h-[400px] lg:w-[600px] lg:-translate-x-1 ">
-          <div id="map" className="h-full w-full">
+          <div id="map" className="h-full w-full shadow-lg">
             <GoogleMapReact
-              bootstrapURLKeys={{ key: apiKey }}
+              bootstrapURLKeys={{ key: apiKey ? apiKey: ''}}
               defaultCenter={center}
               defaultZoom={11}
             ></GoogleMapReact>

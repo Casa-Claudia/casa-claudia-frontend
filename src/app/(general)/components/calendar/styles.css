@@ -207,9 +207,14 @@
     background: #1087ff;
   }
 
+  .react-calendar__tile--active--start:enabled:hover.react-calendar__tile--startRange,
+  .react-calendar__tile--active:enabled:focus.react-calendar__tile--startRange {
+    background: #1087ff;
+  }
+
   .react-calendar__tile--active:disabled,
   .react-calendar__tile--active:disabled {
-    background: #ADD8E6;
+    background: #e6e6e6;
   }
 
   
