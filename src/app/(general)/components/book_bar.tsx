@@ -1,6 +1,6 @@
 "use client";
 import { useCheckoutState } from "@/state/checkout";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Cal from "./calendar/calendar";
 
@@ -22,6 +22,12 @@ export default function BookBar() {
     // Open the window
     setIsWindowOpen(!isWindowOpen);
   };
+
+  useEffect(() => {
+    if (isValid) {
+      setIsWindowOpen(false);
+    }
+  }, [isValid]);
 
   return (
     <main>
