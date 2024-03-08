@@ -4,7 +4,7 @@ import { Fish, RollerCoaster, Soup, Target } from 'lucide-react';
 import GoogleMapReact from 'google-map-react';
 
 const center: google.maps.LatLngLiteral = { lat: 30, lng: -110 };
-let apiKey: string = 'AIzaSyDWpxDQcMf1vIkR8zCqCiZFKk-lImBuGws';
+let apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
 export default function Location() {
   return (
