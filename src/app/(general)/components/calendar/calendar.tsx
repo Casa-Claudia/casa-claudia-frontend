@@ -10,6 +10,7 @@ import { DateRange } from './data';
 
 export default function Cal() {
   const { range, setRange } = useCheckoutState();
+  const [changedMonth, setChangedMonth]= useState(false);
   
   const disableDates= (date:Date, ReservedDates: DateRange[]) => {
     if (date.getDay() != 6) return true;
@@ -17,7 +18,6 @@ export default function Cal() {
     return ReservedDates.some(({ start, end }) => 
       date.getTime() > start.getTime() && date.getTime() < end.getTime()
     );
-
   };
 
   const checkIfValidRange = (range:[Date, Date], ReservedDates: DateRange[], setRange: (range: [Date, Date]) => void) => {
@@ -43,9 +43,6 @@ export default function Cal() {
   };
 
   useEffect(() => {
-    const [start, end] = range;
-    if (!start && !end) return;
-
     const tiles = document.querySelectorAll('.react-calendar__tile') as NodeListOf<HTMLButtonElement>;
     tiles.forEach((tile) => {
       const abbrElementStart = tile.querySelector('abbr');
@@ -77,7 +74,7 @@ export default function Cal() {
       }
     });
 
-}, [ReservedDates, range]);
+}, [changedMonth, range]);
 
 
 
@@ -95,6 +92,7 @@ export default function Cal() {
         prev2Label={null}
         tileDisabled={	({ activeStartDate, date, view }) => disableDates(date, ReservedDates)}
         allowPartialRange={true}
+        onActiveStartDateChange={({ action, activeStartDate, value, view }) =>{if (view==='month') setChangedMonth(!changedMonth)}}
       />
     </div>
   );
