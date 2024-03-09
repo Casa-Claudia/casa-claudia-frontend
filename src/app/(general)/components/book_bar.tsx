@@ -47,7 +47,7 @@ export default function BookBar() {
             <p className="text-my-light-grey text-sm text-center">{selectedDates}</p>
             {isWindowOpen && (
             <div className="mt-5 flex absolute popup top-full left-0 items-center justify-center pl-1 pr-4 bg-white">
-              <div className="container w-[600px] text-black">
+              <div className="container w-[700px] text-black">
                 <Cal />
               </div>
             </div>
