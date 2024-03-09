@@ -15,19 +15,20 @@ export default function ReviewPopup({ onClick }: Props) {
 
     const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    const firstName = name.split(" ")[0];
+    const lastName = name.split(" ")[1];
     try {
-        const response = await fetch("/api/reviews", {
+        const response = await fetch("http://localhost:4444/api/v1/review", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ name, rating, review }),
+          body: JSON.stringify({ firstName, lastName, rating, review }),
         });
   
         if (!response.ok) {
           throw new Error("Failed to submit review");
         }
-  
         console.log("Review submitted successfully!");
         onClick(false); // Close the popup after submission
       } catch (error) {
