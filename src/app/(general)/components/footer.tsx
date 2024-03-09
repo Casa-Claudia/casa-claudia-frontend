@@ -32,13 +32,13 @@ export default function Footer() {
         </div>
         <div className="footer-column md:mt-0 mt-5 flex  flex-col items-center">
           <h3 className="md:text-lg font-bold text-my-white">Social Media</h3>
-          <div className="button-container mt-2">
-            <button className="mr-2 text-my-white hover:text-my-black">
+          <div className="button-container mt-2 flex">
+            <Link className="mr-2 text-my-white hover:text-my-black" target='_blank' href={"https://www.facebook.com/KlubKulturnihUstvarjalcev/"}>
               <Facebook className="text-my-white hover:text-black" />
-            </button>
-            <button className="text-my-white hover:text-my-black">
+            </Link>
+            <Link className="text-my-white hover:text-my-black" target='_blank' href={"https://www.facebook.com/KlubKulturnihUstvarjalcev/"}>
               <Instagram className="text-my-white hover:text-black" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

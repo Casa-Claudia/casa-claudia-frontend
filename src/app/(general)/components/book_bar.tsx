@@ -46,7 +46,7 @@ export default function BookBar() {
             <button onClick={toggleCalendar} className="mb-0.5 transform font-semibold hover:scale-105">Check in date - Check out date</button>
             <p className="text-my-light-grey text-sm text-center">{selectedDates}</p>
             {isWindowOpen && (
-            <div className="mt-5 flex absolute popup top-full left-0 items-center justify-center px-4 bg-white">
+            <div className="mt-5 flex absolute popup top-full left-0 items-center justify-center pl-1 pr-4 bg-white">
               <div className="container w-[600px] text-black">
                 <Cal />
               </div>
