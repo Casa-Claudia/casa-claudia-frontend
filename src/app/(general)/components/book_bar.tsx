@@ -31,7 +31,7 @@ export default function BookBar() {
 
   return (
     <main>
-      <div className="relative z-10 hidden md:flex justify-between h-[80px] w-[133%] items-center bg-my-white text-my-grey overflow-visible">
+      <div className="relative z-10 hidden lg:flex justify-between h-[80px] w-[133%] items-center bg-my-white text-my-grey overflow-visible">
         <div className="flex w-1/3 items-start px-4 py-2">
           <img className="mr-2" src="/Location.svg" alt="Location" />
           <div className="flex flex-col">
