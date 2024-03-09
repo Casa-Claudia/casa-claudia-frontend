@@ -35,7 +35,6 @@ export default function TopbarCheckout() {
             <div className="absolute top-full left-0 mt-1 bg-white rounded-md shadow-lg">
               <button className="block w-full text-center px-2 md:px-3 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => setShowDropdown(false)}>English</button>
               <button className="block w-full text-center px-2 md:px-3 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => setShowDropdown(false)}>German</button>
-              <button className="block w-full text-center px-2 md:px-3 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => setShowDropdown(false)}>Croatian</button>
               <button className="block w-full text-center px-2 md:px-3 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => setShowDropdown(false)}>Slovene</button>
             </div>
           )}

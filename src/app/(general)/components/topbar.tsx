@@ -50,12 +50,6 @@ export default function Topbar() {
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
                 onClick={() => setShowDropdown(false)}
               >
-                Croatian
-              </button>
-              <button
-                className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
-                onClick={() => setShowDropdown(false)}
-              >
                 Slovene
               </button>
             </div>
