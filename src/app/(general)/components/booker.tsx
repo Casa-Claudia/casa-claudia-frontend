@@ -1,13 +1,13 @@
 'use client';
 
 import Cal from './calendar/calendar';
+import { PriceData, priceData } from './calendar/priceData';
 import { useCheckoutState } from '@/state/checkout';
 import Link from 'next/link';
 import { useMemo } from 'react';
 
 export default function Booker() {
   const { range, setPrice, setRange } = useCheckoutState();
-  const pricePerNight = 300;
 
   const firstDate = range[0]?.toLocaleDateString();
   const secondDate = range[1]?.toLocaleDateString();
@@ -15,7 +15,28 @@ export default function Booker() {
   const isValid = useMemo(() => range[0] !== null && range[1] !== null && range[0]?.getTime() < range[1]?.getTime() && timeDiff > 1, [range]);
   const selectedDates = isValid? `${firstDate} - ${secondDate}`: 'No dates selected';
 
-  const price = isValid? pricePerNight * timeDiff: 0;
+
+  const calculatePrice = (priceData: PriceData[], range: [Date, Date]): number => {
+    const [selectedStartDate, selectedEndDate] = range;
+    let totalPrice = 0;
+
+    priceData.forEach(data => {
+        const { start, end, price } = data;
+        // Check if the date range overlaps with the selected range
+        if (start <= selectedEndDate && end >= selectedStartDate) {
+            // Calculate the overlap days
+            const overlapStart = selectedStartDate > start ? selectedStartDate : start;
+            const overlapEnd = selectedEndDate < end ? selectedEndDate : end;
+            const overlapDays = Math.ceil((overlapEnd.getTime() - overlapStart.getTime()) / (1000 * 60 * 60 * 24));
+            // Add the price for the overlap days
+            totalPrice += price * overlapDays;
+        }
+    });
+
+    return totalPrice;
+};
+
+  const price = isValid? calculatePrice(priceData, range): 0;
 
   const clearDates = (setRange:(range:[Date, Date]) => void) => {
     setRange([new Date(), new Date()]);

@@ -1,11 +1,11 @@
-export interface priceData {
+export interface PriceData {
     start: Date;
     end: Date;
     price: number;
 }
 
 
-export const priceData: priceData[] = [
+export const priceData: PriceData[] = [
     {
         start: new Date(2024, 0, 7),
         end: new Date(2024, 3, 14),
