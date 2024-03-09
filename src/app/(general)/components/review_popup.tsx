@@ -1,6 +1,5 @@
 import React from "react";
 import { X } from "lucide-react";
-import { useReviewState } from "@/state/review";
 import { useMemo, useState, FormEvent } from "react";
 
 interface Props {
@@ -8,24 +7,41 @@ interface Props {
 }
 
 export default function ReviewPopup({ onClick }: Props) {
-    const [formFilled, setFormFilled] = useState(false);
+    const [name, setName] = useState("");
+    const [rating, setRating] = useState(0);
+    const [review, setReview] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
-    const { name, setName, rating, setRating, review, setReview } = useReviewState();
-    const handleSubmit = (e: FormEvent) => {
+
+    const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // Here you can handle the form submission, for example, send the data to your backend
-    console.log("Form submitted!");
-    console.log(name, rating, review);
-    setRating(0);
-    setName("");
-    setReview("");
-    onClick(false);
-    // window.alert("Thank you for your feedback!");
+    try {
+        const response = await fetch("/api/reviews", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, rating, review }),
+        });
+  
+        if (!response.ok) {
+          throw new Error("Failed to submit review");
+        }
+  
+        console.log("Review submitted successfully!");
+        onClick(false); // Close the popup after submission
+      } catch (error) {
+        console.error("Error submitting review:", error);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
+
+
     const isValid = useMemo(() => {
-        return Boolean(name) && Boolean(rating) && Boolean(review);
-      }, [name, rating, review]);
+        return name && rating && review;
+    }, [name, rating, review]);
       
   return (
     <div className=" z-20 fixed w-4/5 md:w-3/5 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-screen-sm mx-auto rounded-lg border border-black bg-white md:p-8 py-6 px-4 text-sm text-black">
@@ -33,7 +49,7 @@ export default function ReviewPopup({ onClick }: Props) {
             <button onClick={() => onClick(false)} className="absolute md:top-5 md:right-5 right-2 top-2 text-my-brown hover:text-black">
                 <X className="h-5" />
             </button>
-        <form>
+        <form onSubmit={handleSubmit}>
         <div className="flex flex-wrap justify-between gap-2">
             <div className="mb-4 ">
                 <label htmlFor="name" className="ml-1 block text-my-grey">
@@ -82,7 +98,6 @@ export default function ReviewPopup({ onClick }: Props) {
             <button
             aria-disabled={!isValid}
             type="submit"
-            onClick={handleSubmit}
             className="bg-my-brown aria-disabled:opacity-50 aria-disabled:pointer-events-none text-white px-5 py-2 rounded-lg">
             Submit
             </button>
