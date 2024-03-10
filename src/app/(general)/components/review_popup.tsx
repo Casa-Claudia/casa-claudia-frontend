@@ -14,29 +14,29 @@ export default function ReviewPopup({ onClick }: Props) {
 
 
     const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    const first_name = name.split(" ")[0];
-    const last_name = name.split(" ")[1];
-    try {
-        const response = await fetch("http://localhost:4444/api/v1/review", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ first_name, last_name, rating, comment}),
-        });
-  
-        const data = await response.json();
-      
-        if (data.success) {
-          console.log('Review submitted successfully!');
-          onClick(false);
-        } else {
-          window.alert('Something went wrong. Please try again.');
+      e.preventDefault();
+      const first_name = name.split(" ")[0];
+      const last_name = name.split(" ")[1];
+      try {
+          const response = await fetch("http://localhost:4444/api/v1/review", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ first_name, last_name, rating, comment}),
+          });
+    
+          const data = await response.json();
+        
+          if (data.success) {
+            console.log('Review submitted successfully!');
+            onClick(false);
+          } else {
+            window.alert('Something went wrong. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error:', error);
         }
-      } catch (error) {
-        console.error('Error:', error);
-      }
     };
 
     const isValid = useMemo(() => {

@@ -11,6 +11,32 @@ export default function Reviews() {
   const [stars, setStars] = useState(0);
   const [review, setReview] = useState('');
 
+  const loadReviews = async () => {
+    try {
+        const response = await fetch("http://localhost:4444/api/v1/review", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await response.json();
+        console.log(data);
+      
+        if (data.success) {
+          console.log(data.reviews);
+          return data.reviews;
+        } else {
+          window.alert('Something went wrong. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    const goodReviews = loadReviews();
+
+
+
   return (
     <div className="reviews-container bg-my-white px-4 pb-24 pt-10 md:px-16">
       <h2 className="mb-10 text-3xl font-semibold text-black">Reviews</h2>
