@@ -13,3 +13,13 @@ export interface Client {
     price: number;
     comment: string;
 }
+
+export interface FullDates {
+    start: Date;
+    end: Date;
+}
+
+export interface ApiResponseDates {
+    success: boolean;
+    data: FullDates[];
+}

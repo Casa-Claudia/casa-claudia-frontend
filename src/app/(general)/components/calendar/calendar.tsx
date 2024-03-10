@@ -1,31 +1,58 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect, use } from 'react';
 import Calendar from 'react-calendar';
 import './styles.css';
 import { useCheckoutState } from '@/state/checkout';
 import { PriceData, priceData } from './priceData';
-
-import { ReservedDates } from './data';
-import { DateRange } from './data';
+import { FullDates, ApiResponseDates } from '@/api/clients/clients';
 
 export default function Cal() {
   const { range, setRange } = useCheckoutState();
   const [changedMonth, setChangedMonth]= useState(false);
-  const rangeRef = useRef(range);
-  const counterRef = useRef(0);
+
+  const [fullDates, setFullDates] = useState([] as FullDates[]);
+
+  useEffect(() => {
+    console.log('useEffect', fullDates);
+    const loadDates = async () => {
+      try {
+        const response = await fetch("http://localhost:4444/api/v1/client", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data: ApiResponseDates = await response.json()
+        console.log(data);
+      
+        if (data.success) {
+          const formattedDates = data.data.map(({ start, end }) => ({
+            start: new Date(start),
+            end: new Date(end)
+          }));
+          setFullDates(formattedDates);
+        } else {
+          window.alert('Something went wrong. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    loadDates();
+  }, []);
   
-  const disableDates= (date:Date, ReservedDates: DateRange[]) => {
+  const disableDates = (date:Date, fullDates: FullDates[]) => {
     if (date.getDay() != 6) return true;
-    // disale the days between the ranges
-    return ReservedDates.some(({ start, end }) => 
-      date.getTime() > start.getTime() && date.getTime() < end.getTime()
+    return fullDates.some(({ start, end }) => 
+      date.getTime() > start?.getTime() && date.getTime() < end?.getTime()
     );
   };
 
   const priceOfDay = (date: Date, priceData: PriceData[]): number => {
     const price = priceData.find(({ start, end }) => {
-      return date.getTime() >= start.getTime() && date.getTime() <= end.getTime();
+      return date.getTime() >= start?.getTime() && date.getTime() <= end?.getTime();
     });
     return price ? price.price : 0;
   }
@@ -37,7 +64,7 @@ export default function Cal() {
     }
   }
 
-  const checkIfValidRange = (range:[Date, Date], ReservedDates: DateRange[], setRange: (range: [Date, Date]) => void) => {
+  const checkIfValidRange = (range:[Date, Date], fullDates: FullDates[], setRange: (range: [Date, Date]) => void) => {
     const [start, end] = range;
     console.log(start, end);
     if (!start || !end) {
@@ -45,9 +72,9 @@ export default function Cal() {
       return;
     }
     
-    const isInvalidRange = ReservedDates.some(({ start:s, end: e }) => 
-    start.getTime()<=s.getTime() && end.getTime()>s.getTime() 
-    && start.getTime()<e.getTime() && end.getTime()>=e.getTime()
+    const isInvalidRange = fullDates.some(({ start:s, end: e }) => 
+    start.getTime()<=s?.getTime() && end.getTime()>s?.getTime() 
+    && start.getTime()<e?.getTime() && end.getTime()>=e?.getTime()
     );
   
     if (isInvalidRange) {
@@ -67,11 +94,11 @@ export default function Cal() {
         const date = abbrElement.getAttribute('aria-label');
   
         if (date) {
-          const isStart = ReservedDates.some(({ start, end }) => {
-            return new Date(date).getTime() === start.getTime();
+          const isStart = fullDates.some(({ start, end }) => {
+            return new Date(date).getTime() === start?.getTime();
           });
-          const isEnd = ReservedDates.some(({ start, end }) => {
-            return new Date(date).getTime() === end.getTime();
+          const isEnd = fullDates.some(({ start, end }) => {
+            return new Date(date).getTime() === end?.getTime();
           });
   
           if (isStart && isEnd) {
@@ -88,20 +115,20 @@ export default function Cal() {
         console.log('abbr element not found in tile');
       }
     });
-  }, [changedMonth, range]); // Dependency array contains changedMonth and range
+  }, [changedMonth, range, fullDates]); // Dependency array contains changedMonth and range
   
   return (
     <div className="flex items-center justify-center w-full">
       <Calendar
         value={range}
         showDoubleView={true}
-        onChange={(e: any) => checkIfValidRange(e, ReservedDates, setRange)}
+        onChange={(e: any) => checkIfValidRange(e, fullDates, setRange)}
         selectRange={true}
         maxDate={new Date(2025, 0, 5)}
         minDate={new Date()}
         next2Label={null}
         prev2Label={null}
-        tileDisabled={	({ activeStartDate, date, view }) => disableDates(date, ReservedDates)}
+        tileDisabled={	({ activeStartDate, date, view }) => disableDates(date, fullDates)}
         allowPartialRange={true}
         onActiveStartDateChange={({ action, activeStartDate, value, view }) =>{if (view==='month') setChangedMonth(!changedMonth)}}
         tileContent={displayPrices}
