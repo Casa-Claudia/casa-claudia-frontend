@@ -1,27 +1,29 @@
 "use client";
 import { ChangeEvent, FormEvent, useState, useEffect } from "react";
 import { useCheckoutState } from "@/state/checkout";
+import { Client } from "@/api/clients/clients";
 
 
 export default function ReservationForm() {
   const { range, price } = useCheckoutState();
-  const [formData, setFormData] = useState({
+  const [arrivalDate, departureDate] = range;
+  const [formData, setFormData] = useState<Client>({ 
     first_name: '',
-    last_name: '',
-    email: '',
+    last_name: '',  
+    mail: '',
     phone: '',
     address: '',
     city: '',
     zip_code: '',
     country: '',
     number_of_guests: 1,
-    comments: '',
-    arrival_date: range[0],
-    departure_date: range[1],
+    comment: '',
+    arrival_date: arrivalDate,
+    departure_date: departureDate,
     price: price,
   });
 
-  const isValid = formData.first_name && formData.last_name && formData.email && formData.phone && formData.address && formData.city && formData.zip_code && formData.country && formData.number_of_guests && formData.arrival_date && formData.departure_date && formData.price;
+  const isValid = formData.first_name && formData.last_name && formData.mail && formData.phone && formData.address && formData.city && formData.zip_code && formData.country && formData.number_of_guests && formData.arrival_date && formData.departure_date && formData.price;
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const value = e.target.type === 'number' ? parseInt(e.target.value) : e.target.value;
@@ -30,6 +32,7 @@ export default function ReservationForm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    console.log(formData);
     if(isValid) {
       try {
           const response = await fetch("http://localhost:4444/api/v1/client", {
@@ -41,6 +44,7 @@ export default function ReservationForm() {
           });
     
           const data = await response.json();
+          console.log(data);
         
           if (data.success) {
             console.log('Client added successfully!');
@@ -93,15 +97,15 @@ export default function ReservationForm() {
           </div>
           <div className="flex justify-between flex-wrap gap-2">
             <div className="mb-4 ">
-              <label htmlFor="email" className=" ml-1 text-my-grey">
+              <label htmlFor="mail" className=" ml-1 text-my-grey">
                 E-mail
               </label>
               <input
-                type="email"
-                id="email"
-                name="email"
+                type="mail"
+                id="mail"
+                name="mail"
                 onChange={handleChange}
-                value={formData.email}
+                value={formData.mail}
                 className="w-full rounded-xl border px-3 py-2"
                 required
               />
@@ -192,6 +196,7 @@ export default function ReservationForm() {
                 min={1}
                 onChange={handleChange}
                 value={formData.number_of_guests}
+                defaultValue={1}
                 className="w-full rounded-xl border px-3 py-2"
                 required
               />
@@ -205,7 +210,7 @@ export default function ReservationForm() {
               id="comments"
               name="comments"
               onChange={handleChange}
-              value={formData.comments}
+              value={formData.comment}
               className="w-full rounded-xl border px-3 py-2"
               rows={6}
             ></textarea>
