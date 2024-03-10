@@ -21,6 +21,8 @@ export default function ReservationForm() {
     price: price,
   });
 
+  const isValid = formData.first_name && formData.last_name && formData.email && formData.phone && formData.address && formData.city && formData.zip_code && formData.country && formData.number_of_guests && formData.arrival_date && formData.departure_date && formData.price;
+
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const value = e.target.type === 'number' ? parseInt(e.target.value) : e.target.value;
     setFormData({ ...formData, [e.target.name]: value });
@@ -28,24 +30,28 @@ export default function ReservationForm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    try {
-        const response = await fetch("http://localhost:4444/api/v1/review", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
-  
-        const data = await response.json();
-      
-        if (data.success) {
-          console.log('Client added successfully!');
-        } else {
-          window.alert('Something went wrong. Please try again.');
+    if(isValid) {
+      try {
+          const response = await fetch("http://localhost:4444/api/v1/review", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+    
+          const data = await response.json();
+        
+          if (data.success) {
+            console.log('Client added successfully!');
+          } else {
+            window.alert('Something went wrong. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error:', error);
         }
-      } catch (error) {
-        console.error('Error:', error);
+      }else {
+        window.alert('Please check your details and try again.');
       }
   };
 
@@ -57,13 +63,13 @@ export default function ReservationForm() {
           <div className="mx-auto mt-10 rounded-lg border  border-black bg-white p-8 text-sm text-my-black">
           <div className="flex flex-wrap justify-between gap-2">
             <div className="mb-4 ">
-              <label htmlFor="name" className="ml-1 block text-my-grey">
+              <label htmlFor="first_name" className="ml-1 block text-my-grey">
                 Name
               </label>
               <input
                 type="text"
-                id="name"
-                name="name"
+                id="first_name"
+                name="first_name"
                 onChange={handleChange}
                 value={formData.first_name}
                 className=" border-1 border-light-gray w-full rounded-xl border px-3 py-2"
@@ -71,13 +77,13 @@ export default function ReservationForm() {
               />
             </div>
             <div className="mb-4 ">
-              <label htmlFor="surname" className=" ml-1 text-my-grey">
+              <label htmlFor="last_name" className=" ml-1 text-my-grey">
                 Surname
               </label>
               <input
                 type="text"
-                id="surname"
-                name="surname"
+                id="last_name"
+                name="last_name"
                 onChange={handleChange}
                 value={formData.last_name}
                 className="w-full rounded-xl border px-3 py-2"
@@ -145,13 +151,13 @@ export default function ReservationForm() {
               />
             </div>
             <div className="mb-4 ">
-              <label htmlFor="zipcode" className=" ml-1 text-my-grey">
+              <label htmlFor="zip_code" className=" ml-1 text-my-grey">
                 Zip code
               </label>
               <input
                 type="text"
-                id="zipcode"
-                name="zipcode"
+                id="zip_code"
+                name="zip_code"
                 onChange={handleChange}
                 value={formData.zip_code}
                 className="w-full rounded-xl border px-3 py-2"
@@ -175,13 +181,13 @@ export default function ReservationForm() {
               />
             </div>
             <div className="mb-4 ">
-              <label htmlFor="guests" className=" ml-1 text-my-grey">
+              <label htmlFor="number_of_guests" className=" ml-1 text-my-grey">
                 Number of guests
               </label>
               <input
                 type="number"
-                id="guests"
-                name="guests"
+                id="number_of_guests"
+                name="number_of_guests"
                 max={4}
                 min={1}
                 onChange={handleChange}

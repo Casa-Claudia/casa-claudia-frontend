@@ -6,7 +6,9 @@ import { useCheckoutState } from '@/state/checkout';
 export default function Details() {
   const {range, price} = useCheckoutState();
 
-  const selectedDates = ` ${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
+  const isValid = range[0] !== null && range[1] !== null && range[0]?.getTime() < range[1]?.getTime();
+
+  const selectedDates = isValid ? ` ${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`: 'No dates selected';
 
   return (
     <div className="details md:max-h-[460px] bg-light-brown">
