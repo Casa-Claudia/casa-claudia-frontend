@@ -32,7 +32,7 @@ export default function ReservationForm() {
     e.preventDefault();
     if(isValid) {
       try {
-          const response = await fetch("http://localhost:4444/api/v1/review", {
+          const response = await fetch("http://localhost:4444/api/v1/client", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
