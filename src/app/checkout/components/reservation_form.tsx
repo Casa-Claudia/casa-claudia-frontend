@@ -5,6 +5,15 @@ import { Client } from "@/api/clients/clients";
 
 
 export default function ReservationForm() {
+  const formatName = (name:string) => {
+    name.trim();
+    const splits = name.split(' ');
+
+    for (let i = 0; i < splits.length; i++) {
+      splits[i] = splits[i].charAt(0).toUpperCase() + splits[i].slice(1).toLowerCase();
+    }
+    return splits.join(' ');
+  }
   const { range, price } = useCheckoutState();
   const [arrivalDate, departureDate] = range;
   const [formData, setFormData] = useState<Client>({ 
@@ -32,7 +41,11 @@ export default function ReservationForm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+    const formatedData = {
+      ...formData,
+      first_name: formatName(formData.first_name),
+      last_name: formatName(formData.last_name),
+    };
     if(isValid) {
       try {
           const response = await fetch("http://localhost:4444/api/v1/client", {
@@ -40,7 +53,7 @@ export default function ReservationForm() {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(formData),
+            body: JSON.stringify(formatedData),
           });
     
           const data = await response.json();
