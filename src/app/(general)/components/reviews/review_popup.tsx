@@ -8,7 +8,7 @@ interface Props {
 
 export default function ReviewPopup({ onClick }: Props) {
     const [name, setName] = useState("");
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState(5);
     const [comment, setComment] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
@@ -16,7 +16,9 @@ export default function ReviewPopup({ onClick }: Props) {
     const handleSubmit = async (e: FormEvent) => {
       e.preventDefault();
       const first_name = name.split(" ")[0];
-      const last_name = name.split(" ")[1];
+      const last_name = name.split(" ")[1] || "none";
+      console.log(last_name);
+
       try {
           const response = await fetch("http://localhost:4444/api/v1/review", {
             method: "POST",
@@ -57,6 +59,7 @@ export default function ReviewPopup({ onClick }: Props) {
                 </label>
                 <input
                     type="text"
+                    placeholder="John Doe"
                     id="name"
                     name="name"
                     className=" border-1 border-light-gray w-full rounded-xl border md:px-3 px-2 py-1 md:py-2"
@@ -72,6 +75,7 @@ export default function ReviewPopup({ onClick }: Props) {
                     type="number"
                     id="rating"
                     name="rating"
+                    value={rating}
                     min={1}
                     max={5}
                     className="w-full rounded-xl border md:px-3 px-2 py-1 md:py-2"
