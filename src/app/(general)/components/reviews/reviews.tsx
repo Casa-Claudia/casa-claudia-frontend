@@ -1,30 +1,29 @@
-'use client';
-
-import React, { useState } from 'react';
+"use client";
+import React, { useState, useEffect } from 'react';
 import { Plus } from 'lucide-react';
 import { InfiniteMovingCards } from './moving_cards';
 import ReviewPopup from './review_popup';
+import { ApiResponseReview, Review } from '@/api/reviews/review';
 
 export default function Reviews() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [name, setName] = useState('');
-  const [stars, setStars] = useState(0);
-  const [review, setReview] = useState('');
+  const [reviews, setReviews] = useState([] as Review[]);
 
-  const loadReviews = async () => {
-    try {
+  useEffect(() => {
+    const loadReviews = async () => {
+      try {
         const response = await fetch("http://localhost:4444/api/v1/review", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
         });
-        const data = await response.json();
+        const data: ApiResponseReview = await response.json();
         console.log(data);
       
         if (data.success) {
           console.log(data.reviews);
-          return data.reviews;
+          setReviews(data.reviews);
         } else {
           window.alert('Something went wrong. Please try again.');
         }
@@ -33,7 +32,9 @@ export default function Reviews() {
       }
     };
 
-    const goodReviews = loadReviews();
+    loadReviews();
+  }, []);
+
 
 
 
@@ -64,38 +65,3 @@ export default function Reviews() {
     </div>
   );
 }
-const reviews = [
-  {
-    review:
-      'Lorem ipsum dolor perspiciatis? Harum in rerum hic ab minus pariatur officiis reiciendis dolorem unde corrupti? Labore laudantium suscipit non consequuntur odio.',
-    name: 'Charles D.',
-    n_stars: 5,
-    date: '2021-10-10',
-  },
-  {
-    review: 'To be, or not to be, that is the question: W.',
-    name: 'William S.',
-    n_stars: 5,
-    date: '2021-10-10',
-  },
-  {
-    review: 'All that we see or seem is but a dream within a dream.',
-    name: 'Edgar A. P.',
-    n_stars: 5,
-    date: '2021-10-10',
-  },
-  // {
-  //   review:
-  //     "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-  //   name: "Jane Austen",
-  //   n_stars: 3,
-  //   date: "2021-10-10"
-  // },
-  // {
-  //   review:
-  //     "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-  //   name: "Herman Melville",
-  //   n_stars: 1,
-  //   date: "2021-10-10"
-  // },
-];

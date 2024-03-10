@@ -3,6 +3,7 @@
 import { cn } from '@/utils/cn';
 import { memo, useEffect, useRef, useState } from 'react';
 import { Star } from 'lucide-react';
+import { Review } from '@/api/reviews/review';
 
 export const InfiniteMovingCards = memo(
   ({
@@ -12,12 +13,7 @@ export const InfiniteMovingCards = memo(
     pauseOnHover = true,
     className,
   }: {
-    items: {
-      review: string;
-      name: string;
-      n_stars: number;
-      date: string;
-    }[];
+    items:Review[];
     direction?: 'left' | 'right';
     speed?: 'fast' | 'normal' | 'slow';
     pauseOnHover?: boolean;
@@ -93,12 +89,12 @@ export const InfiniteMovingCards = memo(
           {items.map((item) => (
             <li
               className="relative mr-5  md:h-[273px] md:w-[476px] max-w-full flex-shrink-0 rounded border-2 border-my-brown px-4 py-6  md:px-8 md:py-6 h-[200px] w-[250px]"
-              key={item.name}
+              key={item.first_name}
             >
               <div className="flex items-center justify-between border-b border-black">
-                <p className="md:text-lg text-medium font-semibold text-black">{item.name}</p>
+                <p className="md:text-lg text-medium font-semibold text-black">{item.last_name}</p>
                 <ul className="flex">
-                  {Array(item.n_stars)
+                  {Array(item.rating)
                     .fill(0)
                     .map((_, i) => (
                       <li key={i} className="mr-1">
@@ -108,10 +104,10 @@ export const InfiniteMovingCards = memo(
                 </ul>
               </div>
               <div className="review-text mt-5">
-                <p className="font-light text-sm text-black">{item.review}</p>
+                <p className="font-light text-sm text-black">{item.comment}</p>
               </div>
               <div className="absolute bottom-0 right-0 px-4 py-2">
-                <p className="text-my-light-grey text-sm">{item.date}</p>
+                <p className="text-my-light-grey text-sm">{item.created_at.toLocaleDateString()}</p>
               </div>
             </li>
           ))}

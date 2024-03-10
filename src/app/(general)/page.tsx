@@ -9,7 +9,7 @@ import Viewpoint from './components/viewpoint';
 import Features from './components/features';
 import Location from './components/location';
 import Booker from './components/booker';
-import Reviews from './components/reviews';
+import Reviews from './components/reviews/reviews';
 import Gallery from './components/gallery';
 
 
