@@ -153,11 +153,11 @@
     font: inherit;
     font-size: 0.833em;
   }
-  .react-calendar__tile.start {
+  .react-calendar__tile.start:enabled {
     background: linear-gradient(to bottom right, white 50%, #f0f0f0 50%);
     color:black
 }
-  .react-calendar__tile.end{
+  .react-calendar__tile.end:enabled{
       background: linear-gradient(to top left, white 50%, #f0f0f0 50%);
       color:black
     }
