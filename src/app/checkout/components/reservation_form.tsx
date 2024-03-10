@@ -1,41 +1,53 @@
 "use client";
 import { ChangeEvent, FormEvent, useState, useEffect } from "react";
-import axios from "axios";
-import Link from "next/link";
+import { useCheckoutState } from "@/state/checkout";
 
 
 export default function ReservationForm() {
+  const { range, price } = useCheckoutState();
   const [formData, setFormData] = useState({
-    name: '',
-    surname: '',
+    first_name: '',
+    last_name: '',
     email: '',
     phone: '',
     address: '',
     city: '',
-    zipcode: '',
+    zip_code: '',
     country: '',
-    guests: '',
-    comments: ''
+    number_of_guests: 1,
+    comments: '',
+    arrival_date: range[0],
+    departure_date: range[1],
+    price: price,
   });
 
-
-  const handleChange = (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const value = e.target.type === 'number' ? parseInt(e.target.value) : e.target.value;
+    setFormData({ ...formData, [e.target.name]: value });
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    window.alert('Form submitted');
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/clients', formData);
-      console.log(response.data);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    }
+        const response = await fetch("http://localhost:4444/api/v1/review", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+  
+        const data = await response.json();
+      
+        if (data.success) {
+          console.log('Client added successfully!');
+        } else {
+          window.alert('Something went wrong. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
   };
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -53,7 +65,7 @@ export default function ReservationForm() {
                 id="name"
                 name="name"
                 onChange={handleChange}
-                value={formData.name}
+                value={formData.first_name}
                 className=" border-1 border-light-gray w-full rounded-xl border px-3 py-2"
                 required
               />
@@ -67,7 +79,7 @@ export default function ReservationForm() {
                 id="surname"
                 name="surname"
                 onChange={handleChange}
-                value={formData.surname}
+                value={formData.last_name}
                 className="w-full rounded-xl border px-3 py-2"
                 required
               />
@@ -141,7 +153,7 @@ export default function ReservationForm() {
                 id="zipcode"
                 name="zipcode"
                 onChange={handleChange}
-                value={formData.zipcode}
+                value={formData.zip_code}
                 className="w-full rounded-xl border px-3 py-2"
                 required
               />
@@ -173,7 +185,7 @@ export default function ReservationForm() {
                 max={4}
                 min={1}
                 onChange={handleChange}
-                value={formData.guests}
+                value={formData.number_of_guests}
                 className="w-full rounded-xl border px-3 py-2"
                 required
               />
@@ -192,9 +204,6 @@ export default function ReservationForm() {
               rows={6}
             ></textarea>
           </div>
-          {/* <div className="flex justify-center mt-4 text-red-400">
-            {!isValid && <p>Please fill out the form</p>}
-          </div> */}
           </div>
         </div>
 
