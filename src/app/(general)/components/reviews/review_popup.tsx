@@ -15,9 +15,10 @@ export default function ReviewPopup({ onClick }: Props) {
 
     const handleSubmit = async (e: FormEvent) => {
       e.preventDefault();
-      const first_name = name.split(" ")[0];
-      const last_name = name.split(" ")[1] || "none";
-      console.log(last_name);
+      const nameParts = name.split(" ");
+      const first_name = nameParts[0]?.charAt(0).toUpperCase() + nameParts[0]?.slice(1).toLowerCase();
+      const last_name = nameParts[1]?.charAt(0).toUpperCase() + nameParts[1]?.slice(1).toLowerCase() || "None";
+
 
       try {
           const response = await fetch("http://localhost:4444/api/v1/review", {

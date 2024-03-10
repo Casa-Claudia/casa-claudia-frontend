@@ -22,8 +22,8 @@ export default function Reviews() {
         console.log(data);
       
         if (data.success) {
-          console.log(data.reviews);
           setReviews(data.reviews);
+          console.log(reviews);
         } else {
           window.alert('Something went wrong. Please try again.');
         }
@@ -34,9 +34,6 @@ export default function Reviews() {
 
     loadReviews();
   }, []);
-
-
-
 
   return (
     <div className="reviews-container bg-my-white px-4 pb-24 pt-10 md:px-16">

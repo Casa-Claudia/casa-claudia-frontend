@@ -13,7 +13,7 @@ export const InfiniteMovingCards = memo(
     pauseOnHover = true,
     className,
   }: {
-    items:Review[];
+    items: Review[];
     direction?: 'left' | 'right';
     speed?: 'fast' | 'normal' | 'slow';
     pauseOnHover?: boolean;
@@ -27,7 +27,7 @@ export const InfiniteMovingCards = memo(
       if (items.length > 2) {
         addAnimation();
       }
-    }, []);
+    }, [items]);
 
     function addAnimation() {
       if (containerRef.current && scrollerRef.current) {
@@ -86,31 +86,38 @@ export const InfiniteMovingCards = memo(
             pauseOnHover && 'hover:[animation-play-state:paused]',
           )}
         >
-          {items.map((item) => (
-            <li
-              className="relative mr-5  md:h-[273px] md:w-[476px] max-w-full flex-shrink-0 rounded border-2 border-my-brown px-4 py-6  md:px-8 md:py-6 h-[200px] w-[250px]"
-              key={item.first_name}
-            >
-              <div className="flex items-center justify-between border-b border-black">
-                <p className="md:text-lg text-medium font-semibold text-black">{item.last_name}</p>
-                <ul className="flex">
-                  {Array(item.rating)
-                    .fill(0)
-                    .map((_, i) => (
-                      <li key={i} className="mr-1">
-                        <Star className="md:h-4 md:w-4 w-3 h-3 fill-yellow-400 text-yellow-400" />
-                      </li>
-                    ))}
-                </ul>
-              </div>
-              <div className="review-text mt-5">
-                <p className="font-light text-sm text-black">{item.comment}</p>
-              </div>
-              <div className="absolute bottom-0 right-0 px-4 py-2">
-                <p className="text-my-light-grey text-sm">{item.created_at.toLocaleDateString()}</p>
-              </div>
-            </li>
-          ))}
+          {items.map((item) => {
+            let date = new Date(item.created_at);
+            let name = item.first_name
+              if (item.last_name != "None") {
+                  name += ' ' + item.last_name.charAt(0) + '.';
+              }
+            return (
+              <li
+                className="relative mr-5  md:h-[273px] md:w-[476px] max-w-full flex-shrink-0 rounded border-2 border-my-brown px-4 py-6  md:px-8 md:py-6 h-[200px] w-[250px]"
+                key={item.id}
+              >
+                <div className="flex items-center justify-between border-b border-black">
+                  <p className="md:text-lg text-medium font-semibold text-black">{name}</p>
+                  <ul className="flex">
+                    {Array(item.rating)
+                      .fill(0)
+                      .map((_, i) => (
+                        <li key={i} className="mr-1">
+                          <Star className="md:h-4 md:w-4 w-3 h-3 fill-yellow-400 text-yellow-400" />
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+                <div className="review-text mt-5">
+                  <p className="font-light text-sm text-black">{item.comment}</p>
+                </div>
+                <div className="absolute bottom-0 right-0 px-4 py-2">
+                  <p className="text-my-light-grey text-sm">{date.toLocaleDateString()}</p>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </div>
     );
