@@ -9,40 +9,39 @@ interface Props {
 export default function ReviewPopup({ onClick }: Props) {
     const [name, setName] = useState("");
     const [rating, setRating] = useState(0);
-    const [review, setReview] = useState("");
+    const [comment, setComment] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
 
     const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const firstName = name.split(" ")[0];
-    const lastName = name.split(" ")[1];
+    const first_name = name.split(" ")[0];
+    const last_name = name.split(" ")[1];
     try {
         const response = await fetch("http://localhost:4444/api/v1/review", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ firstName, lastName, rating, review }),
+          body: JSON.stringify({ first_name, last_name, rating, comment}),
         });
   
-        if (!response.ok) {
-          throw new Error("Failed to submit review");
+        const data = await response.json();
+      
+        if (data.success) {
+          console.log('Review submitted successfully!');
+          onClick(false);
+        } else {
+          window.alert('Something went wrong. Please try again.');
         }
-        console.log("Review submitted successfully!");
-        onClick(false); // Close the popup after submission
       } catch (error) {
-        console.error("Error submitting review:", error);
-      } finally {
-        setIsLoading(false);
+        console.error('Error:', error);
       }
     };
 
-
-
     const isValid = useMemo(() => {
-        return name && rating && review;
-    }, [name, rating, review]);
+        return name && rating && comment;
+    }, [name, rating, comment]);
       
   return (
     <div className=" z-20 fixed w-4/5 md:w-3/5 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-screen-sm mx-auto rounded-lg border border-black bg-white md:p-8 py-6 px-4 text-sm text-black">
@@ -77,7 +76,7 @@ export default function ReviewPopup({ onClick }: Props) {
                     max={5}
                     className="w-full rounded-xl border md:px-3 px-2 py-1 md:py-2"
                     required = {true}
-                    onChange={(e:any) =>setRating(e.target.value)}
+                    onChange={(e:any) =>setRating(parseInt(e.target.value))}
                 />
             </div>
         </div>
@@ -92,7 +91,7 @@ export default function ReviewPopup({ onClick }: Props) {
             className="w-full rounded-xl border md:px-3 px-2 py-1 md:py-2"
             rows={6}
             required = {true}
-            onChange={(e:any) =>setReview(e.target.value)}
+            onChange={(e:any) =>setComment(e.target.value)} 
             ></textarea>
         </div>
         <div className="flex md:justify-end justify-center mt-5">
