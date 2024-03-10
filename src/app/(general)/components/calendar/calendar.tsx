@@ -13,40 +13,43 @@ export default function Cal() {
 
   const [fullDates, setFullDates] = useState([] as FullDates[]);
 
-  useEffect(() => {
-    console.log('useEffect', fullDates);
-    const loadDates = async () => {
-      try {
-        const response = await fetch("http://localhost:4444/api/v1/client", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const data: ApiResponseDates = await response.json()
-        console.log(data);
-      
-        if (data.success) {
-          const formattedDates = data.data.map(({ start, end }) => ({
-            start: new Date(start),
-            end: new Date(end)
-          }));
-          setFullDates(formattedDates);
-        } else {
-          window.alert('Something went wrong. Please try again.');
-        }
-      } catch (error) {
-        console.error('Error:', error);
+  const loadDates = async () => {
+    try {
+      const response = await fetch("http://localhost:4444/api/v1/client", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data: ApiResponseDates = await response.json()
+      console.log("datatat");
+      console.log(data);
+    
+      if (data.success) {
+        const formattedDates = data.data.map(({ arrival_date, departure_date }) => (
+          console.log('start', arrival_date),
+          console.log('end', departure_date),
+          {
+          arrival_date: new Date(arrival_date),
+          departure_date: new Date(departure_date)
+        }));
+        setFullDates(formattedDates);
+      } else {
+        window.alert('Something went wrong. Please try again.');
       }
-    };
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
+  useEffect(() => {
     loadDates();
   }, []);
   
   const disableDates = (date:Date, fullDates: FullDates[]) => {
     if (date.getDay() != 6) return true;
-    return fullDates.some(({ start, end }) => 
-      date.getTime() > start?.getTime() && date.getTime() < end?.getTime()
+    return fullDates.some(({ arrival_date, departure_date }) => 
+      date.getTime() > arrival_date?.getTime() && date.getTime() < departure_date?.getTime()
     );
   };
 
@@ -72,7 +75,7 @@ export default function Cal() {
       return;
     }
     
-    const isInvalidRange = fullDates.some(({ start:s, end: e }) => 
+    const isInvalidRange = fullDates.some(({ arrival_date:s, departure_date: e }) => 
     start.getTime()<=s?.getTime() && end.getTime()>s?.getTime() 
     && start.getTime()<e?.getTime() && end.getTime()>=e?.getTime()
     );
@@ -86,7 +89,7 @@ export default function Cal() {
   };
 
   useEffect(() => {
-    // Logic for updating tiles based on changedMonth
+    console.log('useEffect', fullDates)
     const tiles = document.querySelectorAll('.react-calendar__tile') as NodeListOf<HTMLButtonElement>;
     tiles.forEach((tile) => {
       const abbrElement = tile.querySelector('abbr');
@@ -94,11 +97,11 @@ export default function Cal() {
         const date = abbrElement.getAttribute('aria-label');
   
         if (date) {
-          const isStart = fullDates.some(({ start, end }) => {
-            return new Date(date).getTime() === start?.getTime();
+          const isStart = fullDates.some(({ arrival_date, departure_date }) => {
+            return new Date(date).getTime() === arrival_date?.getTime();
           });
-          const isEnd = fullDates.some(({ start, end }) => {
-            return new Date(date).getTime() === end?.getTime();
+          const isEnd = fullDates.some(({ arrival_date, departure_date }) => {
+            return new Date(date).getTime() === departure_date?.getTime();
           });
   
           if (isStart && isEnd) {
@@ -115,7 +118,7 @@ export default function Cal() {
         console.log('abbr element not found in tile');
       }
     });
-  }, [changedMonth, range, fullDates]); // Dependency array contains changedMonth and range
+  }, [changedMonth, range, fullDates]);
   
   return (
     <div className="flex items-center justify-center w-full">

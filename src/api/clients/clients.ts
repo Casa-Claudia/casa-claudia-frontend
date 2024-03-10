@@ -15,8 +15,8 @@ export interface Client {
 }
 
 export interface FullDates {
-    start: Date;
-    end: Date;
+    arrival_date: Date;
+    departure_date: Date;
 }
 
 export interface ApiResponseDates {
