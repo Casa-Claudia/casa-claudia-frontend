@@ -18,12 +18,10 @@ export default function Reviews() {
             "Content-Type": "application/json",
           },
         });
-        const data: ApiResponseReview = await response.json();
-        console.log(data);
+        const data: ApiResponseReview = await response.json()
       
         if (data.success) {
           setReviews(data.reviews);
-          console.log(reviews);
         } else {
           window.alert('Something went wrong. Please try again.');
         }
