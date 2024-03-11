@@ -2,9 +2,12 @@
 import { ChangeEvent, FormEvent, useState, useEffect } from "react";
 import { useCheckoutState } from "@/state/checkout";
 import { Client } from "@/api/clients/clients";
+import { useRouter } from "next/navigation";
 
 
 export default function ReservationForm() {
+  const router = useRouter();
+
   const formatName = (name:string) => {
     name.trim();
     const splits = name.split(' ');
@@ -62,8 +65,7 @@ export default function ReservationForm() {
           if (data.success) {
             setRange([new Date(), new Date()]);
             setPrice(0);
-            window.alert('Your reservation has been successfully made. We will contact you soon. Thank you!');
-            window.location.href = '/';
+            router.push('/order');
           } else {
             window.alert('Something went wrong. Please try again.');
           }
