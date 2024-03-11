@@ -5,13 +5,13 @@ import Calendar from 'react-calendar';
 import './styles.css';
 import { useCheckoutState } from '@/state/checkout';
 import { PriceData, priceData } from './priceData';
-import { FullDates, ApiResponseDates } from '@/api/clients/clients';
+import { FullDates, ApiResponseDates, FormatedDates } from '@/api/clients/clients';
 
 export default function Cal() {
   const { range, setRange } = useCheckoutState();
   const [changedMonth, setChangedMonth]= useState(false);
 
-  const [fullDates, setFullDates] = useState([] as FullDates[]);
+  const [fullDates, setFullDates] = useState([] as FormatedDates[]);
 
   const loadDates = async () => {
     try {
@@ -22,18 +22,35 @@ export default function Cal() {
         },
       });
       const data: ApiResponseDates = await response.json()
-      console.log("datatat");
+      console.log("data:");
       console.log(data);
     
       if (data.success) {
-        const formattedDates = data.data.map(({ arrival_date, departure_date }) => (
-          console.log('start', arrival_date),
-          console.log('end', departure_date),
-          {
-          arrival_date: new Date(arrival_date),
-          departure_date: new Date(departure_date)
-        }));
+        const formattedDates = data.data.map(({ arrival_date, departure_date }) => {
+          console.log('start', arrival_date);
+          console.log('end', departure_date);
+          let d1 = new Date(arrival_date);
+          let yearArr = d1.getUTCFullYear();
+          let monthArr = d1.getUTCMonth();
+          let dayArr = d1.getUTCDate() + 1
+
+          let d2 = new Date(departure_date);
+          let yearDep = d2.getUTCFullYear();
+          let monthDep = d2.getUTCMonth();
+          let dayDep = d2.getUTCDate()
+          
+          const formattedArrivalDate = new Date(yearArr, monthArr, dayArr);
+          const formattedDepartureDate = new Date(yearDep, monthDep, dayDep);
+      
+          return {
+            arrival_date: formattedArrivalDate,
+            departure_date: formattedDepartureDate
+          };
+        });
+      
+        console.log('formattedDates', formattedDates);
         setFullDates(formattedDates);
+
       } else {
         window.alert('Something went wrong. Please try again.');
       }
@@ -46,7 +63,7 @@ export default function Cal() {
     loadDates();
   }, []);
   
-  const disableDates = (date:Date, fullDates: FullDates[]) => {
+  const disableDates = (date:Date, fullDates: FormatedDates[]) => {
     if (date.getDay() != 6) return true;
     return fullDates.some(({ arrival_date, departure_date }) => 
       date.getTime() > arrival_date?.getTime() && date.getTime() < departure_date?.getTime()
@@ -67,9 +84,8 @@ export default function Cal() {
     }
   }
 
-  const checkIfValidRange = (range:[Date, Date], fullDates: FullDates[], setRange: (range: [Date, Date]) => void) => {
+  const checkIfValidRange = (range:[Date, Date], fullDates: FormatedDates[], setRange: (range: [Date, Date]) => void) => {
     const [start, end] = range;
-    console.log(start, end);
     if (!start || !end) {
       setRange([start,start]);
       return;
@@ -89,7 +105,6 @@ export default function Cal() {
   };
 
   useEffect(() => {
-    console.log('useEffect', fullDates)
     const tiles = document.querySelectorAll('.react-calendar__tile') as NodeListOf<HTMLButtonElement>;
     tiles.forEach((tile) => {
       const abbrElement = tile.querySelector('abbr');
@@ -118,7 +133,7 @@ export default function Cal() {
         console.log('abbr element not found in tile');
       }
     });
-  }, [changedMonth, range, fullDates]);
+  }, [changedMonth, fullDates, range]);
   
   return (
     <div className="flex items-center justify-center w-full">

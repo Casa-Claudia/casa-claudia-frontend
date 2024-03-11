@@ -15,11 +15,17 @@ export interface Client {
 }
 
 export interface FullDates {
-    arrival_date: Date;
-    departure_date: Date;
+    arrival_date: string;
+    departure_date: string;
 }
 
 export interface ApiResponseDates {
     success: boolean;
     data: FullDates[];
+}
+
+
+export interface FormatedDates {
+    arrival_date: Date;
+    departure_date: Date;
 }
