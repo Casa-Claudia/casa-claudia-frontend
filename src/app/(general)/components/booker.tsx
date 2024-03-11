@@ -1,5 +1,4 @@
 'use client';
-
 import Cal from './calendar/calendar';
 import { PriceData, priceData } from './calendar/priceData';
 import { useCheckoutState } from '@/state/checkout';
@@ -8,7 +7,6 @@ import { useMemo } from 'react';
 
 export default function Booker() {
   const { range, setPrice, setRange } = useCheckoutState();
-
   const firstDate = range[0]?.toLocaleDateString();
   const secondDate = range[1]?.toLocaleDateString();
   const timeDiff = Math.round((range[1]?.getTime() - range[0]?.getTime()) / (1000 * 60 * 60 * 24))
@@ -22,13 +20,10 @@ export default function Booker() {
 
     priceData.forEach(data => {
         const { start, end, price } = data;
-        // Check if the date range overlaps with the selected range
         if (start <= selectedEndDate && end >= selectedStartDate) {
-            // Calculate the overlap days
             const overlapStart = selectedStartDate > start ? selectedStartDate : start;
             const overlapEnd = selectedEndDate < end ? selectedEndDate : end;
             const overlapDays = Math.ceil((overlapEnd.getTime() - overlapStart.getTime()) / (1000 * 60 * 60 * 24));
-            // Add the price for the overlap days
             totalPrice += price * overlapDays;
         }
     });
@@ -37,12 +32,9 @@ export default function Booker() {
 };
 
   const price = isValid? calculatePrice(priceData, range): 0;
-
   const clearDates = (setRange:(range:[Date, Date]) => void) => {
     setRange([new Date(), new Date()]);
   };
-
-
 
   return (
     <div className="booker-container bg-khaki px-4 py-10 md:px-16" id='booker'>

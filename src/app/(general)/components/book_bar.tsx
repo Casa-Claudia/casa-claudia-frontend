@@ -5,21 +5,16 @@ import Link from "next/link";
 import Cal from "./calendar/calendar";
 
 export default function BookBar() {
-  const { range, setPrice, setRange } = useCheckoutState();
-  const pricePerNight = 300;
+  const { range } = useCheckoutState();
 
   const firstDate = range[0]?.toLocaleDateString();
   const secondDate = range[1]?.toLocaleDateString();
   const timeDiff = Math.round((range[1]?.getTime() - range[0]?.getTime()) / (1000 * 60 * 60 * 24))
   const isValid = useMemo(() => range[0] !== null && range[1] !== null && range[0]?.getTime() < range[1]?.getTime() && timeDiff > 1, [range]);
   const selectedDates = isValid? `${firstDate} - ${secondDate}`: 'No dates selected';
-
-  const price = isValid? pricePerNight * timeDiff: 0;
-    // State to control the visibility of the window
   const [isWindowOpen, setIsWindowOpen] = useState(false);
 
   const toggleCalendar = () => {
-    // Open the window
     setIsWindowOpen(!isWindowOpen);
   };
 

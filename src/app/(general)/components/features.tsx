@@ -5,7 +5,6 @@ export default function Features() {
     <div className="features bg-my-white md:px-16 px-4   py-10">
       <h2 className="mb-10 text-3xl font-semibold text-black">Features</h2>
       <div className="grid md:grid-cols-3 grid-cols-2 px-4 max-w-screen-2xl ">
-        {/* First Row */}
         <div className="p-4">
           <div className="feature flex items-start lg:items-center">
             <Lock className="mr-2 mt-1 lg:mt-0 text-black" />
@@ -33,8 +32,6 @@ export default function Features() {
             <p>Feature desc</p>
           </div>
         </div>
-
-        {/* Second Row */}
         <div className=" p-4">
           <div className="feature flex lg:items-center items-start">
             <LucideWaves className="mr-2 lg:mt-0 text-black" />

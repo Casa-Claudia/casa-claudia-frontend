@@ -10,21 +10,18 @@ export default function Info() {
           </div>
           <div className="mt-2 text-center">4 guests</div>
         </div>
-
         <div className="circle flex flex-col items-center mb-4">
           <div className="flex h-24 w-24 items-center justify-center rounded-full border border-my-brown">
             <img src="/car-logo.svg" alt="car-logo" />
           </div>
           <div className="mt-2 text-center">2 parking spaces</div>
         </div>
-
         <div className="circle flex flex-col items-center">
           <div className="flex h-24 w-24 items-center justify-center rounded-full border border-my-brown">
             <img src="/swimming-pool.svg" alt="swimming pool" />
           </div>
           <div className="mt-2 text-center">swimming pool</div>
         </div>
-
         <div className="circle flex flex-col items-center">
           <div className="flex h-24 w-24 items-center justify-center rounded-full border border-my-brown">
             <img src="/grill.svg" alt="grill" />
@@ -32,7 +29,6 @@ export default function Info() {
           <div className="mt-2 text-center">outdoor grill</div>
         </div>
       </div>
-
       <div className="info-text items-center py-5 text-left max-w-screen-xl mx-auto">
         <p>
           This is a perfect location to take a break from the hustle and bustle of everyday life. No

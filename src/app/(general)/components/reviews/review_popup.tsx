@@ -19,7 +19,6 @@ export default function ReviewPopup({ onClick }: Props) {
       const first_name = nameParts[0]?.charAt(0).toUpperCase() + nameParts[0]?.slice(1).toLowerCase();
       const last_name = nameParts[1]?.charAt(0).toUpperCase() + nameParts[1]?.slice(1).toLowerCase() || "None";
 
-
       try {
           const response = await fetch("http://localhost:4444/api/v1/review", {
             method: "POST",
@@ -84,8 +83,7 @@ export default function ReviewPopup({ onClick }: Props) {
                     onChange={(e:any) =>setRating(parseInt(e.target.value))}
                 />
             </div>
-        </div>
-        
+        </div> 
         <div className="review">
             <label htmlFor="review" className=" ml-1 text-my-grey">
             Review

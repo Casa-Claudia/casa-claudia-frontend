@@ -1,5 +1,5 @@
 'use client';
-import React, { RefObject, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 export default function Topbar() {
@@ -16,9 +16,6 @@ export default function Topbar() {
         </Link>
       </div>
       <div className="md:text-md flex items-center space-x-2 text-xs font-semibold md:space-x-6 lg:text-lg">
-        {/* <button className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800">
-          About
-        </button> */}
         <Link
           className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800"
           href={"#footer"}

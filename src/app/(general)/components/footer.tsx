@@ -15,7 +15,6 @@ export default function Footer() {
             <img src="/Phone.svg" alt="phone logo" />
             <p className="ml-2 font-light text-my-white"> +123 456 789</p>
           </div>
-          {/* Add your contact information here */}
         </div>
         <div className="footer-column md:mt-0 mt-5 flex  flex-col items-center">
           <h3 className="mb-2 md:text-lg font-bold text-my-white">Our Policy</h3>
@@ -28,7 +27,6 @@ export default function Footer() {
           <Link href="/terms-of-service" className="font-light text-my-white hover:text-my-black">
             Terms of Service
           </Link>
-          {/* Add your policy information here */}
         </div>
         <div className="footer-column md:mt-0 mt-5 flex  flex-col items-center">
           <h3 className="md:text-lg font-bold text-my-white">Social Media</h3>

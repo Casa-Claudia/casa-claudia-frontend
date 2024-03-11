@@ -1,5 +1,4 @@
 'use client';
-
 import { cn } from '@/utils/cn';
 import { memo, useEffect, useRef, useState } from 'react';
 import { Star } from 'lucide-react';
@@ -67,7 +66,6 @@ export const InfiniteMovingCards = memo(
         }
       }
     };
-
     return (
       <div
         ref={containerRef}

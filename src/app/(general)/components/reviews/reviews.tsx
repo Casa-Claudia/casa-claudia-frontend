@@ -49,7 +49,6 @@ export default function Reviews() {
           Add a review <Plus className="ml-1  h-5" />
         </button>
       </div>
-
       {isPopupOpen && (
         <div className="popup-container">
           <div className="popup">

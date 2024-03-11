@@ -1,11 +1,10 @@
 'use client';
-
-import React, { useState, useEffect, useRef, useLayoutEffect, use } from 'react';
+import React, { useState, useEffect} from 'react';
 import Calendar from 'react-calendar';
 import './styles.css';
 import { useCheckoutState } from '@/state/checkout';
 import { PriceData, priceData } from './priceData';
-import { FullDates, ApiResponseDates, FormatedDates } from '@/api/clients/clients';
+import { ApiResponseDates, FormatedDates } from '@/api/clients/clients';
 
 export default function Cal() {
   const { range, setRange } = useCheckoutState();
