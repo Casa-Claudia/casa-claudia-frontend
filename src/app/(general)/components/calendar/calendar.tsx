@@ -150,6 +150,7 @@ export default function Cal() {
         allowPartialRange={true}
         onActiveStartDateChange={({ action, activeStartDate, value, view }) =>{if (view==='month') setChangedMonth(!changedMonth)}}
         tileContent={displayPrices}
+        minDetail='month'
       />
     </div>
   );

@@ -65,7 +65,7 @@ export default function Topbar() {
       </div>
 
       <div className="md:text-md md:text-medium flex w-1/3 items-center justify-end text-xs lg:text-lg">
-        <Link className="rounded-br-lg text-center rounded-tr-lg border-2 border-solid border-my-grey p-1 font-bold text-my-grey transition-all hover:scale-105 hover:font-extrabold md:h-10 md:w-32"
+        <Link className="rounded-br-lg text-center flex items-center justify-center rounded-tr-lg border-2 border-solid border-my-grey p-1 font-bold text-my-grey transition-all hover:scale-105 hover:font-extrabold md:h-10 md:w-32"
         href={"/#booker"}
         >
           Book Now

@@ -60,7 +60,7 @@ export default function ReservationForm() {
           console.log(data);
         
           if (data.success) {
-            console.log('Client added successfully!');
+            window.alert('Your reservation has been successfully made. We will contact you soon. Thank you!');
           } else {
             window.alert('Something went wrong. Please try again.');
           }
@@ -246,15 +246,6 @@ export default function ReservationForm() {
                   <img src="/Cards.svg" alt="credit card" className="" />
                 </div>
               </div>
-
-              {/* <div className="mt-8 flex  w-full max-w-[590px] justify-between rounded-lg border border-black lg:px-12 px-6 py-5 md:py-10">
-                <div className="flex items-center justify-center">
-                  <input type="checkbox" id="creditCard" className="mr-3 h-3 w-3 lg:h-4 lg:w-4" />
-                  <label htmlFor="creditCard" className="text-lg font-semibold text-black">
-                    CASH
-                  </label>
-                </div>
-              </div> */}
               <div className="mt-6 flex items-center justify-center px-12">
                 <input type="checkbox" id="creditCard" className="mr-3 h-3 w-3" required={true} />
                 <label htmlFor="creditCard" className="text-sm text-my-light-grey">
