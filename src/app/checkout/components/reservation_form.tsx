@@ -14,7 +14,7 @@ export default function ReservationForm() {
     }
     return splits.join(' ');
   }
-  const { range, price } = useCheckoutState();
+  const { range, price, setPrice, setRange } = useCheckoutState();
   const [arrivalDate, departureDate] = range;
   const [formData, setFormData] = useState<Client>({ 
     first_name: '',
@@ -60,7 +60,10 @@ export default function ReservationForm() {
           console.log(data);
         
           if (data.success) {
+            setRange([new Date(), new Date()]);
+            setPrice(0);
             window.alert('Your reservation has been successfully made. We will contact you soon. Thank you!');
+            window.location.href = '/';
           } else {
             window.alert('Something went wrong. Please try again.');
           }
