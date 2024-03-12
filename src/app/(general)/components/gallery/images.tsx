@@ -5,20 +5,21 @@ import { Camera } from 'lucide-react';
 
 interface Props {
   onClick: (index: number) => void;
+  isMobile: boolean;
 }
 
-export default function Images({ onClick }: Props) {
+export default function Images({ onClick, isMobile }: Props) {
   return (
-    <main className="viewpoint bg-khaki  px-4 py-10 md:px-16 md:pb-10 md:pt-20" id="gallery">
+    <main className="viewpoint bg-khaki px-4 py-10 md:px-16 md:pb-10 md:pt-20" id="gallery">
       <h2 className="mb-4 text-3xl font-semibold text-black">Villa viewpoint</h2>
-      <div className="container mb-10 grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
+      <div className="container mb-10  max-h-[400px] md:max-h-max overflow-hidden grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
         {images.map((image, index) => {
           return (
             <div
               onClick={() => onClick(index)}
               className={cn(
                 'relative aspect-square h-full w-full cursor-pointer overflow-hidden rounded-md transition-all hover:opacity-50',
-                index === 0 && 'col-span-2 row-span-2',
+                index === 0 && !isMobile && 'col-span-2 row-span-2',
               )}
             >
               <Image

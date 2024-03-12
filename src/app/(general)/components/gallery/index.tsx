@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Photo } from 'react-photo-album';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
@@ -23,9 +23,25 @@ export default function Gallery() {
     })),
   );
 
+  const [isMobile, setIsMobile] = useState<boolean>(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize(); // initial call to set the initial state
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <>
-      <Images onClick={setIndex} />
+      <Images onClick={setIndex} isMobile={isMobile} />
 
       <Lightbox
         styles={{ container: { backgroundColor: 'rgba(0, 0, 0, .8)' } }}
