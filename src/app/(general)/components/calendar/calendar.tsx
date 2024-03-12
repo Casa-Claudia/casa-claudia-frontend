@@ -31,7 +31,7 @@ export default function Cal() {
           let d1 = new Date(arrival_date);
           let yearArr = d1.getUTCFullYear();
           let monthArr = d1.getUTCMonth();
-          let dayArr = d1.getUTCDate() + 1
+          let dayArr = d1.getUTCDate()
 
           let d2 = new Date(departure_date);
           let yearDep = d2.getUTCFullYear();

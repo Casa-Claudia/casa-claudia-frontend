@@ -7,6 +7,15 @@ import { useRouter } from "next/navigation";
 
 export default function ReservationForm() {
   const router = useRouter();
+  
+  const toISOLikeString = (d: Date): string => {
+    return `${d.getFullYear()}-${
+        `${d.getMonth() + 1}`.padStart(2, '0')
+    }-${
+        `${d.getDate()}`.padStart(2, '0')
+    }T00:00:00Z`;
+};
+
 
   const formatName = (name:string) => {
     name.trim();
@@ -30,8 +39,8 @@ export default function ReservationForm() {
     country: '',
     number_of_guests: 1,
     comment: '',
-    arrival_date: arrivalDate,
-    departure_date: departureDate,
+    arrival_date: toISOLikeString(arrivalDate),
+    departure_date: toISOLikeString(departureDate),
     price: price,
   });
 

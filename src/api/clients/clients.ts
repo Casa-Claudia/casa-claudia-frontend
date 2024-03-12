@@ -8,8 +8,8 @@ export interface Client {
     zip_code: string;
     country: string;
     number_of_guests: number;
-    arrival_date: Date;
-    departure_date: Date;
+    arrival_date: string;
+    departure_date: string;
     price: number;
     comment: string;
 }
