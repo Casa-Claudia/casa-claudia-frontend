@@ -21,6 +21,7 @@
     "@mui/styled-engine-sc": "^6.0.0-alpha.17",
     "@mui/x-date-pickers": "^6.19.5",
     "@mui/x-date-pickers-pro": "^6.19.5",
+    "@react-email/components": "^0.0.15",
     "@react-google-maps/api": "^2.19.3",
     "@types/dotenv": "^8.2.0",
     "@vis.gl/react-google-maps": "^0.7.1",
@@ -41,13 +42,16 @@
     "react-calendar": "^4.8.0",
     "react-date-range": "^2.0.0-alpha.4",
     "react-dom": "^18.2.0",
+    "react-email": "^2.1.0",
     "react-i18next": "^14.1.0",
     "react-native": "^0.73.4",
     "react-photo-album": "^2.3.1",
+    "resend": "^3.2.0",
     "styled-components": "^6.1.8",
     "tailwind-merge": "^2.2.1",
     "yet-another-react-lightbox": "^3.17.0",
-    "zustand": "^4.5.2"
+    "zustand": "^4.5.2",
+    "@react-email/tailwind": "0.0.14"
   },
   "devDependencies": {
     "@types/google-map-react": "^2.1.10",
