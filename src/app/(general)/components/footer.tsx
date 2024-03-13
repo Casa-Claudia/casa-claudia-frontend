@@ -25,7 +25,7 @@ export default function Footer() {
             Privacy Policy
           </Link>
           <Link href="/terms-of-service" className="font-light text-my-white hover:text-my-black">
-            Terms of Service
+            Terms and Conditions
           </Link>
         </div>
         <div className="footer-column md:mt-0 mt-5 flex  flex-col items-center">
