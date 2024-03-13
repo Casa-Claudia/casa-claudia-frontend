@@ -1,4 +1,4 @@
-import { Fence, Lock, LucideWaves, PawPrint, RockingChair, Zap } from 'lucide-react';
+import { Fence, Lock, LucideWaves, PawPrint, RockingChair, Squirrel, Zap } from 'lucide-react';
 
 export default function Features() {
   return (
@@ -11,7 +11,7 @@ export default function Features() {
             <span className="Bedroom md:text-xl text-md font-semibold text-black">Complete privacy</span>
           </div>
           <div className=" md:ml-10 ml-8 py-1 text-sm text-my-light-grey ">
-            <p>Feature desc</p>
+            <p>Large private outdoor area</p>
           </div>
         </div>
         <div className=" p-4">
@@ -20,16 +20,16 @@ export default function Features() {
             <span className="Bedroom md:text-xl text-md font-semibold text-black">Garden furniture</span>
           </div>
           <div className=" md:ml-10 ml-8 py-1 text-sm text-my-light-grey ">
-            <p>Feature desc</p>
+            <p>Comfortable sunbeds, dining table for six</p>
           </div>
         </div>
         <div className=" p-4">
           <div className="feature flex items-start lg:items-center">
-            <Fence className="mr-2 mt-1 lg:mt-0 text-black" />
-            <span className="Bedroom md:text-xl text-md font-semibold text-black">Fully fenced yard</span>
+            <Squirrel className="mr-2 mt-1 lg:mt-0 text-black" />
+            <span className="Bedroom md:text-xl text-md font-semibold text-black">Nature view</span>
           </div>
           <div className=" md:ml-10 ml-8 py-1 text-sm text-my-light-grey ">
-            <p>Feature desc</p>
+            <p>Beautiful surroundings</p>
           </div>
         </div>
         <div className=" p-4">
@@ -38,7 +38,7 @@ export default function Features() {
             <span className="Bedroom md:text-xl text-md font-semibold text-black">Heated pool</span>
           </div>
           <div className=" md:ml-10 ml-8 py-1 text-sm text-my-light-grey ">
-            <p>Feature desc</p>
+            <p>On request (additional fee)</p>
           </div>
         </div>
         <div className=" p-4">
@@ -47,7 +47,7 @@ export default function Features() {
             <span className="Bedroom md:text-xl text-md font-semibold text-black">Pets allowed</span>
           </div>
           <div className=" md:ml-10 ml-8 py-1 text-sm text-my-light-grey ">
-            <p>Feature desc</p>
+            <p>Small dog friendy</p>
           </div>
         </div>
         <div className=" p-4">

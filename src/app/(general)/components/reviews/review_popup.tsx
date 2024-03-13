@@ -1,6 +1,7 @@
 import React from "react";
 import { X } from "lucide-react";
 import { useMemo, useState, FormEvent } from "react";
+import { Star } from "lucide-react";
 
 interface Props {
   onClick: (value: boolean) => void;
@@ -8,9 +9,23 @@ interface Props {
 
 export default function ReviewPopup({ onClick }: Props) {
     const [name, setName] = useState("");
-    const [rating, setRating] = useState(5);
+    const [rating, setRating] = useState(0);
     const [comment, setComment] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [hoverRating, setHoverRating] = useState(0);
+  
+    const handleStarClick = (value:number) => {
+      setRating(value);
+      setHoverRating(0); // Reset hover rating after click
+    };
+  
+    const handleMouseEnter = (value:number) => {
+      setHoverRating(value);
+    };
+  
+    const handleMouseLeave = () => {
+      setHoverRating(0);
+    };
 
 
     const handleSubmit = async (e: FormEvent) => {
@@ -59,7 +74,7 @@ export default function ReviewPopup({ onClick }: Props) {
                 </label>
                 <input
                     type="text"
-                    placeholder="John Doe"
+                    placeholder="John D."
                     id="name"
                     name="name"
                     className=" border-1 border-light-gray w-full rounded-xl border md:px-3 px-2 py-1 md:py-2"
@@ -67,22 +82,27 @@ export default function ReviewPopup({ onClick }: Props) {
                     onChange={(e:any) =>setName(e.target.value)}
                 />
             </div>
-            <div className="mb-4 ">
-                <label htmlFor="surname" className=" ml-1 text-my-grey">
-                    Number of stars
-                </label>
-                <input
-                    type="number"
-                    id="rating"
-                    name="rating"
-                    value={rating}
-                    min={1}
-                    max={5}
-                    className="w-full rounded-xl border md:px-3 px-2 py-1 md:py-2"
-                    required = {true}
-                    onChange={(e:any) =>setRating(parseInt(e.target.value))}
-                />
-            </div>
+            <div className="mb-4">
+      <label htmlFor="rating" className="ml-1 text-my-grey">
+        Rating
+      </label>
+      <div className="flex justify-start items-center md:pr-3 pr-2 py-1 md:py-2 ">
+        {[...Array(5)].map((_, index) => {
+          const starValue = index + 1;
+          return (
+            <Star
+              key={starValue}
+              className={`cursor-pointer ${
+                starValue <= (hoverRating || rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'
+              } hover:text-yellow-500 hover:fill-yellow-500 md:h-5 md:w-5 h-4 w-4`}
+              onMouseEnter={() => handleMouseEnter(starValue)}
+              onMouseLeave={handleMouseLeave}
+              onClick={() => handleStarClick(starValue)}
+            />
+          );
+        })}
+      </div>
+    </div>
         </div> 
         <div className="review">
             <label htmlFor="review" className=" ml-1 text-my-grey">

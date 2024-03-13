@@ -77,11 +77,11 @@ export default function Info() {
             </div>
             <div className=" ml-6 py-2 text-sm text-my-light-grey ">
               <ul className="list-disc">
-                <li>king size bed 160x200</li>
+                <li>King size bed 160x200</li>
                 <li>HI-FI system</li>
                 <li>TV</li>
-                <li>fireplace</li>
-                <li>bathroom</li>
+                <li>Fireplace</li>
+                <li>Bathroom</li>
               </ul>
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function Info() {
             <div className=" ml-6 py-2 text-sm text-my-light-grey ">
               <ul className="list-disc">
                 <li>Fully equpped</li>
-                <li>dining area</li>
+                <li>Dining area</li>
               </ul>
             </div>
           </div>

@@ -5,7 +5,6 @@ import { Star } from 'lucide-react';
 //components
 import BookBar from './components/book_bar';
 import Info from './components/info';
-import Viewpoint from './components/viewpoint';
 import Features from './components/features';
 import Location from './components/location';
 import Booker from './components/booker';
@@ -36,7 +35,7 @@ export default function Home() {
           <div className="py-5 flex items-center md:mt-45 lg:mt-50 justify-between md:pr-16 pr-4 ">
             <div className="md:ml-20  ml-5 flex flex-col text-sm md:text-lg items-center ">
               <p>Prices per night start from</p>
-              <p className="md:text-xl font-bold">200€</p>
+              <p className="md:text-xl font-bold">150€</p>
             </div>
             <div className="md:ml-5 flex flex-col items-center justify-start  ">
               <ul className="flex">
