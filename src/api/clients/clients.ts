@@ -12,6 +12,7 @@ export interface Client {
     departure_date: string;
     price: number;
     comment: string;
+    language: string;
 }
 
 export interface FullDates {

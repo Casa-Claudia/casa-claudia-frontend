@@ -3,6 +3,7 @@ import { ChangeEvent, FormEvent, useState, useEffect } from "react";
 import { useCheckoutState } from "@/state/checkout";
 import { Client } from "@/api/clients/clients";
 import { useRouter } from "next/navigation";
+import { useLanguageState } from "@/state/language";
 
 
 export default function ReservationForm() {
@@ -15,8 +16,6 @@ export default function ReservationForm() {
         `${d.getDate()}`.padStart(2, '0')
     }T00:00:00Z`;
 };
-
-
   const formatName = (name:string) => {
     name.trim();
     const splits = name.split(' ');
@@ -27,6 +26,7 @@ export default function ReservationForm() {
     return splits.join(' ');
   }
   const { range, price, setPrice, setRange } = useCheckoutState();
+  const { language } = useLanguageState();
   const [arrivalDate, departureDate] = range;
   const [formData, setFormData] = useState<Client>({ 
     first_name: '',
@@ -42,6 +42,7 @@ export default function ReservationForm() {
     arrival_date: toISOLikeString(arrivalDate),
     departure_date: toISOLikeString(departureDate),
     price: price,
+    language: language
   });
 
   const isValid = formData.first_name && formData.last_name && formData.mail && formData.phone && formData.address && formData.city && formData.zip_code && formData.country && formData.number_of_guests && formData.arrival_date && formData.departure_date && formData.price;

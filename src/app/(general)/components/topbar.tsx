@@ -1,9 +1,11 @@
 'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useLanguageState, LanguageEnum } from '@/state/language';
 
 export default function Topbar() {
   const [showDropdown, setShowDropdown] = useState(false);
+  const {setLanguage } = useLanguageState();
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
@@ -33,19 +35,19 @@ export default function Topbar() {
             <div className="absolute left-0 top-full mt-1 rounded-md bg-white shadow-lg">
               <button
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
-                onClick={() => setShowDropdown(false)}
+                onClick={() => { setShowDropdown(false); setLanguage(LanguageEnum.EN); }}
               >
                 English
               </button>
               <button
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
-                onClick={() => setShowDropdown(false)}
+                onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.DE);}}
               >
                 German
               </button>
               <button
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
-                onClick={() => setShowDropdown(false)}
+                onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.SL);}}
               >
                 Slovene
               </button>
