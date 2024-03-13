@@ -12,6 +12,6 @@ export enum LanguageEnum {
 }
 
 export const useLanguageState = create<LanguageState>((set, get) => ({
-    language: "en",
+    language: LanguageEnum.EN,
     setLanguage: (language) => set({ language })
 }));

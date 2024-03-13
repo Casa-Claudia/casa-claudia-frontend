@@ -45,12 +45,17 @@ export default function ReservationForm() {
     language: language
   });
 
+
   const isValid = formData.first_name && formData.last_name && formData.mail && formData.phone && formData.address && formData.city && formData.zip_code && formData.country && formData.number_of_guests && formData.arrival_date && formData.departure_date && formData.price;
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const value = e.target.type === 'number' ? parseInt(e.target.value) : e.target.value;
     setFormData({ ...formData, [e.target.name]: value });
   };
+
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
