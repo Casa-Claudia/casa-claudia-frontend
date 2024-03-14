@@ -24,9 +24,9 @@ export function generateStaticParams(): StaticParams[] {
 export default function Layout({ children, params: {locale} }: Props) {
   return (
       <html lang={locale} dir={dir(locale)}>
-        <Topbar  />
+        {/* <Topbar  /> */}
         {children}
-        <Footer/>
+        {/* <Footer/> */}
       </html>
   );
 }

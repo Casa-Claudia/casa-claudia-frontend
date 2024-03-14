@@ -10,6 +10,8 @@ import Location from './components/location';
 import Booker from './components/booker';
 import Reviews from './components/reviews/reviews';
 import Gallery from './components/gallery';
+import Topbar from './components/topbar';
+import Footer from './components/footer';
 
 
 import initTranslations from '@/app/i18';
@@ -31,7 +33,8 @@ export default async function Home({ locale }: { locale: string }) {
       namespaces={i18nNamespaces}
       locale={locale}
       resources={resources}>
-    <main>
+    <Topbar />
+    <div>
       <div className=" grid grid-cols-1 md:grid-cols-2">
         <div className="intro items-left bg-light-brown md:pl-16  pl-4 py-2 text-my-black overflow-visible">
           <h1 className=" md:py-12 py-4 md:text-4xl text-3xl font-extrabold">
@@ -72,7 +75,8 @@ export default async function Home({ locale }: { locale: string }) {
       <Location />
       <Booker />
       <Reviews />
-    </main>
+    </div>
+    <Footer />
   </TranslationsProvider>
   );
 }

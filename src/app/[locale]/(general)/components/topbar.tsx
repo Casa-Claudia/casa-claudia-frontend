@@ -9,7 +9,7 @@ interface Props {
     locale: string;
   };
 }
-export default function Topbar({ params }: Props) {
+export default function Topbar() {
   const { t } = useTranslation("topbar");
 
   const [showDropdown, setShowDropdown] = useState(false);
