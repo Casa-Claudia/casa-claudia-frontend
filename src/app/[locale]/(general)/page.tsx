@@ -68,7 +68,7 @@ export default async function Home({ locale }: { locale: string }) {
 
       <Info t={t} />
       <Gallery />
-      <Features />
+      <Features t={t} />
       <Location />
       <Booker />
       <Reviews />
