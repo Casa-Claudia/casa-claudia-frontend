@@ -16,7 +16,7 @@ import initTranslations from '@/app/i18';
 import TranslationsProvider from '@/utils/translationProvider';
 
 
-const i18nNamespaces = ['topbar'];
+const i18nNamespaces = ['home','topbar', 'common'];
 
 
 export const metadata: Metadata = {
@@ -36,20 +36,19 @@ export default async function Home({ locale }: { locale: string }) {
         <div className="intro items-left bg-light-brown md:pl-16  pl-4 py-2 text-my-black overflow-visible">
           <h1 className=" md:py-12 py-4 md:text-4xl text-3xl font-extrabold">
             {' '}
-            Fresh, quiet
-            <br /> and peaceful.
+            {t("fresh")}
+            <br /> {t("peaceful")}
           </h1>
           <p className="md:mb-40 ml-5 mb-5 md:text-xl md:pr-16 pr-4">
-            Enjoy the tranquility of the authentic Istrian landscape among olive trees, in
-            complete privacy and  sense of homeliness in a small luxury villa.
+            {t("subtitle")}
           </p>
             <BookBar />
           <div className="py-5 flex items-center md:mt-45 lg:mt-50 justify-between md:pr-16 pr-4 ">
             <div className="md:ml-20  ml-5 flex flex-col text-sm md:text-lg items-center ">
-              <p>Prices per night start from</p>
-              <p className="md:text-xl font-bold">150€</p>
+              <p>{t("prices_per_night")}</p>
+              <p className="md:text-xl font-bold">150 €</p>
             </div>
-            <div className="md:ml-5 flex flex-col items-center justify-start  ">
+            <div className="md:ml-5 flex flex-col items-center justify-start">
               <ul className="flex">
                 {Array(5)
                   .fill(0)
@@ -67,7 +66,7 @@ export default async function Home({ locale }: { locale: string }) {
         </div>
       </div>
 
-      <Info />
+      <Info t={t} />
       <Gallery />
       <Features />
       <Location />
