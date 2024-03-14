@@ -4,8 +4,13 @@ import Link from 'next/link';
 import { useLanguageState, LanguageEnum } from '@/state/language';
 import { useTranslation } from 'react-i18next';
 
-export default async function Topbar() {
-  const { t } = useTranslation();
+interface Props {
+  params: {
+    locale: string;
+  };
+}
+export default function Topbar({ params }: Props) {
+  const { t } = useTranslation("topbar");
 
   const [showDropdown, setShowDropdown] = useState(false);
   const {setLanguage } = useLanguageState();
@@ -40,19 +45,19 @@ export default async function Topbar() {
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
                 onClick={() => { setShowDropdown(false); setLanguage(LanguageEnum.EN); }}
               >
-                English
+                {t("topbar_english")}
               </button>
               <button
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
                 onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.DE);}}
               >
-                German
+                {t("topbar_german")}
               </button>
               <button
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
                 onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.SL);}}
               >
-                Slovene
+                {t("topbar_slovene")}
               </button>
             </div>
           )}
@@ -60,9 +65,9 @@ export default async function Topbar() {
 
         <Link
           className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800"
-          href="/#gallery"
+          href={"/#gallery"}
         >
-          Gallery
+          {t("topbar_gallery")}
         </Link>
       </div>
 
@@ -70,7 +75,7 @@ export default async function Topbar() {
         <Link className="rounded-br-lg text-center flex items-center justify-center rounded-tr-lg border-2 border-solid border-my-grey p-1 font-bold text-my-grey transition-all hover:scale-105 hover:font-extrabold md:h-10 md:w-32"
         href={"/#booker"}
         >
-          Book Now
+          {t("topbar_book")}
         </Link>
       </div>
     </div>
