@@ -2,8 +2,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useLanguageState, LanguageEnum } from '@/state/language';
+import { useTranslation } from 'react-i18next';
 
-export default function Topbar() {
+export default async function Topbar() {
+  const { t } = useTranslation();
+
   const [showDropdown, setShowDropdown] = useState(false);
   const {setLanguage } = useLanguageState();
   const toggleDropdown = () => {
@@ -22,14 +25,14 @@ export default function Topbar() {
           className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800"
           href={"#footer"}
         >
-          Contact
+          {t("topbar_contact")}
         </Link>
         <div className="relative">
           <button
             className="text-my-black hover:border-b-2 hover:border-my-black hover:text-gray-800"
             onClick={toggleDropdown}
           >
-            Language
+            {t("topbar_language")}
           </button>
           {showDropdown && (
             <div className="absolute left-0 top-full mt-1 rounded-md bg-white shadow-lg">

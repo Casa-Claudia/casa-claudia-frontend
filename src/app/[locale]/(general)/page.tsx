@@ -12,13 +12,25 @@ import Reviews from './components/reviews/reviews';
 import Gallery from './components/gallery';
 
 
+import initTranslations from '@/app/i18';
+import TranslationsProvider from '@/utils/translationProvider';
+
+
+const i18nNamespaces = ['topbar'];
+
+
 export const metadata: Metadata = {
   title: 'Casa Claudia Villa',
   description: 'Casa Claudia Villa in Istria, Croatia. Enjoy the tranquility of the authentic Istrian landscape among olive trees, in complete privacy and  sense of homeliness in a small luxury villa.',
 };
 
-export default function Home() {
+export default async function Home({ locale }: { locale: string }) {
+  const { t, resources } = await initTranslations(locale, i18nNamespaces);
   return (
+  <TranslationsProvider
+      namespaces={i18nNamespaces}
+      locale={locale}
+      resources={resources}>
     <main>
       <div className=" grid grid-cols-1 md:grid-cols-2">
         <div className="intro items-left bg-light-brown md:pl-16  pl-4 py-2 text-my-black overflow-visible">
@@ -62,5 +74,6 @@ export default function Home() {
       <Booker />
       <Reviews />
     </main>
+  </TranslationsProvider>
   );
 }
