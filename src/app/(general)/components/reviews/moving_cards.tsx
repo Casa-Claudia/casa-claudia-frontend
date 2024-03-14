@@ -111,7 +111,7 @@ export const InfiniteMovingCards = memo(
                   <p className="font-light text-sm text-black">{item.comment}</p>
                 </div>
                 <div className="absolute bottom-0 right-0 px-4 py-2">
-                  <p className="text-my-light-grey text-sm">{date.toLocaleDateString()}</p>
+                  <p className="text-my-light-grey text-sm">{date.toLocaleDateString("de-DE")}</p>
                 </div>
               </li>
             );
