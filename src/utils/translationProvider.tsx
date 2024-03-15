@@ -1,14 +1,10 @@
 'use client';
-import { I18nextProvider } from 'react-i18next';
-import initTranslations from '@/app/i18.js';
-import { createInstance } from 'i18next';
 
-export default function TranslationsProvider({
-  children,
-  locale,
-  namespaces,
-  resources
-}) {
+import initTranslations from '@/app/i18';
+import { createInstance } from 'i18next';
+import { I18nextProvider } from 'react-i18next';
+
+export default function TranslationsProvider({ children, locale, namespaces, resources }: any) {
   const i18n = createInstance();
 
   initTranslations(locale, namespaces, i18n, resources);
