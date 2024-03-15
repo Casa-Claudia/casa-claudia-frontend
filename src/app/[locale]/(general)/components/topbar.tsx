@@ -41,24 +41,27 @@ export default function Topbar() {
           </button>
           {showDropdown && (
             <div className="absolute left-0 top-full mt-1 rounded-md bg-white shadow-lg">
-              <button
+              <Link
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
                 onClick={() => { setShowDropdown(false); setLanguage(LanguageEnum.EN); }}
+                href={"/en"}
               >
                 {t("topbar_english")}
-              </button>
-              <button
+              </Link>
+              <Link
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
                 onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.DE);}}
+                href={"/de"}
               >
                 {t("topbar_german")}
-              </button>
-              <button
+              </Link>
+              <Link
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
                 onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.SL);}}
+                href={"/sl"}
               >
                 {t("topbar_slovene")}
-              </button>
+              </Link>
             </div>
           )}
         </div>

@@ -78,7 +78,7 @@ export default function Booker() {
             onClick={() => setPrice(price)}
               href="/checkout"
               aria-disabled={!isValid}
-              className="w-full max-w-[170px] rounded-br-lg rounded-tr-lg border-2 border-my-white bg-black px-3 py-2 text-lg font-bold transition-all aria-disabled:pointer-events-none aria-disabled:cursor-not-allowed aria-disabled:opacity-50 md:px-6 md:py-3 md:text-xl text-center"
+              className="w-full max-w-[170px] text-white rounded-br-lg rounded-tr-lg border-2 border-my-white bg-black px-3 py-2 text-lg font-bold transition-all aria-disabled:pointer-events-none aria-disabled:cursor-not-allowed aria-disabled:opacity-50 md:px-6 md:py-3 md:text-xl text-center"
             >
               Book
             </Link>
