@@ -9,7 +9,7 @@ import Features from './components/features';
 import Location from './components/location';
 import Booker from './components/booker';
 import Reviews from './components/reviews/reviews';
-import Gallery from './components/gallery';
+import Gallery from './components/gallery/index';
 import Topbar from './components/topbar';
 import Footer from './components/footer';
 
