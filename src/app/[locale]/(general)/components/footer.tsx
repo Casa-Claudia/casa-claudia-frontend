@@ -28,7 +28,7 @@ export default function Footer({t}: Props) {
           >
             {t("home:footer-pp")}
           </Link>
-          <Link href="/terms-of-service" className="font-light text-my-white hover:text-my-black">
+          <Link href="/terms-and-conditions" className="font-light text-my-white hover:text-my-black">
           {t("home:footer-tac")}
           </Link>
         </div>
