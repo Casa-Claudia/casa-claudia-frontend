@@ -68,10 +68,10 @@ export default function Info({t}: Props) {
             <div className=" ml-6 py-2 text-sm text-my-light-grey ">
               <ul className="list-disc">
                 <li>{t("info-king-size")}</li>
-                <li>HI-FI system</li>
+                <li>{t("info-hifi")}</li>
                 <li>TV</li>
-                <li>Fireplace</li>
-                <li>Bathroom</li>
+                <li>{t("info-fireplace")}</li>
+                <li>{t("info-bathroom")}</li>
               </ul>
             </div>
           </div>
