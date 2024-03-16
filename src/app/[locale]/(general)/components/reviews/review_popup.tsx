@@ -114,6 +114,7 @@ export default function ReviewPopup({ onClick, t }: Props) {
             name="review"
             className="w-full rounded-xl border md:px-3 px-2 py-1 md:py-2"
             rows={6}
+            maxLength={500}
             required = {true}
             onChange={(e:any) =>setComment(e.target.value)} 
             ></textarea>
