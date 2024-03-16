@@ -1,34 +1,35 @@
 'use client';
 import { Fish, RollerCoaster, Soup, Target } from 'lucide-react';
-
+import { useTranslation } from 'react-i18next';
 import GoogleMapReact from 'google-map-react';
 
 const center: google.maps.LatLngLiteral = { lat: 30, lng: -110 };
 let apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
 export default function Location() {
+  const { t } = useTranslation('location');
   return (
     <div className="location-parent">
       <div className="location grid grid-cols-1 bg-my-white px-4 py-10 md:relative md:px-16">
-        <h2 className="text-3xl font-semibold text-black">Location</h2>
+        <h2 className="text-3xl font-semibold text-black">{t("loc")}</h2>
         <div className="el-list ml-10 mt-4 md:mt-10">
           <ul>
             <li className="flex items-center py-4">
               <Fish className="mr-4 text-black" />
-              <span className="text-md font-medium text-black md:text-xl">Sea: 3.5km</span>
+              <span className="text-md font-medium text-black md:text-xl">{t("sea")}</span>
             </li>
             <li className="flex items-center py-4">
               <Soup className="mr-4 text-black" />
-              <span className="text-md font-medium text-black md:text-xl">Restaurants: 300m</span>
+              <span className="text-md font-medium text-black md:text-xl">{t("restaurant")}</span>
             </li>
             <li className="flex items-center py-4">
               <Target className="mr-4 text-black" />
-              <span className="text-md font-medium text-black md:text-xl">Town: 3.5km</span>
+              <span className="text-md font-medium text-black md:text-xl">{t("town")}</span>
             </li>
             <li className="flex items-center py-4">
               <RollerCoaster className="mr-4 text-black" />
               <span className="text-md font-medium text-black md:text-xl">
-                Waterpark Istralandia: 3.3km
+              {t("waterpark")}
               </span>
             </li>
           </ul>
