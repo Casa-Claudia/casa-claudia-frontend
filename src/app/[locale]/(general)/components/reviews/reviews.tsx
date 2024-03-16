@@ -4,8 +4,9 @@ import { Plus } from 'lucide-react';
 import { InfiniteMovingCards } from './moving_cards';
 import ReviewPopup from './review_popup';
 import { ApiResponseReview, Review } from '@/api/reviews/review';
-
+import { useTranslation } from 'react-i18next';
 export default function Reviews() {
+  const { t } = useTranslation('review');
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [reviews, setReviews] = useState([] as Review[]);
 
@@ -35,7 +36,7 @@ export default function Reviews() {
 
   return (
     <div className="reviews-container bg-my-white px-4 pb-24 pt-10 md:px-16">
-      <h2 className="mb-10 text-3xl font-semibold text-black">Reviews</h2>
+      <h2 className="mb-10 text-3xl font-semibold text-black">{t("reviews")}</h2>
       <div className="review-box w-full overflow-x-auto">
         <div className="flex px-2 md:px-10">
           <InfiniteMovingCards items={reviews} direction="left" speed="slow" />
@@ -46,13 +47,13 @@ export default function Reviews() {
           className="2 flex items-center text-my-brown hover:text-black"
           onClick={() => setIsPopupOpen(true)}
         >
-          Add a review <Plus className="ml-1  h-5" />
+          {t('add')} <Plus className="ml-1  h-5" />
         </button>
       </div>
       {isPopupOpen && (
         <div className="popup-container">
           <div className="popup">
-            <ReviewPopup onClick={setIsPopupOpen} />
+            <ReviewPopup onClick={setIsPopupOpen} t={t} />
           </div>
         </div>
       )}

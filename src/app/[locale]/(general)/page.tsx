@@ -16,7 +16,7 @@ import Footer from './components/footer';
 import initTranslations from '@/app/i18';
 import TranslationsProvider from '@/utils/translationProvider';
 
-const i18nNamespaces = ['home', 'topbar', 'booker', 'location',' gallery'];
+const i18nNamespaces = ['home', 'topbar', 'booker', 'location',' gallery', 'review'];
 
 export const metadata: Metadata = {
   title: 'Casa Claudia Villa',
@@ -64,7 +64,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
         </div>
 
         <Info t={t} />
-        <Gallery />
+        <Gallery /> 
         <Features t={t} />
         <Location />
         <Booker />
