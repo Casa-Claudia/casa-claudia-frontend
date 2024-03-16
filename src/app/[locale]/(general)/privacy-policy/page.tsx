@@ -1,57 +1,72 @@
 import { Metadata } from 'next';
+import Footer from '../components/footer';
+import Topbar from '../components/topbar';
+
+import initTranslations from '@/app/i18';
+import TranslationsProvider from '@/utils/translationProvider';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Casa Claudia Privacy Policy',
 };
 
-export default function PrivacyPolicy() {
+const i18nNamespaces = ['privacy','home', 'topbar', 'common'];
+
+
+export default async function PrivacyPolicy({ params: { locale } }: { params: { locale: string } }) {
+  const { t, resources } = await initTranslations(locale, i18nNamespaces);
   return (
+  <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>
+    <div>
+    <Topbar />
     <main className="bg-my-white md:px-32 px-4 py-16 text-black">
-      <h1 className='text-3xl font-bold'>Privacy Policy</h1>
-      <p className='text-my-light-grey mb-3'>This Privacy Policy describes how we collect, use, and safeguard the personal information you provide when using our services.</p>
+      <h1 className='text-3xl font-bold'>{t("title")}</h1>
+      <p className='text-my-light-grey mb-3'>{t("sub")}</p>
 
-      <h2 className='text-xl font-semibold mt-3'>Information We Collect</h2>
+      <h2 className='text-xl font-semibold mt-3'>{t("t1")}</h2>
 
-      <p>When you use our services, we may collect the following personal information:</p>
+      <p>{t("s1-list")}</p>
       <ul>
-          <li>Client Identity: Including but not limited to first name, last name, email, phone number, address, city, zip code, country, number of guests, arrival date, departure date, price, comment, and reservation status.</li>
+          <li>{t("s1-list-element-1")}</li>
       </ul>
 
-      <h2 className='text-xl font-semibold mt-3' >How We Use Your Information</h2>
+      <h2 className='text-xl font-semibold mt-3' >{t("t2")}</h2>
 
-      <p className=''>We use the information collected for the following purposes:</p>
+      <p>{t("s2-list")}</p>
       <ul className='list-decimal list-inside pl-2'>
-          <li>To provide and maintain our services.</li>
-          <li>To process reservations and bookings.</li>
-          <li>To communicate with you regarding your reservations, inquiries, or feedback.</li>
-          <li>To improve our services and offerings.</li>
-          <li>To comply with legal obligations.</li>
+          <li>{t("s2-list-el-1")}</li>
+          <li>{t("s2-list-el-2")}</li>
+          <li>{t("s2-list-el-3")}</li>
+          <li>{t("s2-list-el-4")}</li>
+          <li>{t("s2-list-el-5")}</li>
       </ul>
 
-      <h2 className='text-xl font-semibold mt-3'>Data Sharing</h2>
+      <h2 className='text-xl font-semibold mt-3'>{t("t3")}</h2>
 
-      <p>We do not share your personal information with third parties, except as required by law or with your consent.</p>
+      <p>{t("s3")}</p>
 
-      <h2 className='text-xl font-semibold mt-3'>Data Security</h2>
+      <h2 className='text-xl font-semibold mt-3'>{t("t4")}</h2>
 
-      <p>We implement appropriate technical and organizational measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction.</p>
+      <p>{t("s4")}</p>
 
-      <h2 className='text-xl font-semibold mt-3'>Data Retention</h2>
+      <h2 className='text-xl font-semibold mt-3'>{t("t5")}</h2>
 
-      <p>We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy or as required by law. When no longer needed, we securely dispose of or anonymize your information.</p>
+      <p>{t("s5")}</p>
 
-      <h2 className='text-xl font-semibold mt-3'>Your Rights</h2>
+      <h2 className='text-xl font-semibold mt-3'>{t("t6")}</h2>
 
-      <p>You have the right to access, update, or delete your personal information. You may also have the right to restrict or object to certain processing activities. To exercise these rights, please contact us using the information provided below.</p>
+      <p>{t("s6")}</p>
 
-      <h2 className='text-xl font-semibold mt-3'>Changes to This Privacy Policy</h2>
+      <h2 className='text-xl font-semibold mt-3'>{t("t7")}</h2>
 
-      <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page, and the updated policy will become effective immediately upon posting. We encourage you to review this Privacy Policy periodically for any updates.</p>
+      <p>{t("s7")}</p>
 
-      <h2 className='text-xl font-semibold mt-3'>Contact Us</h2>
+      <h2 className='text-xl font-semibold mt-3'>{t("t8")}</h2>
 
-      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at [contact email or address].</p>
+      <p>{t("s8")}</p>
     </main>
+    <Footer t={t} />
+    </div>
+  </TranslationsProvider>
   );
 }
