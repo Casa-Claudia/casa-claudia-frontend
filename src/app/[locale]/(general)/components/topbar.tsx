@@ -1,16 +1,29 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useLanguageState, LanguageEnum } from '@/state/language';
 import { useTranslation } from 'react-i18next';
+import { usePathname } from 'next/navigation';
 
 export default function Topbar() {
   const { t } = useTranslation("topbar");
   const [showDropdown, setShowDropdown] = useState(false);
+  const [restOfPath, setRestOfPath] = useState('');
   const {setLanguage } = useLanguageState();
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname.includes('privacy-policy')){
+      setRestOfPath('privacy-policy');
+    } else if (pathname.includes('terms-and-conditions')){
+      setRestOfPath('terms-and-conditions');
+    } else if (pathname.includes('order')){
+      setRestOfPath('order');
+    }
+  }, []);
 
   return (
     <div className="flex h-20 items-center justify-between bg-light-brown px-3 py-2 md:px-16">
@@ -38,21 +51,21 @@ export default function Topbar() {
               <Link
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
                 onClick={() => { setShowDropdown(false); setLanguage(LanguageEnum.EN); }}
-                href={`/en`}
+                href={`/en/${restOfPath}`}
               >
                 {t("topbar_english")}
               </Link>
               <Link
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
                 onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.DE);}}
-                href={`/de`}
+                href={`/de/${restOfPath}`}
               >
                 {t("topbar_german")}
               </Link>
               <Link
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
                 onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.SL);}}
-                href={`/sl`}
+                href={`/sl/${restOfPath}`}
               >
                 {t("topbar_slovene")}
               </Link>
