@@ -16,7 +16,7 @@ import Footer from './components/footer';
 import initTranslations from '@/app/i18';
 import TranslationsProvider from '@/utils/translationProvider';
 
-const i18nNamespaces = ['home', 'topbar', 'booker', 'location'];
+const i18nNamespaces = ['home', 'topbar', 'booker', 'location',' gallery'];
 
 export const metadata: Metadata = {
   title: 'Casa Claudia Villa',
