@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import initTranslations from '@/app/i18';
 import TranslationsProvider from '@/utils/translationProvider';
 
-const i18nNamespaces = ['checkout', 'topbar_checkout', 'details', 'reservation_form','home'];
+const i18nNamespaces = ['checkout', 'topbar', 'details', 'reservation_form','home'];
 
 export const metadata: Metadata = {
   title: 'Checkout',
