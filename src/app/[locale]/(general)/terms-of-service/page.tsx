@@ -1,12 +1,23 @@
 import { Metadata } from 'next';
+import Footer from '../components/footer';
+import Topbar from '../components/topbar';
+
+import initTranslations from '@/app/i18';
+import TranslationsProvider from '@/utils/translationProvider';
+
+const i18nNamespaces = ['home', 'topbar', 'common'];
 
 export const metadata: Metadata = {
   title: 'Rental Terms and Conditions',
   description: 'Casa Claudia Rental Terms and Conditions',
 };
 
-export default function RentalTermsAndConditions() {
+export default async function RentalTermsAndConditions({ params: { locale } }: { params: { locale: string } }) {
+  const { t, resources } = await initTranslations(locale, i18nNamespaces);
   return (
+  <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>
+    <div>
+    <Topbar />
     <main className="bg-my-white md:px-32 px-4 py-16 text-black">
       <h1 className="text-3xl font-bold">Rental Terms and Conditions</h1>
       <p className="text-my-light-grey mb-3">
@@ -63,5 +74,8 @@ export default function RentalTermsAndConditions() {
         By confirming the reservation, the tenant confirms that he has read these conditions and agrees with them.
       </p>
     </main>
+    <Footer t={t}/>
+    </div>
+  </TranslationsProvider>
   );
 }

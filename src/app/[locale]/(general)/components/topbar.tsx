@@ -4,14 +4,8 @@ import Link from 'next/link';
 import { useLanguageState, LanguageEnum } from '@/state/language';
 import { useTranslation } from 'react-i18next';
 
-interface Props {
-  params: {
-    locale: string;
-  };
-}
 export default function Topbar() {
   const { t } = useTranslation("topbar");
-
   const [showDropdown, setShowDropdown] = useState(false);
   const {setLanguage } = useLanguageState();
   const toggleDropdown = () => {
@@ -44,21 +38,21 @@ export default function Topbar() {
               <Link
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
                 onClick={() => { setShowDropdown(false); setLanguage(LanguageEnum.EN); }}
-                href={"/en"}
+                href={`/en`}
               >
                 {t("topbar_english")}
               </Link>
               <Link
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
                 onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.DE);}}
-                href={"/de"}
+                href={`/de`}
               >
                 {t("topbar_german")}
               </Link>
               <Link
                 className="mdtext-sm block w-full px-2 py-1 text-center text-gray-800 hover:bg-gray-200 md:px-3"
                 onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.SL);}}
-                href={"/sl"}
+                href={`/sl`}
               >
                 {t("topbar_slovene")}
               </Link>

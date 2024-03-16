@@ -70,7 +70,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
         <Booker />
         <Reviews />
       </div>
-      <Footer />
+      <Footer t={t} />
     </TranslationsProvider>
   );
 }
