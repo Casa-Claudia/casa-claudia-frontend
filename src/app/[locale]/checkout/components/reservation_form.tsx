@@ -4,10 +4,12 @@ import { useCheckoutState } from "@/state/checkout";
 import { Client } from "@/api/clients/clients";
 import { useRouter } from "next/navigation";
 import { useLanguageState } from "@/state/language";
+import { useTranslation } from "react-i18next";
 
 
 export default function ReservationForm() {
   const router = useRouter();
+  const { t } = useTranslation('checkout');
   
   const toISOLikeString = (d: Date): string => {
     return `${d.getFullYear()}-${
@@ -82,13 +84,13 @@ export default function ReservationForm() {
             setPrice(0);
             router.push('/order');
           } else {
-            window.alert('Something went wrong. Please try again.');
+            window.alert(t("error-1"));
           }
         } catch (error) {
           console.error('Error:', error);
         }
       }else {
-        window.alert('Please check your details and try again.');
+        window.alert(t("error-2"));
       }
   };
 
@@ -96,12 +98,12 @@ export default function ReservationForm() {
     <form onSubmit={handleSubmit}>
       <div className="md:my-32 my-16 2xl:mt-48 2xl:mb-32 grid grid-cols-1 lg:grid-cols-2 bg-white px-4 max-w-screen-2xl mx-auto">
         <div className="flex flex-col items-center justify-center lg:px-10">
-          <h1 className="text-2xl font-bold text-black">PERSONAL DETAILS</h1>
+          <h1 className="text-2xl font-bold text-black">{t("personal-details")}</h1>
           <div className="mx-auto mt-10 rounded-lg border  border-black bg-white p-8 text-sm text-my-black">
           <div className="flex flex-wrap justify-between gap-2">
             <div className="mb-4 ">
               <label htmlFor="first_name" className="ml-1 block text-my-grey">
-                Name
+                {t("first-name")}
               </label>
               <input
                 type="text"
@@ -115,7 +117,7 @@ export default function ReservationForm() {
             </div>
             <div className="mb-4 ">
               <label htmlFor="last_name" className=" ml-1 text-my-grey">
-                Surname
+              {t("surname")}
               </label>
               <input
                 type="text"
@@ -131,7 +133,7 @@ export default function ReservationForm() {
           <div className="flex justify-between flex-wrap gap-2">
             <div className="mb-4 ">
               <label htmlFor="mail" className=" ml-1 text-my-grey">
-                E-mail
+              {t("email")}
               </label>
               <input
                 type="mail"
@@ -145,7 +147,7 @@ export default function ReservationForm() {
             </div>
             <div className="mb-4 ">
               <label htmlFor="phone" className=" ml-1 text-my-grey">
-                Telephone number
+              {t("phone")}
               </label>
               <input
                 type="tel"
@@ -160,7 +162,7 @@ export default function ReservationForm() {
           </div>
           <div className="mb-4">
             <label htmlFor="address" className=" ml-1 text-my-grey">
-              Address:
+            {t("address")}
             </label>
             <input
               type="text"
@@ -175,7 +177,7 @@ export default function ReservationForm() {
           <div className="flex justify-between flex-wrap gap-2">
             <div className="mb-4 ">
               <label htmlFor="city" className=" ml-1 text-my-grey">
-                City/Region
+              {t("city")}
               </label>
               <input
                 type="text"
@@ -189,7 +191,7 @@ export default function ReservationForm() {
             </div>
             <div className="mb-4 ">
               <label htmlFor="zip_code" className=" ml-1 text-my-grey">
-                Zip code
+              {t("zip")}
               </label>
               <input
                 type="text"
@@ -205,7 +207,7 @@ export default function ReservationForm() {
           <div className="flex justify-between flex-wrap gap-2">
             <div className="mb-4 ">
               <label htmlFor="country" className=" ml-1 text-my-grey">
-                Country
+              {t("country")}
               </label>
               <input
                 type="text"
@@ -219,7 +221,7 @@ export default function ReservationForm() {
             </div>
             <div className="mb-4 ">
               <label htmlFor="number_of_guests" className=" ml-1 text-my-grey">
-                Number of guests
+              {t("n_of_g")}
               </label>
               <input
                 type="number"
@@ -237,7 +239,7 @@ export default function ReservationForm() {
           </div>
           <div className="comments">
             <label htmlFor="comments" className=" ml-1 text-my-grey">
-              Comments (optional)
+            {t("comments")}
             </label>
             <textarea
               id="comments"
@@ -253,13 +255,13 @@ export default function ReservationForm() {
 
         <div className="flex flex-col items-center justify-start my-10 lg:mt-0">
           <div className="flex flex-col items-center justify-start">
-            <h1 className="mb-10 text-2xl font-bold text-black">PAYMENT METHODS</h1>
+            <h1 className="mb-10 text-2xl font-bold text-black">{t("payment-methods")}</h1>
             <div className="flex flex-col items-start">
               <div className="flex max-w-[590px]  justify-between rounded-lg border border-black lg:px-12 px-6 py-5 md:py-10">
                 <div className="flex items-center justify-center">
                   <input type="checkbox" id="creditCard" className="mr-3 h-3 w-3 lg:h-4 lg:w-4" required={true} />
                   <label htmlFor="creditCard" className="text-lg font-semibold text-black">
-                    CREDIT CARD
+                  {t("credit")}
                   </label>
                 </div>
                 <div>
@@ -269,12 +271,12 @@ export default function ReservationForm() {
               <div className="mt-6 flex items-center justify-center px-12">
                 <input type="checkbox" id="creditCard" className="mr-3 h-3 w-3" required={true} />
                 <label htmlFor="creditCard" className="text-sm text-my-light-grey">
-                  I agree to terms and conditions
+                {t("terms")}
                 </label>
               </div>
               <div className="relative mt-6 w-full px-12">
                 <button type="submit" className="text-bold absolute right-0 top-0 mr-2 w-[150px] scale-105 transform rounded-br-lg  rounded-tr-lg bg-my-black px-8 py-3 text-white hover:border hover:border-white hover:font-bold">
-                  BOOK
+                {t("book")}
                 </button>
               </div>
             </div>
