@@ -14,9 +14,9 @@ export default function Topbar() {
 
   return (
     <div className="flex h-20 items-center justify-between bg-light-brown px-3 py-2 md:px-16">
-      <div className="flex w-1/3 items-center">
+      <div className="flex w-1/3 items-start h-full ">
         <Link href="/">
-          <img src="/next.svg" alt="Logo" className="h-8 w-8" />
+          <img src="/logo.svg" alt="Logo" className="w-full" />
         </Link>
       </div>
       <div className="md:text-md flex items-center space-x-2 text-xs font-semibold md:space-x-6 lg:text-lg">

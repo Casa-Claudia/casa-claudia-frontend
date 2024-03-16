@@ -14,9 +14,9 @@ export default function TopbarCheckout() {
 
   return (
     <div className="flex h-20 items-center flex-grow bg-light-brown md:px-16 px-3 py-2">
-      <div className="flex items-center w-1/3">
+      <div className="flex w-1/3 h-full items-start">
       <Link href="/">
-          <img src="/next.svg" alt="Logo" className="h-8 w-8" />
+          <img src="/logo.svg" alt="Logo" className="w-full" />
         </Link>
       </div>
       <div className="flex w-1/3  items-center justify-center space-x-2 text-xs md:text-md lg:text-lg md:space-x-6 font-semibold">
