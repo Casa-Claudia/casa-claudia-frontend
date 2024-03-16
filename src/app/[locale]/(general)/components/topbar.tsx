@@ -20,8 +20,6 @@ export default function Topbar() {
       setRestOfPath('privacy-policy');
     } else if (pathname.includes('terms-and-conditions')){
       setRestOfPath('terms-and-conditions');
-    } else if (pathname.includes('order')){
-      setRestOfPath('order');
     }
   }, []);
 

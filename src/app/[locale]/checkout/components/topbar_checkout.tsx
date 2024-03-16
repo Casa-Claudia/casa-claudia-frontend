@@ -1,6 +1,7 @@
 "use client";
-import React, { RefObject, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useLanguageState, LanguageEnum } from '@/state/language';
 import { useTranslation } from 'react-i18next';
 
@@ -9,10 +10,19 @@ export default function TopbarCheckout() {
   const { t } = useTranslation('topbar');
   const [showDropdown, setShowDropdown] = useState(false);
   const {setLanguage } = useLanguageState();
+  const pathname = usePathname();
+  const [restOfPath, setRestOfPath] = useState('');
   
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
+  useEffect(() => {
+    if (pathname.includes('order')){
+      setRestOfPath('order');
+    } else if (pathname.includes('checkout')){
+      setRestOfPath('checkout');
+    }
+  }, []);
 
   return (
     <div className="flex h-20 items-center flex-grow bg-light-brown md:px-16 px-3 py-2">
@@ -37,9 +47,9 @@ export default function TopbarCheckout() {
           </button>
           {showDropdown && (
             <div className="absolute top-full left-0 mt-1 bg-white rounded-md shadow-lg">
-              <button className="block w-full text-center px-2 md:px-3 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.EN)}}>{t("topbar_english")}</button>
-              <button className="block w-full text-center px-2 md:px-3 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.DE)}}>{t("topbar_german")}</button>
-              <button className="block w-full text-center px-2 md:px-3 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => {setShowDropdown(false);setLanguage(LanguageEnum.SL)}}>{t("topbar_slovene")}</button>
+              <Link href={`/en/${restOfPath}`} className="block w-full text-center px-2 md:px-3 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.EN)}}>{t("topbar_english")}</Link>
+              <Link href={`/de/${restOfPath}`} className="block w-full text-center px-2 md:px-3 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => {setShowDropdown(false); setLanguage(LanguageEnum.DE)}}>{t("topbar_german")}</Link>
+              <Link href={`/sl/${restOfPath}`} className="block w-full text-center px-2 md:px-3 py-1 mdtext-sm text-gray-800 hover:bg-gray-200" onClick={() => {setShowDropdown(false);setLanguage(LanguageEnum.SL)}}>{t("topbar_slovene")}</Link>
             </div>
           )}
         </div>
