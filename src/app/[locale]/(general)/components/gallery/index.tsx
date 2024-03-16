@@ -11,7 +11,6 @@ import 'yet-another-react-lightbox/plugins/thumbnails.css';
 import { images } from './data';
 import Images from './images';
 
-
 export default function Gallery() {
   const [index, setIndex] = useState(-1);
   const [photos] = useState<Photo[]>(
@@ -40,8 +39,8 @@ export default function Gallery() {
   }, []);
 
   return (
-    <>
-      <Images onClick={setIndex} isMobile={isMobile} />
+    <div>
+    <Images onClick={setIndex} isMobile={isMobile}/>
 
       <Lightbox
         styles={{ container: { backgroundColor: 'rgba(0, 0, 0, .8)' } }}
@@ -51,6 +50,6 @@ export default function Gallery() {
         close={() => setIndex(-1)}
         plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
       />
-    </>
+    </div>
   );
 }

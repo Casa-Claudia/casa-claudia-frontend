@@ -1,3 +1,4 @@
+"use client";
 import Image from 'next/image';
 import { images } from './data';
 import { cn } from '@/utils/cn';
@@ -9,13 +10,11 @@ interface Props {
   isMobile: boolean;
 
 }
-
 export default function Images({ onClick, isMobile}: Props) {
-  const { t } = useTranslation('gallery');
-
+  const { t } = useTranslation("home");
   return (
     <main className="viewpoint bg-khaki px-4 py-10 md:px-16 md:pb-10 md:pt-20" id="gallery">
-      <h2 className="mb-4 text-3xl font-semibold text-black">{t("viewpoint")}</h2>
+      <h2 className="mb-4 text-3xl font-semibold text-black">{t("gal-title")}</h2>
       <div className="container mb-10  max-h-[400px] md:max-h-max overflow-hidden grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
         {images.map((image, index) => {
           return (
@@ -43,7 +42,7 @@ export default function Images({ onClick, isMobile}: Props) {
           className="flex items-center px-5 text-xl text-my-white hover:text-black"
           onClick={() => onClick(0)}
         >
-          {t("whole")} <Camera className="ml-2" />
+          {t("gal-full")} <Camera className="ml-2" />
         </button>
       </div>
     </main>
