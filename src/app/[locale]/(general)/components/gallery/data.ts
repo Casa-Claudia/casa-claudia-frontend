@@ -5,147 +5,142 @@ interface IImage {
 
 export const images: IImage[] = [
     {
-        src: '/galerija/1.jpg',
+    src: '/galerija/0.jpg',
+    alt: 'Villa',
+    
+    },
+    {
+        src: '/galerija/01.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/2.jpg',
+        src: '/galerija/02.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/3.jpg',
+        src: '/galerija/03.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/4.jpg',
+        src: '/galerija/04.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/5.jpg',
+        src: '/galerija/05.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/6.jpg',
+        src: '/galerija/06.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/7.jpg',
+        src: '/galerija/07.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/8.jpg',
+        src: '/galerija/08.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/9.jpg',
+        src: '/galerija/09.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/10.jpg',
+        src: '/galerija/010.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/11.jpg',
+        src: '/galerija/011.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/12.jpg',
+        src: '/galerija/012.JPG',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/13.jpg',
+        src: '/galerija/013.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/14.jpg',
+        src: '/galerija/014.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/15.jpg',
+        src: '/galerija/015.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/16.jpg',
+        src: '/galerija/016.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/17.jpg',
+        src: '/galerija/017.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/18.jpg',
+        src: '/galerija/018.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/19.jpg',
+        src: '/galerija/019.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/20.jpg',
+        src: '/galerija/020.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/21.jpg',
+        src: '/galerija/021.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/22.jpg',
+        src: '/galerija/022.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/23.jpg',
+        src: '/galerija/023.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/24.jpg',
+        src: '/galerija/024.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/25.jpg',
+        src: '/galerija/025.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/26.jpg',
+        src: '/galerija/026.jpg',
         alt: 'Villa',
         
     },
     {
-        src: '/galerija/27.jpg',
-        alt: 'Villa',
-        
-    },
-    {
-        src: '/galerija/28.jpg',
-        alt: 'Villa',
-        
-    },
-    {
-        src: '/galerija/29.jpg',
+        src: '/galerija/027.jpg',
         alt: 'Villa',
         
     }
