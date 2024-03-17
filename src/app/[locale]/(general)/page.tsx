@@ -59,7 +59,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             </div>
           </div>
           <div className="big-image">
-            <img className="h-[110%] object-cover" src="/galerija/1.jpg" alt="Villa" />
+            <img className="h-[110%] object-cover" src="/galerija/0.jpg" alt="Villa" />
           </div>
         </div>
 
