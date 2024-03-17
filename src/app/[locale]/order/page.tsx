@@ -30,8 +30,10 @@ export default async function Order({ params: { locale } }: Props) {
       {t("s4-1")} <strong>{t("s4-2")}. </strong> {t("s4-3")}
       <br/><br/>
       {t("s5")}
-      <br/><br/> <br/><br/>
+      <br/><br/> 
       {t("s6")}
+      <br/><br/>
+      {t("s7")}
       <br/><br/> 
       </p>
     </main>
