@@ -13,11 +13,11 @@ export default function Footer({t}: Props) {
           <h3 className="md:text-lg font-bold text-my-white">{t("home:footer-contact")}</h3>
           <div className="mt-2 flex items-center">
             <img src="/Mail.svg" alt="mail logo" />
-            <p className="ml-2 font-light text-my-white"> rok.rajher8@gmail.com</p>
+            <p className="ml-2 font-light text-my-white"> casa.claudia.istra@gmail.com</p>
           </div>
           <div className="mt-2 flex items-center">
             <img src="/Phone.svg" alt="phone logo" />
-            <p className="ml-2 font-light text-my-white"> +123 456 789</p>
+            <p className="ml-2 font-light text-my-white"> +386 41 323 866</p>
           </div>
         </div>
         <div className="footer-column md:mt-0 mt-5 flex  flex-col items-center">
