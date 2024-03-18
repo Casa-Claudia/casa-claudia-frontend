@@ -39,7 +39,7 @@ export default function Images({ onClick, isMobile}: Props) {
       </div>
       <div className="view-gallery flex justify-center md:justify-end">
         <button
-          className="flex items-center px-5 text-xl text-my-white hover:text-black"
+          className="flex items-center px-5 md:text-lg text-md text-my-white hover:text-black"
           onClick={() => onClick(0)}
         >
           {t("gal-full")} <Camera className="ml-2" />

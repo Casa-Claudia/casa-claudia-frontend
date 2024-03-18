@@ -55,7 +55,7 @@ export default function Details() {
                     <CalendarDays/>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-md font-semibold">{t("period")}</h3>
+                    <h3 className="md:text-md text-sm font-semibold">{t("period")}</h3>
                     <p className="ml-1 text-xs">
                       {selectedDates}
                     </p>

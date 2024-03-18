@@ -35,7 +35,7 @@ export default function Footer({t}: Props) {
         <div className="footer-column md:mt-0 mt-5 flex  flex-col items-center">
           <h3 className="md:text-lg font-bold text-my-white">{t("home:footer-social")}</h3>
           <div className="button-container mt-2 flex items-center">
-            <p className='text-my-white'>{t("coming-soon")}</p>
+            <p className='text-my-white'>{t("home:coming-soon")}</p>
             {/* <Link className="mr-2 text-my-white hover:text-my-black" target='_blank' href={"https://www.facebook.com/KlubKulturnihUstvarjalcev/"}>
               <Facebook className="text-my-white hover:text-black" />
             </Link>

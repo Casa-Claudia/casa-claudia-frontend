@@ -269,8 +269,8 @@ export default function ReservationForm() {
                 </div>
               </div>
               <div className="mt-6 flex items-center justify-center px-12">
-                <input type="checkbox" id="creditCard" className="mr-3 h-3 w-3" required={true} />
-                <label htmlFor="creditCard" className="text-sm text-my-light-grey">
+                <input type="checkbox" id="terms" className="mr-3 h-3 w-3" required={true} />
+                <label htmlFor="terms" className="text-sm text-my-light-grey">
                 {t("terms")}
                 </label>
               </div>
