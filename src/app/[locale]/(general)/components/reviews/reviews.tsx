@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { Plus } from 'lucide-react';
-import { InfiniteMovingCards } from './moving_cards';
+import InfiniteMovingCards from './moving_cards';
 import ReviewPopup from './review_popup';
 import { ApiResponseReview, Review } from '@/api/reviews/review';
 import { useTranslation } from 'react-i18next';

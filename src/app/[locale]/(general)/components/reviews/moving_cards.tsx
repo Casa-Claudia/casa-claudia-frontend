@@ -4,7 +4,7 @@ import { memo, useEffect, useRef, useState } from 'react';
 import { Star } from 'lucide-react';
 import { Review } from '@/api/reviews/review';
 
-export const InfiniteMovingCards = memo(
+export default memo(function InfiniteMovingCards
   ({
     items,
     direction = 'left',
@@ -17,7 +17,8 @@ export const InfiniteMovingCards = memo(
     speed?: 'fast' | 'normal' | 'slow';
     pauseOnHover?: boolean;
     className?: string;
-  }) => {
+  }) 
+  {
     const containerRef = useRef<HTMLDivElement>(null);
     const scrollerRef = useRef<HTMLUListElement>(null);
     const [start, setStart] = useState(false);

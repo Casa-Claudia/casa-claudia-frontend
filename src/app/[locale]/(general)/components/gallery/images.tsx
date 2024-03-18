@@ -19,6 +19,7 @@ export default function Images({ onClick, isMobile}: Props) {
         {images.map((image, index) => {
           return (
             <div
+              key={index}
               onClick={() => onClick(index)}
               className={cn(
                 'relative aspect-square h-full w-full cursor-pointer overflow-hidden rounded-md transition-all hover:opacity-50',
