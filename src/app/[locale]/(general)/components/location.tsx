@@ -2,12 +2,24 @@
 import { Fish, RollerCoaster, Soup, Target } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import GoogleMapReact from 'google-map-react';
-
-const center: google.maps.LatLngLiteral = { lat: 30, lng: -110 };
+const center: google.maps.LatLngLiteral = { lat: 45.33926585744499, lng: 13.59162859673946 };
 let apiKey = process.env.GOOGLE_MAPS_API_KEY;
+import { MapPin } from 'lucide-react';
+
+
+interface MarkerProps {
+  lat: number;
+  lng: number;
+}
 
 export default function Location() {
   const { t } = useTranslation('location');
+  const Marker = ({ lat, lng }: MarkerProps) => {
+    return (
+      <div className='text-red-500'><MapPin className='h-10 w-10'/></div>
+    );
+  };
+  
   return (
     <div className="location-parent">
       <div className="location grid grid-cols-1 bg-my-white px-4 py-10 md:relative md:px-16">
@@ -39,8 +51,10 @@ export default function Location() {
             <GoogleMapReact
               bootstrapURLKeys={{ key: apiKey ? apiKey: ''}}
               defaultCenter={center}
-              defaultZoom={11}
-            ></GoogleMapReact>
+              defaultZoom={15}
+            >
+              {/* <Marker lat={center.lat} lng={center.lng}/> */}
+            </GoogleMapReact>
           </div>
         </div>
       </div>
