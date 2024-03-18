@@ -51,7 +51,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                     .fill(0)
                     .map((_, i) => (
                       <li key={i} className="mr-1">
-                        <Star className="h-4 w-4 fill-yellow-300 stroke-1 text-my-black md:h-7 md:w-7" />
+                        <Star className="h-4 w-4 fill-yellow-500 stroke-1 text-yellow-500 md:h-7 md:w-7" />
                       </li>
                     ))}
                 </ul>
