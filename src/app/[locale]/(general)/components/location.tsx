@@ -6,7 +6,6 @@ const center: google.maps.LatLngLiteral = { lat: 45.33926585744499, lng: 13.5916
 let apiKey = process.env.GOOGLE_MAPS_API_KEY;
 import { MapPin } from 'lucide-react';
 
-
 interface MarkerProps {
   lat: number;
   lng: number;
