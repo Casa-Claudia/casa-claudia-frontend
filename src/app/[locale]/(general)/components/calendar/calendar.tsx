@@ -14,7 +14,7 @@ export default function Cal() {
 
   const loadDates = async () => {
     try {
-      const response = await fetch("http://localhost:4444/api/v1/client", {
+      const response = await fetch(`${process.env.API_PATH}/client`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

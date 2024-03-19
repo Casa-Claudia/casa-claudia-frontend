@@ -13,7 +13,7 @@ export default function Reviews() {
   useEffect(() => {
     const loadReviews = async () => {
       try {
-        const response = await fetch("http://localhost:4444/api/v1/review", {
+        const response = await fetch(`${process.env.API_PATH}/review`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
