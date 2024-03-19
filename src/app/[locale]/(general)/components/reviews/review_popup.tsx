@@ -36,7 +36,7 @@ export default function ReviewPopup({ onClick, t }: Props) {
       const last_name = nameParts[1]?.charAt(0).toUpperCase() + nameParts[1]?.slice(1).toLowerCase() || "None";
 
       try {
-          const response = await fetch("http://localhost:4444/api/v1/review", {
+          const response = await fetch(`${process.env.API_PATH}/review`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
