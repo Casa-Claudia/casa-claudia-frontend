@@ -242,8 +242,8 @@ export default function ReservationForm() {
             {t("comments")}
             </label>
             <textarea
-              id="comments"
-              name="comments"
+              id="comment"
+              name="comment"
               onChange={handleChange}
               value={formData.comment}
               className="w-full rounded-xl border px-3 py-2"
