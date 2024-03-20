@@ -108,7 +108,7 @@ export default memo(function InfiniteMovingCards
                       ))}
                   </ul>
                 </div>
-                <div className="overflow-y-auto no-scrollbar max-h-[100px] md:max-h-[230px]">
+                <div className="overflow-y-auto no-scrollbar max-h-[100px] md:max-h-[170px]">
                   <div className="review-text pt-3 pb-8">
                     <p className="font-light text-sm text-black">{item.comment}</p>
                   </div>
