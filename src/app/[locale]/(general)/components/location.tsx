@@ -1,23 +1,11 @@
 'use client';
 import { Fish, RollerCoaster, Soup, Target } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import GoogleMapReact from 'google-map-react';
-const center: google.maps.LatLngLiteral = { lat: 45.33926585744499, lng: 13.59162859673946 };
-let apiKey = process.env.GOOGLE_MAPS_API_KEY;
-import { MapPin } from 'lucide-react';
+import Map from './map';
 
-interface MarkerProps {
-  lat: number;
-  lng: number;
-}
 
 export default function Location() {
   const { t } = useTranslation('location');
-  const Marker = ({ lat, lng }: MarkerProps) => {
-    return (
-      <div className='text-red-500'><MapPin className='h-10 w-10'/></div>
-    );
-  };
   
   return (
     <div className="location-parent">
@@ -45,15 +33,9 @@ export default function Location() {
             </li>
           </ul>
         </div>
-        <div className="map container z-10 mt-4 h-[200px] w-full px-4 lg:absolute lg:left-1/2 lg:top-20 lg:mt-0 lg:h-[400px] lg:w-[600px] lg:-translate-x-1 ">
+        <div className="map container mt-4 w-full px-4 lg:absolute lg:left-1/2 lg:top-20 lg:mt-0 lg:w-[700px] lg:-translate-x-1 ">
           <div id="map" className="h-full w-full shadow-lg">
-            <GoogleMapReact
-              bootstrapURLKeys={{ key: apiKey ? apiKey: ''}}
-              defaultCenter={center}
-              defaultZoom={15}
-            >
-              {/* <Marker lat={center.lat} lng={center.lng}/> */}
-            </GoogleMapReact>
+            <Map />
           </div>
         </div>
       </div>
