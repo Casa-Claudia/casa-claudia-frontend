@@ -93,7 +93,7 @@ export default memo(function InfiniteMovingCards
               }
             return (
               <li
-                className="relative mr-5  md:h-[273px] md:w-[476px] max-w-full flex-shrink-0 rounded border-2 border-my-brown px-4 py-6  md:px-8 md:py-6 h-[200px] w-[250px]"
+                className="relative mr-5 md:h-[273px] md:w-[476px] max-w-full flex-shrink-0 rounded border-2 border-my-brown px-4 py-6  md:px-8 md:py-6 h-[200px] w-[250px]"
                 key={item.id}
               >
                 <div className="flex items-center justify-between border-b border-black">
@@ -108,8 +108,10 @@ export default memo(function InfiniteMovingCards
                       ))}
                   </ul>
                 </div>
-                <div className="review-text mt-5">
-                  <p className="font-light text-sm text-black">{item.comment}</p>
+                <div className="overflow-y-auto no-scrollbar max-h-[100px] md:max-h-[230px]">
+                  <div className="review-text pt-3 pb-8">
+                    <p className="font-light text-sm text-black">{item.comment}</p>
+                  </div>
                 </div>
                 <div className="absolute bottom-0 right-0 px-4 py-2">
                   <p className="text-my-light-grey text-sm">{date.toLocaleDateString("de-DE")}</p>
