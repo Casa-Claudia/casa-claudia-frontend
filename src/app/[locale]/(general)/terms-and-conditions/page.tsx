@@ -35,6 +35,19 @@ export default async function RentalTermsAndConditions({ params: { locale } }: {
       </section>
 
       <section className="mt-6">
+        <h2 className="text-xl font-semibold">{t("cancelation")}</h2>
+        <p>
+           {t("cancel-45")}
+        </p>
+        <p>
+           {t("cancel-15")}
+        </p>
+        <p>
+           {t("cancel-0")}
+        </p>
+      </section>
+
+      <section className="mt-6">
         <h2 className="text-xl font-semibold">{t("use-of-prop")}</h2>
         <p>
           <span className="font-semibold">{t("occ")}</span> {t("occ-text")}
