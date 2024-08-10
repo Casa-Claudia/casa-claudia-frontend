@@ -12,7 +12,8 @@ export default function Cal() {
 
   const [fullDates, setFullDates] = useState([] as FormatedDates[]);
   const highSeasonStart = new Date(2024, 5, 1);
-  const highSeasonEnd = new Date(2024, 7, 30);
+  const highSeasonEnd = new Date(2024, 8, 1);
+  const MINIMUM_DAYS = 4;
 
   const loadDates = async () => {
     try {
@@ -94,16 +95,12 @@ export default function Cal() {
       return;
     }
     else if (isInSeason && !isFromSaturdayToSaturday) {
-      // add alert
-      console.log('You can only book from Saturday to Saturday during high season');
       window.alert('You can only book from Saturday to Saturday during high season');
       setRange([start, start]);
       return;
     }
-    else if (!isInSeason && dayDifference < 4) {
-      // add alert
-      window.alert('You can only book for a minimum of 4 days');
-      console.log('You can only book for a minimum of 4 days');
+    else if (!isInSeason && dayDifference < MINIMUM_DAYS) {
+      window.alert(`You can only book for a minimum of ${MINIMUM_DAYS} days`);
       setRange([start, start]);
       return;
     }
