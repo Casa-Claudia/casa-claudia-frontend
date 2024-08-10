@@ -5,6 +5,7 @@ import './styles.css';
 import { useCheckoutState } from '@/state/checkout';
 import { PriceData, priceData } from './priceData';
 import { ApiResponseDates, FormatedDates } from '@/api/clients/clients';
+import { useTranslation } from "react-i18next";
 
 export default function Cal() {
   const { range, setRange } = useCheckoutState();
@@ -12,8 +13,10 @@ export default function Cal() {
 
   const [fullDates, setFullDates] = useState([] as FormatedDates[]);
   const highSeasonStart = new Date(2024, 5, 1);
-  const highSeasonEnd = new Date(2024, 8, 1);
+  const highSeasonEnd = new Date(2024, 8, 30);
   const MINIMUM_DAYS = 4;
+
+  const { t } = useTranslation('calendar');
 
   const loadDates = async () => {
     try {
@@ -87,7 +90,9 @@ export default function Cal() {
 
   const checkIfValidRange = (range:[Date, Date], _fullDates: FormatedDates[], setRange: (range: [Date, Date]) => void) => {
     const [start, end] = range;
-    const isInSeason = start.getTime() > highSeasonStart.getTime() && end.getTime() < highSeasonEnd.getTime();
+    const isInSeason = start.getTime() >= highSeasonStart.getTime() && end.getTime() <= highSeasonEnd.getTime();
+    const isInStartSeason = start.getTime() < highSeasonStart.getTime() && end.getTime() <= highSeasonEnd.getTime();
+    const isInEndSeason = start.getTime() >= highSeasonStart.getTime() && end.getTime() > highSeasonEnd.getTime();
     const isFromSaturdayToSaturday = start.getDay() === 6 && end.getDay() === 6;
     const dayDifference = Math.floor((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
     if (!start || !end) {
@@ -96,6 +101,16 @@ export default function Cal() {
     }
     else if (isInSeason && !isFromSaturdayToSaturday) {
       window.alert('You can only book from Saturday to Saturday during high season');
+      setRange([start, start]);
+      return;
+    }
+    else if (isInStartSeason && end.getDay() !== 6) {
+      window.alert("You must book untill Saturday during high season");
+      setRange([start, start]);
+      return;
+    }
+    else if (isInEndSeason && start.getDay() !== 6) {
+      window.alert("You must book from Saturday during high season");
       setRange([start, start]);
       return;
     }
