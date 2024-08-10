@@ -11,6 +11,8 @@ export default function Cal() {
   const [changedMonth, setChangedMonth]= useState(false);
 
   const [fullDates, setFullDates] = useState([] as FormatedDates[]);
+  const highSeasonStart = new Date(2024, 5, 1);
+  const highSeasonEnd = new Date(2024, 7, 30);
 
   const loadDates = async () => {
     try {
@@ -63,7 +65,6 @@ export default function Cal() {
   }, []);
   
   const disableDates = (date:Date, fullDates: FormatedDates[]) => {
-    if (date.getDay() != 6) return true;
     return fullDates.some(({ arrival_date, departure_date }) => 
       date.getTime() > arrival_date?.getTime() && date.getTime() < departure_date?.getTime()
     );
@@ -83,10 +84,27 @@ export default function Cal() {
     }
   }
 
-  const checkIfValidRange = (range:[Date, Date], fullDates: FormatedDates[], setRange: (range: [Date, Date]) => void) => {
+  const checkIfValidRange = (range:[Date, Date], _fullDates: FormatedDates[], setRange: (range: [Date, Date]) => void) => {
     const [start, end] = range;
+    const isInSeason = start.getTime() > highSeasonStart.getTime() && end.getTime() < highSeasonEnd.getTime();
+    const isFromSaturdayToSaturday = start.getDay() === 6 && end.getDay() === 6;
+    const dayDifference = Math.floor((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
     if (!start || !end) {
       setRange([start,start]);
+      return;
+    }
+    else if (isInSeason && !isFromSaturdayToSaturday) {
+      // add alert
+      console.log('You can only book from Saturday to Saturday during high season');
+      window.alert('You can only book from Saturday to Saturday during high season');
+      setRange([start, start]);
+      return;
+    }
+    else if (!isInSeason && dayDifference < 4) {
+      // add alert
+      window.alert('You can only book for a minimum of 4 days');
+      console.log('You can only book for a minimum of 4 days');
+      setRange([start, start]);
       return;
     }
     
@@ -101,6 +119,7 @@ export default function Cal() {
     } else {
       setRange(range);
     }
+    return;
   };
 
   useEffect(() => {
