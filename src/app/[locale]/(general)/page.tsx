@@ -43,7 +43,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             <div className="md:mt-45 lg:mt-50 flex items-center justify-between py-5 pr-4 md:pr-16 ">
               <div className="ml-5  flex flex-col items-center text-sm md:ml-20 md:text-lg ">
                 <p>{t('prices_per_night')}</p>
-                <p className="font-bold md:text-xl">150 €</p>
+                <p className="font-bold md:text-xl">170 €</p>
               </div>
               <div className="flex flex-col items-center justify-start md:ml-5">
                 <ul className="flex">
@@ -64,7 +64,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
         </div>
 
         <Info t={t} />
-        <Gallery /> 
+        <Gallery />
         <Features t={t} />
         <Location />
         <Booker />
