@@ -77,7 +77,7 @@ export default function ReservationForm() {
     };
     if (isValid) {
       try {
-        const response = await fetch(`${process.env.API_PATH}/client`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_PATH}/client`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

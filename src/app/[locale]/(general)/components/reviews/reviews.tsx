@@ -12,7 +12,7 @@ export default function Reviews() {
 
   useEffect(() => {
     const loadReviews = async () => {
-      const apiPath = process.env.API_PATH;
+      const apiPath = process.env.NEXT_PUBLIC_API_PATH;
       try {
         const response = await fetch(`${apiPath}/review`, {
           method: 'GET',

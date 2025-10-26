@@ -34,7 +34,7 @@ export default function ReviewPopup({ onClick, t }: Props) {
     const first_name = nameParts[0]?.charAt(0).toUpperCase() + nameParts[0]?.slice(1).toLowerCase();
     const last_name =
       nameParts[1]?.charAt(0).toUpperCase() + nameParts[1]?.slice(1).toLowerCase() || 'None';
-    const apiPath = process.env.API_PATH;
+    const apiPath = process.env.NEXT_PUBLIC_API_PATH;
     console.log('apiPath:', apiPath);
     try {
       const response = await fetch(`${apiPath}/review`, {
