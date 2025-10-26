@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState, useEffect } from 'react';
 import { Plus } from 'lucide-react';
 import InfiniteMovingCards from './moving_cards';
@@ -12,15 +12,16 @@ export default function Reviews() {
 
   useEffect(() => {
     const loadReviews = async () => {
+      const apiPath = process.env.NEXT_PUBLIC_API_PATH;
       try {
-        const response = await fetch(`${process.env.API_PATH}/review`, {
-          method: "GET",
+        const response = await fetch(`${apiPath}/review`, {
+          method: 'GET',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
         });
-        const data: ApiResponseReview = await response.json()
-      
+        const data: ApiResponseReview = await response.json();
+
         if (data.success) {
           setReviews(data.reviews);
         } else {
@@ -36,7 +37,7 @@ export default function Reviews() {
 
   return (
     <div className="reviews-container bg-my-white px-4 pb-24 pt-10 md:px-16">
-      <h2 className="mb-10 text-3xl font-semibold text-black">{t("reviews")}</h2>
+      <h2 className="mb-10 text-3xl font-semibold text-black">{t('reviews')}</h2>
       <div className="review-box w-full overflow-x-auto">
         <div className="flex px-2 md:px-10">
           <InfiniteMovingCards items={reviews} direction="left" speed="slow" />
