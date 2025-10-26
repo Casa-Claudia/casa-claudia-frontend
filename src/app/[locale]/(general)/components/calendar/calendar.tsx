@@ -24,6 +24,7 @@ export default function Cal() {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
         },
       });
       const data: ApiResponseDates = await response.json();

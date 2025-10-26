@@ -18,6 +18,7 @@ export default function Reviews() {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
           },
         });
         const data: ApiResponseReview = await response.json();
