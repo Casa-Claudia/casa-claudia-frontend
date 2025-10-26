@@ -6,7 +6,7 @@ import { useMemo } from 'react';
 
 export default function Map() {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? '',
+    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY ?? '',
   });
   const center = useMemo(() => ({ lat: 45.33926585744499, lng: 13.59162859673946 }), []);
 

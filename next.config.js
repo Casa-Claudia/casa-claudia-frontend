@@ -1,5 +1,8 @@
+
 module.exports = {
-  // Next.js 14+ automatically exposes NEXT_PUBLIC_ prefixed env vars to the browser
-  // No need to manually expose them here
+  env: {
+    GOOGLE_MAPS_API_KEY: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+    API_PATH: process.env.NEXT_PUBLIC_API_PATH,
+  },
 };
 
