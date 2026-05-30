@@ -25,9 +25,24 @@ export default function ReservationForm() {
     }
     return splits.join(' ');
   };
-  const { range, price, setPrice, setRange } = useCheckoutState();
+  const {
+    range,
+    price,
+    setPrice,
+    setRange,
+    discountCode,
+    setDiscountCode,
+    discountPercent,
+    setDiscountPercent,
+    resetDiscount,
+  } = useCheckoutState();
   const { language } = useLanguageState();
   const [arrivalDate, departureDate] = range;
+  const [discountInput, setDiscountInput] = useState(discountCode);
+  const [discountStatus, setDiscountStatus] = useState<'idle' | 'valid' | 'invalid'>(
+    discountCode ? 'valid' : 'idle',
+  );
+  const [discountLoading, setDiscountLoading] = useState(false);
   const [formData, setFormData] = useState<Client>({
     first_name: '',
     last_name: '',
@@ -68,12 +83,47 @@ export default function ReservationForm() {
     console.log(formData);
   }, [formData]);
 
+  const handleApplyDiscount = async () => {
+    const code = discountInput.trim();
+    if (!code) return;
+    setDiscountLoading(true);
+    try {
+      const apiPath = process.env.NEXT_PUBLIC_API_PATH;
+      const response = await fetch(`${apiPath}/discount/${encodeURIComponent(code)}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await response.json();
+      if (response.ok && data.success && data.valid) {
+        setDiscountCode(data.code ?? code);
+        setDiscountPercent(data.percent ?? 0);
+        setDiscountStatus('valid');
+      } else {
+        resetDiscount();
+        setDiscountStatus('invalid');
+      }
+    } catch (error) {
+      console.error('Error validating discount:', error);
+      resetDiscount();
+      setDiscountStatus('invalid');
+    } finally {
+      setDiscountLoading(false);
+    }
+  };
+
+  const handleRemoveDiscount = () => {
+    resetDiscount();
+    setDiscountInput('');
+    setDiscountStatus('idle');
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const formatedData = {
+    const formatedData: Client = {
       ...formData,
       first_name: formatName(formData.first_name),
       last_name: formatName(formData.last_name),
+      ...(discountStatus === 'valid' && discountCode ? { discount_code: discountCode } : {}),
     };
     if (isValid) {
       try {
@@ -93,6 +143,7 @@ export default function ReservationForm() {
         if (data.success) {
           setRange([new Date(), new Date()]);
           setPrice(0);
+          resetDiscount();
           router.push('/order');
         } else {
           window.alert(t('error-1'));
@@ -260,6 +311,53 @@ export default function ReservationForm() {
                 className="w-full rounded-xl border px-3 py-2"
                 rows={6}
               ></textarea>
+            </div>
+            <div className="mt-4">
+              <label htmlFor="discount_code" className="ml-1 block text-my-grey">
+                {t('discount')}
+              </label>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  id="discount_code"
+                  name="discount_code"
+                  placeholder={t('discount-placeholder')}
+                  onChange={(e) => {
+                    setDiscountInput(e.target.value);
+                    if (discountStatus !== 'idle') setDiscountStatus('idle');
+                    if (discountPercent) resetDiscount();
+                  }}
+                  value={discountInput}
+                  disabled={discountStatus === 'valid'}
+                  className="w-full rounded-xl border px-3 py-2 disabled:bg-gray-100"
+                />
+                {discountStatus === 'valid' ? (
+                  <button
+                    type="button"
+                    onClick={handleRemoveDiscount}
+                    className="rounded-xl border border-my-black px-4 py-2 text-sm text-my-black hover:bg-my-black hover:text-white"
+                  >
+                    {t('discount-remove')}
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleApplyDiscount}
+                    disabled={discountLoading || !discountInput.trim()}
+                    className="rounded-xl border border-my-black px-4 py-2 text-sm text-my-black hover:bg-my-black hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    {t('discount-apply')}
+                  </button>
+                )}
+              </div>
+              {discountStatus === 'valid' && (
+                <p className="ml-1 mt-1 text-sm text-green-600">
+                  {t('discount-valid')} ({discountPercent}%)
+                </p>
+              )}
+              {discountStatus === 'invalid' && (
+                <p className="ml-1 mt-1 text-sm text-red-600">{t('discount-invalid')}</p>
+              )}
             </div>
           </div>
         </div>

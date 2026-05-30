@@ -5,12 +5,15 @@ import { useCheckoutState } from '@/state/checkout';
 import { useTranslation } from 'react-i18next';
 
 export default function Details() {
-  const {range, price} = useCheckoutState();
+  const { range, price, discountPercent } = useCheckoutState();
   const { t } = useTranslation('checkout');
 
   const isValid = range[0] !== null && range[1] !== null && range[0]?.getTime() < range[1]?.getTime();
 
   const selectedDates = isValid ? ` ${range[0]?.toLocaleDateString("de-DE")} - ${range[1]?.toLocaleDateString("de-DE")}`: t("booker:no-dates");
+
+  const hasDiscount = discountPercent > 0;
+  const discountedPrice = hasDiscount ? Math.round(price * (1 - discountPercent / 100)) : price;
 
   return (
     <div className="details md:max-h-[460px] bg-light-brown">
@@ -45,7 +48,14 @@ export default function Details() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-md font-semibold">{t("price")}</h3>
-                    <p className=" ml-1 text-sm">{price} €</p>
+                    {hasDiscount ? (
+                      <>
+                        <p className="ml-1 text-sm text-my-light-grey line-through">{price} €</p>
+                        <p className="ml-1 text-sm font-semibold">{discountedPrice} € (-{discountPercent}%)</p>
+                      </>
+                    ) : (
+                      <p className=" ml-1 text-sm">{price} €</p>
+                    )}
                   </div>
                 </div>
               </div>

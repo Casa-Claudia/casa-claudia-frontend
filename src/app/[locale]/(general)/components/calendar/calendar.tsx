@@ -187,7 +187,7 @@ export default function Cal() {
         showDoubleView={true}
         onChange={(e: any) => checkIfValidRange(e, fullDates, setRange)}
         selectRange={true}
-        maxDate={new Date(2027, 0, 3)}
+        maxDate={new Date(2028, 0, 2)}
         minDate={new Date()}
         next2Label={null}
         prev2Label={null}

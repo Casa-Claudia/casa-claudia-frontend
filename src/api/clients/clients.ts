@@ -13,6 +13,15 @@ export interface Client {
     price: number;
     comment: string;
     language: string;
+    discount_code?: string;
+}
+
+export interface DiscountValidationResponse {
+    success: boolean;
+    valid: boolean;
+    code?: string;
+    percent?: number;
+    message?: string;
 }
 
 export interface FullDates {
