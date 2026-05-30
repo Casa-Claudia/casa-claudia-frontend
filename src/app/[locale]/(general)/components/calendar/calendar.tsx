@@ -7,13 +7,28 @@ import { PriceData, priceData } from './priceData';
 import { ApiResponseDates, FormatedDates } from '@/api/clients/clients';
 import { useTranslation } from 'react-i18next';
 
+const closestEarlierSaturday = (d: Date): Date => {
+  const result = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  result.setDate(result.getDate() - ((result.getDay() + 1) % 7));
+  return result;
+};
+
+const closestNextSaturday = (d: Date): Date => {
+  const result = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  result.setDate(result.getDate() + ((6 - result.getDay() + 7) % 7));
+  return result;
+};
+
+const getHighSeasonRange = (year: number): { start: Date; end: Date } => ({
+  start: closestEarlierSaturday(new Date(year, 5, 1)),
+  end: closestNextSaturday(new Date(year, 8, 30)),
+});
+
 export default function Cal() {
   const { range, setRange } = useCheckoutState();
   const [changedMonth, setChangedMonth] = useState(false);
 
   const [fullDates, setFullDates] = useState([] as FormatedDates[]);
-  const highSeasonStart = new Date(2024, 5, 1);
-  const highSeasonEnd = new Date(2024, 8, 30);
   const MINIMUM_DAYS = 4;
 
   const { t } = useTranslation('calendar');
@@ -101,12 +116,17 @@ export default function Cal() {
     setRange: (range: [Date, Date]) => void,
   ) => {
     const [start, end] = range;
+    const { start: highSeasonStart, end: highSeasonEnd } = getHighSeasonRange(start.getFullYear());
     const isInSeason =
       start.getTime() >= highSeasonStart.getTime() && end.getTime() <= highSeasonEnd.getTime();
     const isInStartSeason =
-      start.getTime() < highSeasonStart.getTime() && end.getTime() <= highSeasonEnd.getTime();
+      start.getTime() < highSeasonStart.getTime() &&
+      end.getTime() > highSeasonStart.getTime() &&
+      end.getTime() <= highSeasonEnd.getTime();
     const isInEndSeason =
-      start.getTime() >= highSeasonStart.getTime() && end.getTime() > highSeasonEnd.getTime();
+      start.getTime() >= highSeasonStart.getTime() &&
+      start.getTime() < highSeasonEnd.getTime() &&
+      end.getTime() > highSeasonEnd.getTime();
     const isFromSaturdayToSaturday = start.getDay() === 6 && end.getDay() === 6;
     const dayDifference = Math.floor((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
     if (!start || !end) {

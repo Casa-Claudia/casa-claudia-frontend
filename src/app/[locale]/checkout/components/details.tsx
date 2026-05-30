@@ -1,5 +1,5 @@
 "use client";
-import { CalendarDays, FlameKindling, LocateIcon, UserRound, Wallet, Waves } from 'lucide-react';
+import { CalendarDays, Dog, FlameKindling, LocateIcon, ShieldCheck, Thermometer, UserRound, Wallet, Waves } from 'lucide-react';
 import Link from 'next/link';
 import { useCheckoutState } from '@/state/checkout';
 import { useTranslation } from 'react-i18next';
@@ -16,7 +16,7 @@ export default function Details() {
   const discountedPrice = hasDiscount ? Math.round(price * (1 - discountPercent / 100)) : price;
 
   return (
-    <div className="details md:max-h-[460px] bg-light-brown">
+    <div className="details bg-light-brown">
       <h1 className="md:px-16 px-4 md:text-4xl text-3xl font-bold text-my-black">{t("title")}</h1>
       <p className="md:px-16 px-4 md:text-xl text-md font-medium text-my-light-grey ">
       {t("sub")}
@@ -104,7 +104,37 @@ export default function Details() {
               </div>
             </div>
           </div>
-          <div className="md:mt-16 2xl:mt-20 mt-10 justify-center md:text-md text-sm">
+          <div className="mt-6 border-t border-khaki/40 pt-4">
+            <h2 className="text-lg font-semibold text-my-black">{t("on-arrival")}</h2>
+            <p className="mt-1 text-xs text-my-light-grey">{t("on-arrival-note")}</p>
+            <ul className="mt-3 divide-y divide-khaki/30 text-sm text-my-black">
+              <li className="flex items-center justify-between py-2">
+                <div className="flex items-center">
+                  <Thermometer className="h-4 w-4" />
+                  <span className="ml-2">{t("pool-heating")}</span>
+                </div>
+                <span className="font-semibold">25 € / {t("per-day")}</span>
+              </li>
+              <li className="flex items-center justify-between py-2">
+                <div className="flex items-center">
+                  <Dog className="h-4 w-4" />
+                  <span className="ml-2">{t("pet")}</span>
+                </div>
+                <span className="font-semibold">20 € / {t("per-day")}</span>
+              </li>
+              <li className="flex items-center justify-between py-2">
+                <div className="flex items-center">
+                  <ShieldCheck className="h-4 w-4" />
+                  <span className="ml-2">
+                    {t("deposit")}{' '}
+                    <span className="text-xs text-my-light-grey">({t("refundable")})</span>
+                  </span>
+                </div>
+                <span className="font-semibold">300 €</span>
+              </li>
+            </ul>
+          </div>
+          <div className="md:mt-10 2xl:mt-12 mt-6 justify-center md:text-md text-sm">
             <p className="text-my-black text-center">
               {t("not-happy")}{' '}
               <Link href="/#booker" className="hover:underline">

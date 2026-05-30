@@ -12,7 +12,7 @@ interface CheckoutState {
   resetDiscount: () => void;
 }
 
-export const useCheckoutState = create<CheckoutState>((set, get) => ({
+export const useCheckoutState = create<CheckoutState>((set) => ({
   range: [new Date(), new Date()],
   setRange: (range) => set({ range }),
   price: 0,
