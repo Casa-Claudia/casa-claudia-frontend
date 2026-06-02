@@ -18,20 +18,26 @@ export default function Booker() {
 
   const calculatePrice = (priceData: PriceData[], range: [Date, Date]): number => {
     const [selectedStartDate, selectedEndDate] = range;
+    const checkInDate = new Date(selectedStartDate.getFullYear(), selectedStartDate.getMonth(), selectedStartDate.getDate());
+    const checkOutDate = new Date(selectedEndDate.getFullYear(), selectedEndDate.getMonth(), selectedEndDate.getDate());
     let totalPrice = 0;
 
-    priceData.forEach(data => {
-        const { start, end, price } = data;
-        if (start <= selectedEndDate && end >= selectedStartDate) {
-            const overlapStart = selectedStartDate > start ? selectedStartDate : start;
-            const overlapEnd = selectedEndDate < end ? selectedEndDate : end;
-            const overlapDays = Math.ceil((overlapEnd.getTime() - overlapStart.getTime()) / (1000 * 60 * 60 * 24));
-            totalPrice += price * overlapDays;
-        }
-    });
+    // Price is charged per night: include check-in day, exclude check-out day.
+    for (
+      let currentDate = new Date(checkInDate);
+      currentDate.getTime() < checkOutDate.getTime();
+      currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1)
+    ) {
+      const matchingRange = priceData.find(
+        ({ start, end }) => currentDate.getTime() >= start.getTime() && currentDate.getTime() <= end.getTime(),
+      );
+      if (matchingRange) {
+        totalPrice += matchingRange.price;
+      }
+    }
 
     return totalPrice;
-};
+  };
 
   const price = isValid? calculatePrice(priceData, range): 0;
   const clearDates = (setRange:(range:[Date, Date]) => void) => {
